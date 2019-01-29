@@ -2,5 +2,7 @@
   "zosversion": "2",
   "name": "zepkit",
   "version": "0.1.0",
-  "contracts": {}
+  "contracts": {
+    "Wallet": "Wallet"
+  }
 }

@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/rrecuero/zepkit#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "openzeppelin-eth": "^2.1.3",
+    "truffle": "^5.0.2",
     "zos-lib": "^2.1.0"
   }
 }
