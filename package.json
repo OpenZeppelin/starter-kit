@@ -22,5 +22,6 @@
     "url": "https://github.com/rrecuero/zepkit/issues"
   },
   "homepage": "https://github.com/rrecuero/zepkit#readme",
-  "dependencies": {}
+  "dependencies": {
+  }
 }
