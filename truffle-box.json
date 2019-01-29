@@ -1,14 +1,17 @@
 {
   "ignore": ["README.md", ".env", ".gitignore", "zos.json", "box-img-lg.png", "box-img-sm.png", ".github"],
   "commands": {
-    "Compile": "truffle compile",
-    "Migrate": "truffle migrate",
+    "Add a contract": "zos add <contract_name>",
+    "Create a session": "zos session --network <network_name> --from <default_address> --expires 3600",
+    "Compile all contract and deploy them": "zos push",
+    "Create upgradeable instance of a contract": "zos create <contract_name>",
+    "Update an upgradeable contract": "zos update <contract_name>",
     "Test contracts": "truffle test",
     "Test dapp": "cd client && npm test",
     "Run dev server": "cd client && npm run start",
     "Build for production": "cd client && npm run build"
   },
   "hooks": {
-    "post-unpack": "npm install && zos init zepkit && cd client && npm install"
+    "post-unpack": "npm install && zos init zepkit && zos link openzeppelin-eth && cd client && npm install"
   }
 }
