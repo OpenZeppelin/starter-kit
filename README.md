@@ -5,6 +5,12 @@ This box comes with everything you need to start using smart contracts from a re
 
 ## Requirements
 
+Install ZeppelinOS:
+
+```
+npm install --g zos
+```
+
 Make sure `ganache-cli` is installed:
 
 ```
