@@ -11,7 +11,6 @@ class App extends Component {
     try {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
-      console.log('web3.version', web3.version);
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
       // Get the contract instance.
@@ -40,12 +39,11 @@ class App extends Component {
 
   getCount = async () => {
     const { contract } = this.state;
-    console.log('contract.methods', contract.methods.getCounter());
-    // // Get the value from the contract to prove it worked.
-    // const response = contract.methods.getCounter().call();
-    // console.log('response', response);
-    // // Update state with the result.
-    // this.setState({ storageValue: response });
+    // Get the value from the contract to prove it worked.
+    const response = await contract.methods.getCounter().call();
+    console.log('response', response);
+    // Update state with the result.
+    this.setState({ storageValue: response });
   };
 
   increaseCount = async (number) => {
