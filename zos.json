@@ -3,7 +3,7 @@
   "name": "zepkit",
   "version": "0.1.0",
   "contracts": {
-    "Wallet": "Wallet"
+    "Counter": "Counter"
   },
   "dependencies": {
     "openzeppelin-eth": "^2.1.3"
