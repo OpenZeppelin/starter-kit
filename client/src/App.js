@@ -1,11 +1,22 @@
 import React, { Component } from "react";
 import Counter from "./contracts/Counter.json";
 import getWeb3 from "./utils/getWeb3";
+import Header from "./components/Header/index.js";
+import Footer from "./components/Footer/index.js";
+import Hero from "./components/Hero/index.js";
+import Instructions from "./components/Instructions/index.js";
+import { Loader } from 'rimble-ui';
 
-import "./App.css";
+import styles from './App.module.scss';
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  state = {
+    storageValue: 0,
+    web3: null,
+    accounts: null,
+    contract: null,
+    route: window.location.pathname.replace("/","")
+  };
 
   componentDidMount = async () => {
     try {
@@ -21,7 +32,6 @@ class App extends Component {
           Counter.abi,
           deployedNetwork && deployedNetwork.address,
         );
-        console.log('instance', instance.methods);
         // Set web3, accounts, and contract to the state, and then proceed with an
         // example of interacting with the contract's methods.
         this.setState({ web3, accounts, contract: instance }, this.getCount);
@@ -41,9 +51,8 @@ class App extends Component {
     const { contract } = this.state;
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.getCounter().call();
-    console.log('response', response);
     // Update state with the result.
-    this.setState({ storageValue: response });
+    this.setState({ count: response });
   };
 
   increaseCount = async (number) => {
@@ -58,34 +67,56 @@ class App extends Component {
     this.getCount();
   };
 
-  render() {
-    if (!this.state.web3) {
-      return (
-        <div>
-          Loading Web3, accounts, and contract...
-        </div>
-      );
-    }
-    if (!this.state.contract) {
-      return (
-        <div>
-          Wrong network
-        </div>
-      )
-    }
+  renderBody() {
     return (
-      <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
-        <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
-        </p>
-        <p>
-          Try changing the value stored on <strong>line 40</strong> of App.js.
-        </p>
-        <div>The stored value is: {this.state.storageValue}</div>
+      <div className={styles.wrapper}>
+        {!this.state.web3 && (
+          <div className={styles.loader}>
+            <Loader size="80px" color="red" />
+            <h3> Loading Web3, accounts, and contract...</h3>
+          </div>
+        )}
+        {!this.state.contract && (
+          <div>
+            Your contracts are not deployed in this network. <br />
+            Maybe you are in the wrong network?
+          </div>
+        )}
+        {this.state.web3 && this.state.contract && (
+          <div>
+            <h1>Good to Go!</h1>
+            <p>Your Truffle Box is installed and ready.</p>
+            <h2>Counter Example</h2>
+            <p>
+              If your contracts compiled and migrated successfully, below will show
+              a stored value of 0 (by default).
+            </p>
+            <p>
+              Try changing the value stored on <strong>line 40</strong> of App.js.
+            </p>
+            <div>The stored value is: {this.state.count}</div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  renderInstructions() {
+    return (
+      <div className={styles.wrapper}>
+        <Hero />
+        <Instructions />
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div className={styles.App}>
+        <Header />
+          {this.state.route === 'setup' && this.renderInstructions()}
+          {this.state.route === '' && this.renderBody()}
+        <Footer />
       </div>
     );
   }

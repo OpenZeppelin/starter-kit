@@ -1,0 +1,65 @@
+@import '../../layout/variables.scss';
+
+.Hero {
+  padding: 60px 40px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(to bottom, #0a2a5a , #3d9af1);
+
+  .left, .right {
+    display: flex;
+    flex-flow: column nowrap;
+    width: calc(50% - 80px);
+    min-width: 380px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+
+    h1 {
+      font-size: 34px;
+      line-height: 50px;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 400;
+    }
+  }
+
+  .sellingpoints {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    flex-flow: column nowrap;
+
+    .feature {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+  }
+
+  .logos {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 5px 0;
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+      background: white;
+      display: flex;
+      overflow: hidden;
+
+      .logo-img {
+        width: 60px;
+        height: auto;
+      }
+    }
+  }
+}
