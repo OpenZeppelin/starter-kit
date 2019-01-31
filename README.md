@@ -1,7 +1,9 @@
 # zepkit
-A truffle box containing React, ZeppelinOS and OpenZeppelin.
+A truffle box containing React, ZeppelinOS, OpenZeppelin, Truffle and Infura.
 
-This box comes with everything you need to start using smart contracts from a react app. This is as barebones as it gets, so nothing stands in your way.
+This box comes with everything you need to start using upgradeable Smart
+contracts inside your applications. It also includes all the configuration
+required to deploy to different networks.
 
 ## Requirements
 
@@ -20,7 +22,7 @@ npm install -g ganache-cli
 Run your local blockchain unlocking your first account:
 
 ```
-ganache-cli --secure -u 0 -u 1
+ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
 ```
 
 ## Installation
@@ -29,27 +31,21 @@ First ensure you are in a new and empty directory.
 
 1. Run the `unbox` command via `npx` and skip to step 3. This will install all necessary dependencies. A Create-React-App is generated in the `client` directory.
    ```js
-   npx truffle unbox react
+   npx truffle unbox zepkit
    ```
 
 2. Alternatively, you can install Truffle globally and run the `unbox` command.
     ```javascript
     npm install -g truffle
-    truffle unbox react
+    truffle unbox zepkit
     ```
 
-3. Run the development console.
+3. Initialize the zeppelin os project
     ```javascript
-    truffle develop
+    zos init zepkit
     ```
 
-4. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with `truffle`.
-    ```javascript
-    compile
-    migrate
-    ```
-
-5. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
+4. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
     ```javascript
     // in another terminal (i.e. not in the truffle develop prompt)
     cd client
