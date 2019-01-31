@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Counter from "./contracts/Counter.json";
 import getWeb3 from "./utils/getWeb3";
 import Header from "./components/Header/index.js";
 import Footer from "./components/Footer/index.js";
@@ -21,6 +20,14 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
+    let Counter = {};
+    let Wallet = {};
+    try {
+      Counter = require("./contracts/Counter.json");
+      Wallet = require("./contracts/Wallet.json");
+    } catch (e) {
+      console.log(e);
+    }
     try {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
@@ -28,23 +35,39 @@ class App extends Component {
       const accounts = await web3.eth.getAccounts();
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = Counter.networks[networkId.toString()];
       const isMetaMask = web3.currentProvider.isMetaMask;
       let balance = await web3.eth.getBalance(accounts[0]);
       balance = web3.utils.fromWei(balance, 'ether');
-      if (deployedNetwork) {
-        const instance = new web3.eth.Contract(
-          Counter.abi,
-          deployedNetwork && deployedNetwork.address,
-        );
+      let instance = null;
+      let instanceWallet = null;
+      let deployedNetwork = null;
+      if (Counter.networks) {
+        deployedNetwork = Counter.networks[networkId.toString()];
+        if (deployedNetwork) {
+          instance = new web3.eth.Contract(
+            Counter.abi,
+            deployedNetwork && deployedNetwork.address,
+          );
+        }
+      }
+      if (Wallet.networks) {
+        deployedNetwork = Wallet.networks[networkId.toString()];
+        if (deployedNetwork) {
+          instanceWallet = new web3.eth.Contract(
+            Wallet.abi,
+            Wallet.networks[networkId.toString()],
+          );
+        }
+      }
+      if (instance || instanceWallet) {
         // Set web3, accounts, and contract to the state, and then proceed with an
         // example of interacting with the contract's methods.
         this.setState({ web3, accounts, balance, networkId,
-          isMetaMask, contract: instance }, this.getCount);
+          isMetaMask, contract: instance, wallet: instanceWallet }, this.getCount);
         this.interval = setInterval(() => this.getCount(), 5000);
-      } else {
-        this.setState({ web3, accounts, balance, networkId,
-          isMetaMask });
+      }
+      else {
+        this.setState({ web3, accounts, balance, networkId, isMetaMask });
       }
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -81,28 +104,40 @@ class App extends Component {
     this.getCount();
   };
 
+  renderLoader() {
+    return (
+      <div className={styles.loader}>
+        <Loader size="80px" color="red" />
+        <h3> Loading Web3, accounts, and contract...</h3>
+        <p> Unlock your metamask </p>
+      </div>
+    );
+  }
+
+  renderDeployCheck(instructionsKey) {
+    console.log('instructionsKey', instructionsKey);
+    return (
+      <div className={styles.setup}>
+        <Web3Info {...this.state} />
+        <div className={styles.notice}>
+          Your contracts are not deployed in this network. <br />
+          Maybe you are in the wrong network?
+        </div>
+        <Instructions name={instructionsKey} accounts={this.state.accounts} />
+      </div>
+    );
+  }
+
   renderBody() {
     return (
       <div className={styles.wrapper}>
-        {!this.state.web3 && (
-          <div className={styles.loader}>
-            <Loader size="80px" color="red" />
-            <h3> Loading Web3, accounts, and contract...</h3>
-          </div>
-        )}
+        {!this.state.web3 && this.renderLoader()}
         {this.state.web3 && !this.state.contract && (
-          <div className={styles.setup}>
-            <Web3Info {...this.state} />
-            <div className={styles.notice}>
-              Your contracts are not deployed in this network. <br />
-              Maybe you are in the wrong network?
-            </div>
-            <Instructions key="counter" accounts={this.state.accounts} />
-          </div>
+          this.renderDeployCheck('counter')
         )}
         {this.state.web3 && this.state.contract && (
           <div className={styles.contracts}>
-            <h1>Good to Go!</h1>
+            <h1>Counter Contract is good to Go!</h1>
             <p>Interact with your contract on the right.</p>
             <div className={styles.widgets}>
               <Web3Info {...this.state} />
@@ -140,12 +175,38 @@ class App extends Component {
     );
   }
 
+  renderEVM() {
+    return (
+      <div className={styles.wrapper}>
+      {!this.state.web3 && this.renderLoader()}
+      {this.state.web3 && !this.state.wallet && (
+        this.renderDeployCheck('evm')
+      )}
+      {this.state.web3 && this.state.wallet && (
+        <div className={styles.contracts}>
+        <h1>Wallet Contract is good to Go!</h1>
+          <p>Interact with your contract on the right.</p>
+          <div className={styles.widgets}>
+            <Web3Info {...this.state} />
+            <CounterUI
+              decrease={this.decreaseCount}
+              increase={this.increaseCount}
+              {...this.state} />
+          </div>
+          <Instructions name="evm" accounts={this.state.accounts} />
+        </div>
+      )}
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={styles.App}>
         <Header />
           {this.state.route === '' && this.renderInstructions()}
           {this.state.route === 'counter' && this.renderBody()}
+          {this.state.route === 'evm' && this.renderEVM()}
           {this.state.route === 'faq' && this.renderFAQ()}
         <Footer />
       </div>

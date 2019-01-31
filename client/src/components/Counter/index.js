@@ -7,7 +7,6 @@ export default class Counter extends Component {
 
   render()  {
     const { contract, count } = this.props;
-    console.log('contract', contract);
     return (
       <div className={styles.counter}>
         <h3> Your Counter Contract Instance </h3>

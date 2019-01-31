@@ -225,9 +225,10 @@ export default class Instructions extends Component {
         <div className={styles.question}>
           Q: How do I deploy to other networks?
         </div>
+        <div className={styles.separator} />
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Enter the mnemonic of the account you want to use to deploy in <span className={styles.inline}> .env</span>.
+            1. Enter the mnemonic of the account you want to use to deploy in the <span className={styles.inline}> .env</span> file located in the top level folder.
           </div>
           <div className={styles.code}>
             <code>
@@ -256,6 +257,7 @@ export default class Instructions extends Component {
           </div>
         </div>
         <div className={styles.step}>
+          The Infura config for all main networks is already defined in <span className={styles.inline}>truffle-config.js</span>.
           You can see more information about this
           &nbsp;<a
             target="_blank"
@@ -264,13 +266,113 @@ export default class Instructions extends Component {
           here
           </a>.
         </div>
+        <div className={styles.question}>
+          Q: How do I run tests?
+        </div>
         <div className={styles.separator} />
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. To execute smart contract tests run:
+          </div>
+          <div className={styles.code}>
+            <code>
+              truffle test
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. To test your React components, (inside the client folder) run:
+          </div>
+          <div className={styles.code}>
+            <code>
+              npm run test
+            </code>
+          </div>
+        </div>
+        <div className={styles.question}>
+          Q: How do I connect to other networks from my local website?
+        </div>
+        <div className={styles.separator} />
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Change the fallback provider by switching <span className={styles.inline}> REACT_APP_NETWORK </span> inside the .env file located in the client folder.
+          </div>
+          <div className={styles.code}>
+            <code>
+              REACT_APP_NETWORK = https://mainnet.infura.io/v3/d6760e62b67f4937ba1ea2691046f06d
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          Take into account that this only switches the default provider. If you are using Metamask, you only
+          need to switch network from the extension.
+        </div>
+      </div>
+    );
+  }
+
+  renderEVM() {
+    return (
+      <div className={styles.instructions}>
+        <h2> Using EVM Packages </h2>
+        <p> ZeppelinOS allows us to link packages that have been already deployed to the blockchain, instead of wasting resources deploying them again every time we need them in a project. </p>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Add the Wallet contract to your ZeppelinOS project.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos add Wallet
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Connect with your local blockchain by opening a session.
+            <br /> Note: Grab the second or third address that ganache returned and pass it.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos session --network development --from {"<ADDR_2>"} --expires 3600
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. We need the ERC20 standard. Let's grab it from open zeppelin.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos link openzeppelin-eth --no-install && zos push --deploy-dependencies
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Create an instance of the token to use within your wallet.
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`zos create openzeppelin-eth/StandaloneERC20 --init --args 'MyToken,MYT,8,10000000000,${this.props.accounts[0]},[],[]'`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Congratulations! Your wallet contract should be good to go.
+          </div>
+          <Button onClick={() => window.location.reload()}>
+            Reload
+          </Button>
+        </div>
       </div>
     );
   }
 
   render()  {
     const { name } = this.props;
+    console.log('name', name);
     switch (name) {
       case 'setup':
         return this.renderSetup();
@@ -282,8 +384,10 @@ export default class Instructions extends Component {
         return this.renderCounterSetup();
       case 'faq':
         return this.renderFAQ();
+      case 'evm':
+        return this.renderEVM();
       default:
-        return this.renderCounterSetup();
+        return this.renderSetup();
     }
   }
 }

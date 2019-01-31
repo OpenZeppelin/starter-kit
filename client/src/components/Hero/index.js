@@ -28,7 +28,7 @@ export default class Hero extends Component {
           </div>
         </div>
         <div className={styles.right}>
-          <h2> Features:</h2>
+          <h2> Features & Technologies</h2>
           <div className={styles.sellingpoints}>
             <div className={styles.feature}>
               - Include OpenZeppelin as an EVM package.
@@ -37,7 +37,7 @@ export default class Hero extends Component {
               - Upgradeable smart contracts from the get-go.
             </div>
             <div className={styles.feature}>
-              - Includes Infura API Key to boostrap development.
+              - Includes Infura setup for easy deployments & network connection.
             </div>
             <div className={styles.feature}>
               - Truffle to compile & test smart contracts.

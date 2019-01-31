@@ -12,6 +12,7 @@ const Header = () => (
         </li>
         <li><a href="/" className={styles.link}> Setup</a></li>
         <li><a href="/counter" className={styles.link}> Counter Example</a></li>
+        <li><a href="/evm" className={styles.link}> Using EVM Packages</a></li>
         <li><a href="/faq" className={styles.link}> FAQ</a></li>
       </ul>
     </nav>
