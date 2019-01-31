@@ -8,9 +8,9 @@ contract Counter is Initializable {
   uint private count;
   address private _owner;
 
-  function initialize(uint count) initializer public {
+  function initialize(uint num) initializer public {
     _owner = msg.sender;
-    count = count;
+    count = num;
   }
 
   function owner() public view returns (address) {
@@ -27,11 +27,11 @@ contract Counter is Initializable {
     count = count + amount;
   }
 
-  // We'll upgrade the contract with this function after deploying it
-  // Function to decrease the counter
-  // function decreaseCounter(uint256 amount) public returns (bool) {
-  //   require(count > amount, "Cannot be lower than 0");
-  //   count = count - amount;
-  //   return true;
-  // }
+  //We'll upgrade the contract with this function after deploying it
+  //Function to decrease the counter
+  function decreaseCounter(uint256 amount) public returns (bool) {
+    require(count > amount, "Cannot be lower than 0");
+    count = count - amount;
+    return true;
+  }
 }

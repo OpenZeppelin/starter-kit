@@ -97,7 +97,7 @@ class App extends Component {
               Your contracts are not deployed in this network. <br />
               Maybe you are in the wrong network?
             </div>
-            <Instructions key="counterSetup" accounts={this.state.accounts} />
+            <Instructions key="counter" accounts={this.state.accounts} />
           </div>
         )}
         {this.state.web3 && this.state.contract && (
