@@ -127,7 +127,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Congratulations!! Visit the <a href='/'> Counter Example </a> to see it in action.
+            4. Congratulations!! Visit the <a href='/counter'> Counter Example </a> to see it in action.
           </div>
         </div>
       </div>
