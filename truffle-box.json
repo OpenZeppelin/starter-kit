@@ -12,6 +12,6 @@
     "Build for production": "cd client && npm run build"
   },
   "hooks": {
-    "post-unpack": "npm install && zos init zepkit && zos link openzeppelin-eth && cd client && npm install"
+    "post-unpack": "npm install && cd client && npm install"
   }
 }

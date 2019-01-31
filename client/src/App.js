@@ -4,6 +4,8 @@ import getWeb3 from "./utils/getWeb3";
 import Header from "./components/Header/index.js";
 import Footer from "./components/Footer/index.js";
 import Hero from "./components/Hero/index.js";
+import Web3Info from "./components/Web3Info/index.js";
+import CounterUI from "./components/Counter/index.js";
 import Instructions from "./components/Instructions/index.js";
 import { Loader } from 'rimble-ui';
 
@@ -26,7 +28,10 @@ class App extends Component {
       const accounts = await web3.eth.getAccounts();
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = Counter.networks[networkId];
+      const deployedNetwork = Counter.networks[networkId.toString()];
+      const isMetaMask = web3.currentProvider.isMetaMask;
+      let balance = await web3.eth.getBalance(accounts[0]);
+      balance = web3.utils.fromWei(balance, 'ether');
       if (deployedNetwork) {
         const instance = new web3.eth.Contract(
           Counter.abi,
@@ -34,9 +39,12 @@ class App extends Component {
         );
         // Set web3, accounts, and contract to the state, and then proceed with an
         // example of interacting with the contract's methods.
-        this.setState({ web3, accounts, contract: instance }, this.getCount);
+        this.setState({ web3, accounts, balance, networkId,
+          isMetaMask, contract: instance }, this.getCount);
+        this.interval = setInterval(() => this.getCount(), 5000);
       } else {
-        this.setState({ web3, accounts });
+        this.setState({ web3, accounts, balance, networkId,
+          isMetaMask });
       }
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -46,6 +54,12 @@ class App extends Component {
       console.error(error);
     }
   };
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
 
   getCount = async () => {
     const { contract } = this.state;
@@ -76,25 +90,33 @@ class App extends Component {
             <h3> Loading Web3, accounts, and contract...</h3>
           </div>
         )}
-        {!this.state.contract && (
-          <div>
-            Your contracts are not deployed in this network. <br />
-            Maybe you are in the wrong network?
+        {this.state.web3 && !this.state.contract && (
+          <div className={styles.setup}>
+            <Web3Info {...this.state} />
+            <div className={styles.notice}>
+              Your contracts are not deployed in this network. <br />
+              Maybe you are in the wrong network?
+            </div>
+            <Instructions key="counterSetup" accounts={this.state.accounts} />
           </div>
         )}
         {this.state.web3 && this.state.contract && (
-          <div>
+          <div className={styles.contracts}>
             <h1>Good to Go!</h1>
-            <p>Your Truffle Box is installed and ready.</p>
-            <h2>Counter Example</h2>
-            <p>
-              If your contracts compiled and migrated successfully, below will show
-              a stored value of 0 (by default).
-            </p>
-            <p>
-              Try changing the value stored on <strong>line 40</strong> of App.js.
-            </p>
-            <div>The stored value is: {this.state.count}</div>
+            <p>Interact with your contract on the right.</p>
+            <div className={styles.widgets}>
+              <Web3Info {...this.state} />
+              <CounterUI
+                decrease={this.decreaseCount}
+                increase={this.increaseCount}
+                {...this.state} />
+            </div>
+            {this.state.balance < 0.1 && (
+              <Instructions name="metamask" accounts={this.state.accounts} />
+            )}
+            {this.state.balance >= 0.1 && (
+              <Instructions name="upgrade" accounts={this.state.accounts} />
+            )}
           </div>
         )}
       </div>
@@ -105,7 +127,7 @@ class App extends Component {
     return (
       <div className={styles.wrapper}>
         <Hero />
-        <Instructions />
+        <Instructions name="setup" accounts={this.state.accounts} />
       </div>
     );
   }
@@ -114,8 +136,8 @@ class App extends Component {
     return (
       <div className={styles.App}>
         <Header />
-          {this.state.route === 'setup' && this.renderInstructions()}
-          {this.state.route === '' && this.renderBody()}
+          {this.state.route === '' && this.renderInstructions()}
+          {this.state.route === 'counter' && this.renderBody()}
         <Footer />
       </div>
     );

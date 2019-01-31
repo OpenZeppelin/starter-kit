@@ -26,6 +26,28 @@ code {
   align-items: center;
 }
 
+.setup, .contracts {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .notice {
+    margin: 15px 0;
+  }
+
+  .widgets {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+  }
+}
+
 .loader {
   width: 100%;
   display: flex;
