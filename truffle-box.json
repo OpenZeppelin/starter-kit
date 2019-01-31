@@ -1,5 +1,5 @@
 {
-  "ignore": ["README.md", ".env", ".gitignore", "zos.json", "box-img-lg.png", "box-img-sm.png", ".github"],
+  "ignore": ["README.md", ".gitignore", "zos.json", "box-img-lg.png", "box-img-sm.png", ".github"],
   "commands": {
     "Add a contract": "zos add <contract_name>",
     "Create a session": "zos session --network <network_name> --from <default_address> --expires 36000",

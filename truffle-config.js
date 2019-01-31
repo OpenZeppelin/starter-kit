@@ -1,6 +1,8 @@
 const path = require("path");
 require('dotenv').config();
 const mnemonic = process.env.MNENOMIC;
+// Create your own key for Production environments (https://infura.io/)
+const INFURA_ID = 'd6760e62b67f4937ba1ea2691046f06d';
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
