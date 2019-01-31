@@ -132,12 +132,21 @@ class App extends Component {
     );
   }
 
+  renderFAQ() {
+    return (
+      <div className={styles.wrapper}>
+        <Instructions name="faq" accounts={this.state.accounts} />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={styles.App}>
         <Header />
           {this.state.route === '' && this.renderInstructions()}
           {this.state.route === 'counter' && this.renderBody()}
+          {this.state.route === 'faq' && this.renderFAQ()}
         <Footer />
       </div>
     );

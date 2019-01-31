@@ -9,6 +9,20 @@
   align-items: center;
   text-align: left;
 
+  .question {
+    font-weight: 400;
+    font-size: 24px;
+
+    color: $purple;
+  }
+
+  .separator {
+    margin: 20px 0;
+    width: 60%;
+    height: 2px;
+    background: $purple;
+  }
+
   .step {
     width: 100%;
     margin: 10px 0;
@@ -16,6 +30,14 @@
       width: 100%;
 
     }
+
+    span.inline {
+      color: $pink;
+      background: #efefef;
+      padding: 2px;
+      display: inline-block;
+    }
+
     .code {
       width: 100%;
       display: flex;

@@ -218,6 +218,57 @@ export default class Instructions extends Component {
     );
   }
 
+  renderFAQ() {
+    return (
+      <div className={styles.instructions}>
+        <h2> FAQ </h2>
+        <div className={styles.question}>
+          Q: How do I deploy to other networks?
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Enter the mnemonic of the account you want to use to deploy in <span className={styles.inline}> .env</span>.
+          </div>
+          <div className={styles.code}>
+            <code>
+              mnemonic='fill'
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Create a session with the desired network. Example: Mainnet
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`zos session --network main --from <ADDR> --expires 3600`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. Deploy your code
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos push --network main
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          You can see more information about this
+          &nbsp;<a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://docs.zeppelinos.org/docs/mainnet">
+          here
+          </a>.
+        </div>
+        <div className={styles.separator} />
+      </div>
+    );
+  }
+
   render()  {
     const { name } = this.props;
     switch (name) {
@@ -229,6 +280,8 @@ export default class Instructions extends Component {
         return this.renderUpgrade();
       case 'counter':
         return this.renderCounterSetup();
+      case 'faq':
+        return this.renderFAQ();
       default:
         return this.renderCounterSetup();
     }

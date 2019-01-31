@@ -25,8 +25,9 @@ const getWeb3 = () =>
       }
       // Fallback to localhost; use dev console port by default...
       else {
+        const FALLBACK_WEB3_PROVIDER = process.env.REACT_APP_NETWORK || 'http://0.0.0.0:8545';
         const provider = new Web3.providers.HttpProvider(
-          "http://127.0.0.1:8545"
+          FALLBACK_WEB3_PROVIDER
         );
         const web3 = new Web3(provider);
         console.log("No web3 instance injected, using Local web3.");
