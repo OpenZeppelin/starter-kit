@@ -91,7 +91,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              npm install -g truffle && npm install -g ganache-cli
+              npm install -g truffle@5.0.2 && npm install -g ganache-cli@6.3.0
             </code>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              npm install --global zos
+              npm install --g zos@2.1.2
             </code>
           </div>
         </div>
