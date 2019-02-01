@@ -40,6 +40,11 @@
     .feature {
       font-size: 18px;
       margin: 8px 0;
+
+      a {
+        color: $white;
+        font-weight: bold;
+      }
     }
   }
 
@@ -51,10 +56,19 @@
     .logo {
       width: 60px;
       height: 60px;
+      border-radius: 30px;
       margin-right: 20px;
       background: white;
       display: flex;
       overflow: hidden;
+
+      &.infura {
+        background: #ff6a00;
+      }
+
+      &.react {
+        background: black;
+      }
 
       .logo-img {
         width: 60px;
