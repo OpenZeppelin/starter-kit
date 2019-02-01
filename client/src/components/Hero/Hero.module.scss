@@ -6,7 +6,7 @@
   color: white;
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   background: linear-gradient(to bottom, #0a2a5a , #3d9af1);
 
@@ -23,6 +23,7 @@
     h1 {
       font-size: 34px;
       line-height: 50px;
+      margin-top: 0px;
     }
 
     h2 {
@@ -47,6 +48,17 @@
         color: $white;
         font-weight: bold;
       }
+    }
+  }
+
+  .ctas {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 20px 0;
+    justify-content: flex-start;
+
+    .mainLink {
+      text-decoration: none;
     }
   }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from './Hero.module.scss';
+import { Button } from 'rimble-ui';
 import cx from 'classnames';
 
 export default class Hero extends Component {
@@ -63,6 +64,14 @@ export default class Hero extends Component {
                 rel="noopener noreferrer"
                 href="https://github.com/facebook/create-react-app">React </a> & Rimble to build usable and friendly interfaces.
             </div>
+          </div>
+          <div className={styles.ctas}>
+            <a
+              className={styles.mainLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/zeppelinos/zepkit">
+              <Button icon="Code" iconpos="right"> View Code</Button></a>
           </div>
         </div>
       </div>
