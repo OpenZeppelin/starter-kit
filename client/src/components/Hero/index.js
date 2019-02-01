@@ -18,7 +18,7 @@ export default class Hero extends Component {
         <div className={styles.left}>
           <h1> Welcome to ZepKit! </h1>
           <h2>
-            The easiest way to build a Dapp with the <br />
+            The easiest way to build a Dapp with the
             most trusted tools in Ethereum.
           </h2>
           <div className={styles.logos}>
@@ -41,7 +41,7 @@ export default class Hero extends Component {
               - Upgradeable smart contracts with <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://zeppelinos.org/">ZeppelinOS </a>.
+                href="https://zeppelinos.org/">ZeppelinOS</a>.
             </div>
             <div className={styles.feature}>
               - Includes <a
