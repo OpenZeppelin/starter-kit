@@ -22,16 +22,16 @@ const Footer = () => (
       </div>
     </div>
     <div className={styles.links}>
-      <a href="mailto:ramon@dapis.io" target="_blank" rel="noopener noreferrer">
+      <a href="mailto:ramon@zeppelin.solutions" target="_blank" rel="noopener noreferrer">
         <img src={mail} alt="email" />
       </a>
       <a href="https://medium.com/@rrecuero/building-dapps-people-want-d133e8904b8" rel="noopener noreferrer" target="_blank">
         <img src={pencil} alt="medium" />
       </a>
-      <a href="https://twitter.com/ramonrecuero" rel="noopener noreferrer" target="_blank">
+      <a href="https://twitter.com/ZeppelinOrg" rel="noopener noreferrer" target="_blank">
         <img src={twitter} alt="twitter" />
       </a>
-      <a href="https://github.com/rrecuero" rel="noopener noreferrer" target="_blank">
+      <a href="https://github.com/zeppelinos/zepkit" rel="noopener noreferrer" target="_blank">
         <img src={github} alt="github" />
       </a>
     </div>
