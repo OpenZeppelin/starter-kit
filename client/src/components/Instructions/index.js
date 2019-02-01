@@ -136,7 +136,7 @@ export default class Instructions extends Component {
 
   renderMetamask() {
     const code =`
-      web3.eth.sendTransaction({from: ADDR_GANACHE,to:${this.props.accounts[0]}, value: web3.utils.toWei("0.5", "ether")})
+      web3.eth.sendTransaction({from: 'ADDR_GANACHE',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
     `;
     return (
       <div className={styles.instructions}>
