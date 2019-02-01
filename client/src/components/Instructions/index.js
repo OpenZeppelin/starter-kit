@@ -107,7 +107,8 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Unbox the ZepKit.
+            2. Unbox the ZepKit. (Alternatively, clone the <a target="_blank" rel="noopener noreferrer" href="https://github.com/zeppelinos/zepkit">repo</a> and
+            run <span className={styles.inline}>npm install</span> in the root and client folder.)
           </div>
           <div className={styles.code}>
             <code>
