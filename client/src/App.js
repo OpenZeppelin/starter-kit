@@ -5,6 +5,7 @@ import Footer from "./components/Footer/index.js";
 import Hero from "./components/Hero/index.js";
 import Web3Info from "./components/Web3Info/index.js";
 import CounterUI from "./components/Counter/index.js";
+import Wallet from "./components/Wallet/index.js";
 import Instructions from "./components/Instructions/index.js";
 import { Loader } from 'rimble-ui';
 
@@ -55,7 +56,7 @@ class App extends Component {
         if (deployedNetwork) {
           instanceWallet = new web3.eth.Contract(
             Wallet.abi,
-            Wallet.networks[networkId.toString()],
+            deployedNetwork && deployedNetwork.address,
           );
         }
       }
@@ -63,8 +64,12 @@ class App extends Component {
         // Set web3, accounts, and contract to the state, and then proceed with an
         // example of interacting with the contract's methods.
         this.setState({ web3, accounts, balance, networkId,
-          isMetaMask, contract: instance, wallet: instanceWallet }, this.getCount);
-        this.interval = setInterval(() => this.getCount(), 5000);
+          isMetaMask, contract: instance, wallet: instanceWallet }, () => {
+            this.refreshValues(instance, instanceWallet);
+            setInterval(() => {
+              this.refreshValues(instance, instanceWallet);
+            }, 5000);
+          });
       }
       else {
         this.setState({ web3, accounts, balance, networkId, isMetaMask });
@@ -84,12 +89,29 @@ class App extends Component {
     }
   }
 
+  refreshValues = (instance, instanceWallet) => {
+    if (instance) {
+      this.getCount();
+    }
+    if (instanceWallet) {
+      this.updateTokenOwner();
+    }
+  }
+
   getCount = async () => {
     const { contract } = this.state;
     // Get the value from the contract to prove it worked.
     const response = await contract.methods.getCounter().call();
     // Update state with the result.
     this.setState({ count: response });
+  };
+
+  updateTokenOwner = async () => {
+    const { wallet, accounts } = this.state;
+    // Get the value from the contract to prove it worked.
+    const response = await wallet.methods.owner().call();
+    // Update state with the result.
+    this.setState({ tokenOwner: response.toString() === accounts[0].toString() });
   };
 
   increaseCount = async (number) => {
@@ -104,6 +126,12 @@ class App extends Component {
     this.getCount();
   };
 
+  renounceOwnership = async (number) => {
+    const { accounts, wallet } = this.state;
+    await wallet.methods.renounceOwnership().send({ from: accounts[0] });
+    this.updateTokenOwner();
+  };
+
   renderLoader() {
     return (
       <div className={styles.loader}>
@@ -115,7 +143,6 @@ class App extends Component {
   }
 
   renderDeployCheck(instructionsKey) {
-    console.log('instructionsKey', instructionsKey);
     return (
       <div className={styles.setup}>
         <Web3Info {...this.state} />
@@ -188,9 +215,8 @@ class App extends Component {
           <p>Interact with your contract on the right.</p>
           <div className={styles.widgets}>
             <Web3Info {...this.state} />
-            <CounterUI
-              decrease={this.decreaseCount}
-              increase={this.increaseCount}
+            <Wallet
+              renounce={this.renounceOwnership}
               {...this.state} />
           </div>
           <Instructions name="evm" accounts={this.state.accounts} />
