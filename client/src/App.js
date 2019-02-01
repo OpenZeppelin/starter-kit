@@ -37,7 +37,7 @@ class App extends Component {
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
       const isMetaMask = web3.currentProvider.isMetaMask;
-      let balance = await web3.eth.getBalance(accounts[0]);
+      let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]): web3.utils.toWei('0');
       balance = web3.utils.fromWei(balance, 'ether');
       let instance = null;
       let instanceWallet = null;
