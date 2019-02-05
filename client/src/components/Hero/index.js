@@ -62,7 +62,11 @@ export default class Hero extends Component {
               - <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://github.com/facebook/create-react-app">React </a> & Rimble to build usable and friendly interfaces.
+                href="https://github.com/facebook/create-react-app">React </a> &
+                <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://rimble.consensys.design">Rimble</a> to build usable and friendly interfaces.
             </div>
           </div>
           <div className={styles.ctas}>
