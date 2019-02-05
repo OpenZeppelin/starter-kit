@@ -1,3 +1,3 @@
 # Create a .env file
-export HDWALLET_MNEMONIC="front ski wolf horse woman mushroom frown fold vacuum alert total sugar"
+export HDWALLET_MNEMONIC="front .... wolf"
 export INFURA_PROVIDER_URL=https://ropsten.infura.io/v3/< your api key >
