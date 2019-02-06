@@ -55,7 +55,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              zos push
+              zos push --deploy-dependencies
             </code>
           </div>
         </div>
