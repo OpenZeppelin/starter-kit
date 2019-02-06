@@ -51,7 +51,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Let's compile the Counter contract and deploy it to the local blockchain.
+            5. Let's compile the Counter contract and deploy it to the local blockchain.
           </div>
           <div className={styles.code}>
             <code>
@@ -61,7 +61,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. We create an instance of our upgradeable contract.
+            6. We create an instance of our upgradeable contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -71,7 +71,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. Done! Refresh the page to interact with the contract.
+            7. Done! Refresh the page to interact with the contract.
           </div>
           <Button onClick={() => window.location.reload()}>
             Reload
