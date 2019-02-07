@@ -10,7 +10,7 @@ export default class Instructions extends Component {
         <h2> Compile and Deploy Locally </h2>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Start your local blockchain with ganache in a new terminal.
+            1. In another terminal, start your local blockchain with ganache in a new terminal.
           </div>
           <div className={styles.code}>
             <code>
@@ -20,7 +20,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Init your project with ZeppelinOS.
+            2. In a different terminal, init your project with ZeppelinOS (run inside your zepkit folder).
           </div>
           <div className={styles.code}>
             <code>
@@ -30,7 +30,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. Add the Counter contract to your ZeppelinOS project.
+            3. Add the Counter contract to your project.
           </div>
           <div className={styles.code}>
             <code>
@@ -41,7 +41,7 @@ export default class Instructions extends Component {
         <div className={styles.step}>
           <div className={styles.instruction}>
             4. Connect with your local blockchain by opening a session.
-            <br /> Note: Grab the second or third address that ganache returned and pass it.
+            <br /> Note: Grab the second or third account that ganache returned and pass it.
           </div>
           <div className={styles.code}>
             <code>
@@ -51,7 +51,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Let's compile the Counter contract and deploy it to the local blockchain.
+            5. Let's compile the Counter contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -61,7 +61,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. We create an instance of our upgradeable contract.
+            6. We create an instance of our contract and deploy it.
           </div>
           <div className={styles.code}>
             <code>
