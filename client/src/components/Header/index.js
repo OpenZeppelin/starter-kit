@@ -15,7 +15,7 @@ const Header = () => (
           <li><a href="/counter" className={styles.link}> Counter</a></li>
         )}
         {process.env.NODE_ENV !== 'production' && (
-          <li><a href="/evm" className={styles.link}> Using EVM Packages</a></li>
+          <li><a href="/evm" className={styles.link}> EVM Packages</a></li>
         )}
         <li><a href="/faq" className={styles.link}> FAQ</a></li>
       </ul>

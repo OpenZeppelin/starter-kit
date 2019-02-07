@@ -1,7 +1,7 @@
 @import '../../layout/variables.scss';
 
 .Hero {
-  padding: 60px 40px;
+  padding: 60px 20px;
   width: 100%;
   color: white;
   display: flex;
@@ -20,6 +20,7 @@
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding: 0 20px;
 
     h1 {
       font-size: 34px;

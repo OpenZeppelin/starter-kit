@@ -7,7 +7,7 @@ export default class Instructions extends Component {
   renderCounterSetup() {
     return (
       <div className={styles.instructions}>
-        <h2> Compile and Deploy Locally </h2>
+        <h2> Build your first app with ZepKit </h2>
         <div className={styles.step}>
           <div className={styles.instruction}>
             1. In another terminal, start your local blockchain with ganache in a new terminal.
@@ -86,10 +86,12 @@ export default class Instructions extends Component {
     if (!isProd) {
       return (
         <div className={styles.instructions}>
-          <h1> ZepKit is up and Running! </h1>
+          <h1> ZepKit is running! </h1>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              Visit the <a href='/counter'> Counter</a> to get started.
+              Congratulations! You installed zepkit correctly.
+              Now let’s see how you can build your own decentralized app.
+              Visit the <a href='/counter'> Counter</a> page to deploy and interact with your first contract.
             </div>
           </div>
         </div>
