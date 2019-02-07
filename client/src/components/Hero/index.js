@@ -19,7 +19,7 @@ export default class Hero extends Component {
         <div className={styles.left}>
           <h1> Welcome to ZepKit! </h1>
           <h2>
-            The easiest way to build a Dapp with the
+            The easiest way to build a Web3 application with the
             most trusted tools in Ethereum.
           </h2>
           <div className={styles.logos}>

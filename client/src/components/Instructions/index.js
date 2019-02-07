@@ -82,6 +82,19 @@ export default class Instructions extends Component {
   }
 
   renderSetup() {
+    const isProd = process.env.NODE_ENV === 'production';
+    if (!isProd) {
+      return (
+        <div className={styles.instructions}>
+          <h1> ZepKit is up and Running! </h1>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              Visit the <a href='/counter'> Counter</a> to get started.
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className={styles.instructions}>
         <h1> Installation </h1>
@@ -128,7 +141,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Congratulations!! Visit the <a href='/counter'> Counter Example </a> to see it in action.
+            4. The ZepKit should be running locally! Continue the instructions on your localhost.
           </div>
         </div>
       </div>
