@@ -110,7 +110,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Install ZeppelinOS
+            2. Install ZeppelinOS
           </div>
           <div className={styles.code}>
             <code>
@@ -120,7 +120,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Unbox the ZepKit. (Alternatively, clone the <a target="_blank" rel="noopener noreferrer" href="https://github.com/zeppelinos/zepkit">repo</a> and
+            3. Unbox the ZepKit. (Alternatively, clone the <a target="_blank" rel="noopener noreferrer" href="https://github.com/zeppelinos/zepkit">repo</a> and
             run <span className={styles.inline}>npm install</span> in the root and client folder.)
           </div>
           <div className={styles.code}>
@@ -131,7 +131,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. Run the web application to continue.
+            4. Run the web application to continue.
           </div>
           <div className={styles.code}>
             <code>
@@ -141,7 +141,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. The ZepKit should be running locally! Continue the instructions on your localhost.
+            5. The ZepKit should be running locally! Continue the instructions on your localhost.
           </div>
         </div>
       </div>
