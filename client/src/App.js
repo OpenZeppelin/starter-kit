@@ -30,49 +30,52 @@ class App extends Component {
       console.log(e);
     }
     try {
-      // Get network provider and web3 instance.
-      const web3 = await getWeb3();
-      // Use web3 to get the user's accounts.
-      const accounts = await web3.eth.getAccounts();
-      // Get the contract instance.
-      const networkId = await web3.eth.net.getId();
-      const isMetaMask = web3.currentProvider.isMetaMask;
-      let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]): web3.utils.toWei('0');
-      balance = web3.utils.fromWei(balance, 'ether');
-      let instance = null;
-      let instanceWallet = null;
-      let deployedNetwork = null;
-      if (Counter.networks) {
-        deployedNetwork = Counter.networks[networkId.toString()];
-        if (deployedNetwork) {
-          instance = new web3.eth.Contract(
-            Counter.abi,
-            deployedNetwork && deployedNetwork.address,
-          );
+      const isProd = process.env.NODE_ENV === 'production';
+      if (!isProd) {
+        // Get network provider and web3 instance.
+        const web3 = await getWeb3();
+        // Use web3 to get the user's accounts.
+        const accounts = await web3.eth.getAccounts();
+        // Get the contract instance.
+        const networkId = await web3.eth.net.getId();
+        const isMetaMask = web3.currentProvider.isMetaMask;
+        let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]): web3.utils.toWei('0');
+        balance = web3.utils.fromWei(balance, 'ether');
+        let instance = null;
+        let instanceWallet = null;
+        let deployedNetwork = null;
+        if (Counter.networks) {
+          deployedNetwork = Counter.networks[networkId.toString()];
+          if (deployedNetwork) {
+            instance = new web3.eth.Contract(
+              Counter.abi,
+              deployedNetwork && deployedNetwork.address,
+            );
+          }
         }
-      }
-      if (Wallet.networks) {
-        deployedNetwork = Wallet.networks[networkId.toString()];
-        if (deployedNetwork) {
-          instanceWallet = new web3.eth.Contract(
-            Wallet.abi,
-            deployedNetwork && deployedNetwork.address,
-          );
+        if (Wallet.networks) {
+          deployedNetwork = Wallet.networks[networkId.toString()];
+          if (deployedNetwork) {
+            instanceWallet = new web3.eth.Contract(
+              Wallet.abi,
+              deployedNetwork && deployedNetwork.address,
+            );
+          }
         }
-      }
-      if (instance || instanceWallet) {
-        // Set web3, accounts, and contract to the state, and then proceed with an
-        // example of interacting with the contract's methods.
-        this.setState({ web3, accounts, balance, networkId,
-          isMetaMask, contract: instance, wallet: instanceWallet }, () => {
-            this.refreshValues(instance, instanceWallet);
-            setInterval(() => {
+        if (instance || instanceWallet) {
+          // Set web3, accounts, and contract to the state, and then proceed with an
+          // example of interacting with the contract's methods.
+          this.setState({ web3, accounts, balance, networkId,
+            isMetaMask, contract: instance, wallet: instanceWallet }, () => {
               this.refreshValues(instance, instanceWallet);
-            }, 5000);
-          });
-      }
-      else {
-        this.setState({ web3, accounts, balance, networkId, isMetaMask });
+              setInterval(() => {
+                this.refreshValues(instance, instanceWallet);
+              }, 5000);
+            });
+        }
+        else {
+          this.setState({ web3, accounts, balance, networkId, isMetaMask });
+        }
       }
     } catch (error) {
       // Catch any errors for any of the above operations.
@@ -145,10 +148,9 @@ class App extends Component {
   renderDeployCheck(instructionsKey) {
     return (
       <div className={styles.setup}>
-        <Web3Info {...this.state} />
         <div className={styles.notice}>
           Your contracts are not deployed in this network. <br />
-          Maybe you are in the wrong network?
+          Maybe you are in the wrong network? (Point Metamask to localhost)
         </div>
         <Instructions name={instructionsKey} accounts={this.state.accounts} />
       </div>
@@ -166,6 +168,7 @@ class App extends Component {
           <div className={styles.contracts}>
             <h1>Counter Contract is good to Go!</h1>
             <p>Interact with your contract on the right.</p>
+            <p> You can see your account onfo on the left </p>
             <div className={styles.widgets}>
               <Web3Info {...this.state} />
               <CounterUI
@@ -211,8 +214,9 @@ class App extends Component {
       )}
       {this.state.web3 && this.state.wallet && (
         <div className={styles.contracts}>
-        <h1>Wallet Contract is good to Go!</h1>
+          <h1>Wallet Contract is good to Go!</h1>
           <p>Interact with your contract on the right.</p>
+          <p> You can see your account onfo on the left </p>
           <div className={styles.widgets}>
             <Web3Info {...this.state} />
             <Wallet
