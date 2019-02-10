@@ -263,6 +263,20 @@ export default class Instructions extends Component {
             </code>
           </div>
         </div>
+        <div className={styles.question}>
+          Q: How do I start from scratch and remove the tutorial?
+        </div>
+        <div className={styles.separator} />
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            Run this command from the top level folder.
+          </div>
+          <div className={styles.code}>
+            <code>
+              npm run start-blank
+            </code>
+          </div>
+        </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
             2. Create a session with the desired network. Example: Mainnet
