@@ -1,4 +1,5 @@
 import Web3 from "web3";
+const FALLBACK_WEB3_PROVIDER = process.env.REACT_APP_NETWORK || 'http://0.0.0.0:8545';
 
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
@@ -25,7 +26,6 @@ const getWeb3 = () =>
       }
       // Fallback to localhost; use dev console port by default...
       else {
-        const FALLBACK_WEB3_PROVIDER = process.env.REACT_APP_NETWORK || 'http://0.0.0.0:8545';
         const provider = new Web3.providers.HttpProvider(
           FALLBACK_WEB3_PROVIDER
         );
@@ -36,4 +36,18 @@ const getWeb3 = () =>
     });
   });
 
+const getGanacheWeb3 = () => {
+  const isProd = process.env.NODE_ENV === 'production';
+  if (isProd) {
+    return null;
+  }
+  const provider = new Web3.providers.HttpProvider(
+    'http://0.0.0.0:8545'
+  );
+  const web3 = new Web3(provider);
+  console.log("No local ganache found.");
+  return web3;
+}
+
 export default getWeb3;
+export { getGanacheWeb3 };

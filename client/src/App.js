@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getWeb3 from "./utils/getWeb3";
+import getWeb3, { getGanacheWeb3 } from "./utils/getWeb3";
 import Header from "./components/Header/index.js";
 import Footer from "./components/Footer/index.js";
 import Hero from "./components/Hero/index.js";
@@ -20,6 +20,16 @@ class App extends Component {
     route: window.location.pathname.replace("/","")
   };
 
+  getGanacheAddresses = async () => {
+    if (!this.ganacheProvider) {
+      this.ganacheProvider = getGanacheWeb3();
+    }
+    if (this.ganacheProvider) {
+      return await this.ganacheProvider.eth.getAccounts();
+    }
+    return [];
+  }
+
   componentDidMount = async () => {
     let Counter = {};
     let Wallet = {};
@@ -34,8 +44,10 @@ class App extends Component {
       if (!isProd) {
         // Get network provider and web3 instance.
         const web3 = await getWeb3();
+        const ganacheAccounts = await this.getGanacheAddresses();
         // Use web3 to get the user's accounts.
         const accounts = await web3.eth.getAccounts();
+        this.getGanacheAddresses();
         // Get the contract instance.
         const networkId = await web3.eth.net.getId();
         const isMetaMask = web3.currentProvider.isMetaMask;
@@ -65,7 +77,7 @@ class App extends Component {
         if (instance || instanceWallet) {
           // Set web3, accounts, and contract to the state, and then proceed with an
           // example of interacting with the contract's methods.
-          this.setState({ web3, accounts, balance, networkId,
+          this.setState({ web3, ganacheAccounts, accounts, balance, networkId,
             isMetaMask, contract: instance, wallet: instanceWallet }, () => {
               this.refreshValues(instance, instanceWallet);
               setInterval(() => {
@@ -74,7 +86,7 @@ class App extends Component {
             });
         }
         else {
-          this.setState({ web3, accounts, balance, networkId, isMetaMask });
+          this.setState({ web3, ganacheAccounts, accounts, balance, networkId, isMetaMask });
         }
       }
     } catch (error) {
@@ -155,7 +167,9 @@ class App extends Component {
             You contract is not deployed. Follow the instructions below.
           </p>
         </div>
-        <Instructions name={instructionsKey} accounts={this.state.accounts} />
+        <Instructions
+          ganacheAccounts={this.state.ganacheAccounts}
+          name={instructionsKey} accounts={this.state.accounts} />
       </div>
     );
   }
@@ -180,10 +194,14 @@ class App extends Component {
                 {...this.state} />
             </div>
             {this.state.balance < 0.1 && (
-              <Instructions name="metamask" accounts={this.state.accounts} />
+              <Instructions
+                ganacheAccounts={this.state.ganacheAccounts}
+                name="metamask" accounts={this.state.accounts} />
             )}
             {this.state.balance >= 0.1 && (
-              <Instructions name="upgrade" accounts={this.state.accounts} />
+              <Instructions
+                ganacheAccounts={this.state.ganacheAccounts}
+                name="upgrade" accounts={this.state.accounts} />
             )}
           </div>
         )}
@@ -195,7 +213,9 @@ class App extends Component {
     return (
       <div className={styles.wrapper}>
         <Hero />
-        <Instructions name="setup" accounts={this.state.accounts} />
+        <Instructions
+          ganacheAccounts={this.state.ganacheAccounts}
+          name="setup" accounts={this.state.accounts} />
       </div>
     );
   }
@@ -203,7 +223,9 @@ class App extends Component {
   renderFAQ() {
     return (
       <div className={styles.wrapper}>
-        <Instructions name="faq" accounts={this.state.accounts} />
+        <Instructions
+          ganacheAccounts={this.state.ganacheAccounts}
+          name="faq" accounts={this.state.accounts} />
       </div>
     );
   }
@@ -226,7 +248,9 @@ class App extends Component {
               renounce={this.renounceOwnership}
               {...this.state} />
           </div>
-          <Instructions name="evm" accounts={this.state.accounts} />
+          <Instructions
+            ganacheAccounts={this.state.ganacheAccounts}
+            name="evm" accounts={this.state.accounts} />
         </div>
       )}
       </div>
