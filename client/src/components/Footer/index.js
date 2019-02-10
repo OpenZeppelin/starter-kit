@@ -5,6 +5,7 @@ import mail from './mail.svg';
 import pencil from './pencil.svg';
 import twitter from './twitter.svg';
 import github from './github.svg';
+import zeppelin from './zeppelin_logo.png';
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -14,7 +15,7 @@ const Footer = () => (
         <a href="https://zeppelin.solutions/" rel="noopener noreferrer" target="_blank">
           <img
             style={{width: '80px', height: 'auto', 'marginLeft': '10px'}}
-            src={'https://zeppelin.solutions/images/logoZeppelin-long.svg'} alt="Zeppelin" />
+            src={zeppelin} alt="Zeppelin" />
         </a>
       </div>
       <div className={styles.copyright}>

@@ -2,16 +2,26 @@
 
 .header {
   width: 100%;
-  background: $primary;
+  background: #3C4653;
+  border-bottom: 1px solid #aaa;
+  height: auto;
+  display: flex;
+  justify-content: center;
+
   nav {
     width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     ul {
       margin: 0;
       padding: 0;
       display: flex;
       flex-flow: row nowrap;
-      height: 120px;
+      height: 60px;
       list-style: none;
 
       .brand {
@@ -20,10 +30,9 @@
         justify-content: center;
         align-items: center;
         width: 300px;
-        margin-top: -10px;
 
         img {
-          width: 24px;
+          width: 102px;
           margin-right: 14px;
         }
         a {
@@ -36,7 +45,7 @@
       }
 
       li {
-        padding: 40px;
+        padding: 15px;
         margin: 0;
         margin-right: 60px;
         text-decoration: none;
@@ -49,13 +58,29 @@
 }
 
 @media only screen and (max-width: $screen-sm-max) {
-  .header nav ul li:not(.brand) {
-    display: none;
-  }
 
   .header nav ul .brand {
     width: 100%;
     margin-right: 0px;
     justify-content: flex-start;
+  }
+}
+@media only screen and (max-width: $screen-sm-min) {
+  .header {
+
+    nav {
+      flex-flow: row wrap;
+      margin-top: 10px;
+    }
+
+    nav ul {
+      flex-flow: row wrap;
+      height: auto;
+      li {
+        width: 100%;
+        text-align: left;
+        padding: 3px 0;
+      }
+    }
   }
 }

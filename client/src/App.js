@@ -81,10 +81,14 @@ class App extends Component {
       if (!isProd) {
         // Get network provider and web3 instance.
         const web3 = await getWeb3();
-        const ganacheAccounts = await this.getGanacheAddresses();
+        let ganacheAccounts = [];
+        try {
+          ganacheAccounts = await this.getGanacheAddresses();
+        } catch (e) {
+          console.log('Ganache is not running');
+        }
         // Use web3 to get the user's accounts.
         const accounts = await web3.eth.getAccounts();
-        this.getGanacheAddresses();
         // Get the contract instance.
         const networkId = await web3.eth.net.getId();
         const isMetaMask = web3.currentProvider.isMetaMask;

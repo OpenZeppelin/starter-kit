@@ -1,15 +1,14 @@
 import React from 'react';
 import styles from './header.module.scss';
-import logo from './logo-red.png';
+import logo from './zos_logo_light.png';
 
 const Header = () => (
   <div className={styles.header}>
     <nav id="menu" className="menu">
+      <div className={styles.brand}>
+        <a href="/" className={styles.link}> <img src={logo} alt="logo" /></a>
+      </div>
       <ul>
-        <li className={styles.brand}>
-          <img src={logo} alt="logo" />
-          <a href="/" className={styles.link}> Zepkit</a>
-        </li>
         <li><a href="/" className={styles.link}> Setup</a></li>
         {process.env.NODE_ENV !== 'production' && (
           <li><a href="/counter" className={styles.link}> Counter</a></li>
