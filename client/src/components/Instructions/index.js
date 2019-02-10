@@ -5,6 +5,7 @@ import styles from './Instructions.module.scss';
 export default class Instructions extends Component {
 
   renderCounterSetup() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : 0;
     return (
       <div className={styles.instructions}>
         <h2> Build your first app with ZepKit </h2>
@@ -40,12 +41,11 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Connect with your local blockchain by opening a session.
-            <br /> Note: Grab the second or third account that ganache returned and pass it.
+            4. Connect with your local blockchain by opening a session. (Grabbing your ganache account automatically)
           </div>
           <div className={styles.code}>
             <code>
-              zos session --network development --from {"<ADDR_2>"} --expires 3600
+              zos session --network development --from {addressDefault} --expires 3600
             </code>
           </div>
         </div>
@@ -71,7 +71,18 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            7. Done! Refresh the page to interact with the contract.
+            7. Add a log to verify that the contract is available. Before line 77 in App.js, add:
+          </div>
+          <div className={styles.code}>
+            <code>
+              console.log(instance);
+            </code>
+          </div>
+          <p> You should see a log that contains the Counter instance in your browser console </p>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            8. Done! Refresh the page to interact with your instance of the counter contract.
           </div>
           <Button onClick={() => window.location.reload()}>
             Reload
@@ -150,8 +161,9 @@ export default class Instructions extends Component {
   }
 
   renderMetamask() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : 0;
     const code =`
-      web3.eth.sendTransaction({from: 'ADDR_GANACHE',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
+      web3.eth.sendTransaction({from: '${addressDefault}',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
     `;
     return (
       <div className={styles.instructions}>
@@ -251,13 +263,27 @@ export default class Instructions extends Component {
             </code>
           </div>
         </div>
+        <div className={styles.question}>
+          Q: How do I start from scratch and remove the tutorial?
+        </div>
+        <div className={styles.separator} />
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            Run this command from the top level folder.
+          </div>
+          <div className={styles.code}>
+            <code>
+              npm run start-blank
+            </code>
+          </div>
+        </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
             2. Create a session with the desired network. Example: Mainnet
           </div>
           <div className={styles.code}>
             <code>
-              {`zos session --network main --from <ADDR> --expires 3600`}
+              {`zos session --network main --from <DEPLOY_ADDR> --expires 3600`}
             </code>
           </div>
         </div>
@@ -328,18 +354,18 @@ export default class Instructions extends Component {
   }
 
   renderEVM() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : 0;
     return (
       <div className={styles.instructions}>
         <h2> Using EVM Packages </h2>
         <p> ZeppelinOS allows us to link packages that have been already deployed to the blockchain, instead of wasting resources deploying them again every time we need them in a project. </p>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Connect with your local blockchain by opening a session.
-            <br /> Note: Grab the second or third address that ganache returned and pass it.
+            1. Connect with your local blockchain by opening a session (we automatically selected a ganache account).
           </div>
           <div className={styles.code}>
             <code>
-              zos session --network development --from {"<ADDR_2>"} --expires 3600
+              zos session --network development --from {addressDefault} --expires 3600
             </code>
           </div>
         </div>

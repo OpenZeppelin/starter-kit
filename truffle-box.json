@@ -9,7 +9,8 @@
     "Test contracts": "truffle test",
     "Test dapp": "cd client && npm test",
     "Run dev server": "cd client && npm run start",
-    "Build for production": "cd client && npm run build"
+    "Build for production": "cd client && npm run build",
+    "Start from a blank slate": "npm run start-blank"
   },
   "hooks": {
     "post-unpack": "npm install && cd client && npm install"

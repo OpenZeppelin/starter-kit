@@ -4,7 +4,8 @@
   "description": "Truffle box containing React, ZeppelinOS & OpenZeppelin",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-blank": "rm -rf client/src && cp -rf barebones/src client/"
   },
   "repository": {
     "type": "git",
