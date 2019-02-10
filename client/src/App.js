@@ -149,8 +149,11 @@ class App extends Component {
     return (
       <div className={styles.setup}>
         <div className={styles.notice}>
-          Your contracts are not deployed in this network. <br />
-          Maybe you are in the wrong network? (Point Metamask to localhost)
+          Your <b> contracts are not deployed</b> in this network. Two potential reasons: <br />
+          <p>
+            Maybe you are in the wrong network? Point Metamask to localhost.<br />
+            You contract is not deployed. Follow the instructions below.
+          </p>
         </div>
         <Instructions name={instructionsKey} accounts={this.state.accounts} />
       </div>

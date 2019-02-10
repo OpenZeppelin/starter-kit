@@ -35,6 +35,13 @@ code {
 
   .notice {
     margin: 15px 0;
+
+    p {
+      padding: 10px;
+      background: #ededed;
+      border: 1px solid #ddd;
+      color: #444;
+    }
   }
 
   .widgets {
