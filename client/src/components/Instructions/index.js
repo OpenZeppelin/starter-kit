@@ -277,36 +277,6 @@ export default class Instructions extends Component {
             </code>
           </div>
         </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            2. Create a session with the desired network. Example: Mainnet
-          </div>
-          <div className={styles.code}>
-            <code>
-              {`zos session --network main --from <DEPLOY_ADDR> --expires 3600`}
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            3. Deploy your code
-          </div>
-          <div className={styles.code}>
-            <code>
-              zos push --network main
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          The Infura config for all main networks is already defined in <span className={styles.inline}>truffle-config.js</span>.
-          You can see more information about this
-          &nbsp;<a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://docs.zeppelinos.org/docs/mainnet">
-          here
-          </a>.
-        </div>
         <div className={styles.question}>
           Q: How do I run tests?
         </div>
