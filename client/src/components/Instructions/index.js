@@ -112,7 +112,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Install ZeppelinOS
+            2. Install ZeppelinOS.
           </div>
           <div className={styles.code}>
             <code>
@@ -122,12 +122,11 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. Unbox the ZepKit. (Alternatively, clone the <a target="_blank" rel="noopener noreferrer" href="https://github.com/zeppelinos/zepkit">repo</a> and
-            run <span className={styles.inline}>npm install</span> in the root and client folder.)
+            3. Unbox the ZepKit.
           </div>
           <div className={styles.code}>
             <code>
-              truffle unbox zepkit
+              truffle unbox zeppelinos/zepkit
             </code>
           </div>
         </div>

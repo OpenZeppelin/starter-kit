@@ -60,7 +60,9 @@
     justify-content: flex-start;
 
     .mainLink {
-      text-decoration: none;
+      text-decoration: underline;
+      color: $white;
+      font-weight: bold;
     }
   }
 

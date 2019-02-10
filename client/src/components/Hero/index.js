@@ -75,7 +75,8 @@ export default class Hero extends Component {
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/zeppelinos/zepkit">
-              <Button icon="Code" iconpos="right"> View Code</Button></a>
+             > View Github
+            </a>
           </div>
         </div>
       </div>
