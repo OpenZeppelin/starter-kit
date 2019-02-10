@@ -10,6 +10,15 @@
   justify-content: space-around;
   background: linear-gradient(to bottom, #3C4653 , #212830);
 
+  .hwrapper {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1180px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
   .left, .right {
     display: flex;
     flex-flow: column nowrap;
@@ -29,10 +38,11 @@
     }
 
     h2 {
-      font-size: 24px;
-      line-height: 38px;
+      font-size: 22px;
+      line-height: 36px;
       font-weight: 400;
       max-width: 500px;
+      color: #39e6e0;
     }
   }
 
@@ -56,41 +66,16 @@
   .ctas {
     display: flex;
     flex-flow: row wrap;
-    margin: 20px 0;
+    margin: 40px 0 0;
     justify-content: flex-start;
 
     .mainLink {
-      text-decoration: underline;
-      color: $white;
+      text-decoration: none;
+      color: $blue;
       font-weight: bold;
-    }
-  }
 
-  .logos {
-    display: flex;
-    flex-flow: row wrap;
-    margin: 5px 0 5px;
-
-    .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 30px;
-      margin-right: 20px;
-      background: white;
-      display: flex;
-      overflow: hidden;
-
-      &.infura {
-        background: #ff6a00;
-      }
-
-      &.react {
-        background: black;
-      }
-
-      .logo-img {
-        width: 60px;
-        height: auto;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
