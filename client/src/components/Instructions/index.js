@@ -71,7 +71,18 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            7. Done! Refresh the page to interact with the contract.
+            7. Add a log to verify that the contract is available. Before line 77 in App.js, add:
+          </div>
+          <div className={styles.code}>
+            <code>
+              console.log(instance);
+            </code>
+          </div>
+          <p> You should see a log that contains the Counter instance in your browser console </p>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            8. Done! Refresh the page to interact with your instance of the counter contract.
           </div>
           <Button onClick={() => window.location.reload()}>
             Reload
@@ -336,7 +347,7 @@ export default class Instructions extends Component {
         <p> ZeppelinOS allows us to link packages that have been already deployed to the blockchain, instead of wasting resources deploying them again every time we need them in a project. </p>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Connect with your local blockchain by opening a session (we automatically selected a ganache account). 
+            1. Connect with your local blockchain by opening a session (we automatically selected a ganache account).
           </div>
           <div className={styles.code}>
             <code>
