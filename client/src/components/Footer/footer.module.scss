@@ -5,13 +5,14 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
-  background: $primary;
-  padding: 60px 100px;
+  background: $white;
+  border-top: 1px solid #D8D8D8;
+  padding: 25px 100px;
 
   .brand {
     display: flex;
     flex-flow: column nowrap;
-    color: $white;
+    color: $primary;
     .created {
       width: 100%;
       display: flex;
@@ -19,7 +20,7 @@
       justify-content: flex-start;
       align-items: center;
       width: 400px;
-      color: $white;
+      color: $primary;
 
       img {
         width: 33px;
@@ -46,6 +47,7 @@
       font-size: 14px;
       margin-top: 10px;
       text-align: left;
+      color: rgba(0,0,0, 0.6);
     }
   }
 
