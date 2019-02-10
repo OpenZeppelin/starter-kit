@@ -76,7 +76,6 @@ class App extends Component {
         <h2>See your web3 info below:</h2>
         <Web3Info {...this.state} />
       </div>
-      </div>
     );
   }
 }
