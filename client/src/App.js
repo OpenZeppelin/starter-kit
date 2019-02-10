@@ -7,6 +7,8 @@ import Web3Info from "./components/Web3Info/index.js";
 import CounterUI from "./components/Counter/index.js";
 import Wallet from "./components/Wallet/index.js";
 import Instructions from "./components/Instructions/index.js";
+import GoogleAnalytics from 'react-ga';
+import mixpanel from "./utils/mixpanel";
 import { Loader } from 'rimble-ui';
 
 import styles from './App.module.scss';
@@ -20,7 +22,42 @@ class App extends Component {
     route: window.location.pathname.replace("/","")
   };
 
+  trackPage = (page) => {
+    if (process.env.REACT_APP_GA_TRACKING_ID) {
+      GoogleAnalytics.set({ page });
+      GoogleAnalytics.pageview(page);
+    }
+  }
+
+  componentWillMount () {
+    mixpanel().track('render', {
+      path: window.location.pathname
+    });
+    if (process.env.REACT_APP_GA_TRACKING_ID) {
+      GoogleAnalytics.initialize(process.env.REACT_APP_GA_TRACKING_ID)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  componentDidUpdate (_, prevState) {
+    const currentPage =
+      prevState.route + window.location.search;
+    const nextPage =
+      this.state.route + window.location.search;
+
+    if (currentPage !== nextPage) {
+      this.trackPage(nextPage);
+    }
+  }
+
   componentDidMount = async () => {
+    const page = window.location.pathname + window.location.search
+    this.trackPage(page);
     let Counter = {};
     let Wallet = {};
     try {
@@ -85,12 +122,6 @@ class App extends Component {
       console.error(error);
     }
   };
-
-  componentWillUnmount() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  }
 
   refreshValues = (instance, instanceWallet) => {
     if (instance) {
