@@ -32,16 +32,17 @@
     padding: 0 20px;
 
     h1 {
-      font-size: 34px;
+      font-size: 46px;
       line-height: 50px;
       margin-top: 0px;
+      font-weight: 300;
     }
 
     h2 {
-      font-size: 22px;
-      line-height: 36px;
-      font-weight: 400;
-      max-width: 500px;
+      font-size: 1em;
+      line-height: 1.6;
+      font-weight: 500;
+      max-width: 400px;
       color: #39e6e0;
     }
   }
@@ -53,12 +54,20 @@
     flex-flow: column nowrap;
 
     .feature {
-      font-size: 18px;
-      margin: 8px 0;
+      margin: 6px 0;
+      font-size: 1em;
+      font-weight: 400;
+      opacity: 0.9;
 
       a {
         color: $white;
-        font-weight: bold;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+          border-bottom: 2px solid #fff;
+        }
       }
     }
   }
