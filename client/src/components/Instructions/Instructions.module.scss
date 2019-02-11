@@ -30,9 +30,11 @@
   .step {
     width: 100%;
     margin: 10px 0;
+
     .instruction {
       width: 100%;
-
+      font-size: 1em;
+      opacity: 0.8;
     }
 
     span.inline {
