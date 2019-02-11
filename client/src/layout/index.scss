@@ -8,7 +8,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font: 112.5%/1.45em 'Lato',sans-serif;
+  font: 112.5%/1.45em 'Roboto',sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
   background: $white;
@@ -69,8 +69,9 @@ h1 {
   color: inherit;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 50px;
-  line-height: 1.1;
+  line-height: 50px;
+  font-size: 2.5em;
+  font-weight: 300;
 }
 h2 {
   margin-left: 0;
