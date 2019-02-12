@@ -19,7 +19,7 @@ const Footer = () => (
         </a>
       </div>
       <div className={styles.copyright}>
-        Copyright © 2019 Zeppelin Solutions
+        Copyright © 2019 zOS Global Limited
       </div>
     </div>
     <div className={styles.links}>
