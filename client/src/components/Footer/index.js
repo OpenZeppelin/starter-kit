@@ -26,7 +26,7 @@ const Footer = () => (
       <a href="mailto:ramon@zeppelin.solutions" target="_blank" rel="noopener noreferrer">
         <img src={mail} alt="email" />
       </a>
-      <a href="https://medium.com/@rrecuero/building-dapps-people-want-d133e8904b8" rel="noopener noreferrer" target="_blank">
+      <a href="https://blog.zeppelinos.org/introducing-zepkit" rel="noopener noreferrer" target="_blank">
         <img src={pencil} alt="medium" />
       </a>
       <a href="https://twitter.com/ZeppelinOrg" rel="noopener noreferrer" target="_blank">
