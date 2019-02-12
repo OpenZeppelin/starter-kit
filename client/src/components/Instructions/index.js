@@ -133,7 +133,17 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. Unbox the ZepKit.
+            3. Create a folder for your app and enter inside.
+          </div>
+          <div className={styles.code}>
+            <code>
+              mkdir my-app && cd my-app
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Unbox the ZepKit.
           </div>
           <div className={styles.code}>
             <code>
@@ -143,7 +153,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Run the web application to continue.
+            5. Run the web application to continue.
           </div>
           <div className={styles.code}>
             <code>
@@ -153,7 +163,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. The ZepKit should be running locally! Continue the instructions on your localhost.
+            6. The ZepKit should be running locally! Continue the instructions on your localhost.
           </div>
         </div>
       </div>
