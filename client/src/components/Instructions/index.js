@@ -15,7 +15,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              npx run ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
+              ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
             </code>
           </div>
         </div>
@@ -113,11 +113,11 @@ export default class Instructions extends Component {
         <h1> Installation </h1>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Install truffle
+            1. Install truffle and ganache-cli for local development.
           </div>
           <div className={styles.code}>
             <code>
-              npm install -g truffle
+              npm install -g truffle@5.0.2 && npm install -g ganache-cli@6.3.0
             </code>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              npx run truffle console
+              truffle console
             </code>
           </div>
         </div>
@@ -297,7 +297,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              npx run truffle test
+              truffle test
             </code>
           </div>
         </div>
