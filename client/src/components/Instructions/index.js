@@ -127,7 +127,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.code}>
             <code>
-              npm install --g zos@2.1.2
+              npm install --g zos@2.2.0
             </code>
           </div>
         </div>
