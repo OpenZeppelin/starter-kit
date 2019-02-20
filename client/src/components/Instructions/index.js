@@ -101,8 +101,23 @@ export default class Instructions extends Component {
           <div className={styles.step}>
             <div className={styles.instruction}>
               Congratulations! Your application is correctly setup.
-              Now, let's go through the tutorials to play with the basics.
-              Visit the <a href='/counter'> Counter</a> page to deploy and interact with your first contract.
+              Now, you have two options:
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              a. Start your project from scratch.
+            </div>
+            <div className={styles.code}>
+              <code>
+                npm run start-blank
+              </code>
+            </div>
+          </div>
+
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              b. Visit the tutorials. Start with the <a href='/counter'> Counter</a> page to deploy and interact with your first contract.
             </div>
           </div>
         </div>
@@ -153,7 +168,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Run the web application to continue.
+            5. Switch to the client folder and run the web application to continue.
           </div>
           <div className={styles.code}>
             <code>
