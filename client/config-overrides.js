@@ -1,5 +1,4 @@
 /* config-overrides.js */
-// const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 
 module.exports = function override(config, env) {
   //do stuff with the webpack config...
@@ -19,7 +18,13 @@ module.exports = function override(config, env) {
         { loader: 'json-loader' },
         {
           loader: 'zeppelin-solidity-hot-loader',
-          options: { network: 'development'},
+          options: {
+            network: 'development',
+            // you can stop loader from automatic compile/push/updgrade
+            // action by setting disabled flag to true, but it will still
+            // serve .json files from file system
+            disabled: false,
+          },
         },
       ],
     }
