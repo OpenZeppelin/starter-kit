@@ -15,7 +15,13 @@ module.exports = function override(config, env) {
   config.module.rules.splice(config.module.rules - 2, 0,
     {
       test: /\.sol$/,
-      use: [ { loader: 'json-loader' }, { loader: 'zeppelin-solidity-hot-loader' } ],
+      use: [ 
+        { loader: 'json-loader' },
+        {
+          loader: 'zeppelin-solidity-hot-loader',
+          options: { network: 'development'},
+        },
+      ],
     }
   );
 
