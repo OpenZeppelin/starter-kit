@@ -266,6 +266,33 @@ export default class Instructions extends Component {
             Reload
           </Button>
         </div>
+        <h2> Upgrading on Development Network </h2>
+        <p> Thanks to ZeppelinOS and Solidity Hot Loader your smart contracts would reload automatically after you save a .sol file while preserving state. </p>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Open <span>contracts/Counter.sol</span> and uncomment the decreaseCounter method (lines 32-36).
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`// function decreaseCounter(uint256 amount) public returns (bool) {`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Save the changes and wait for .sol files compilation, ZOS commands automatically executed.
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. Once compilation, push, and update commands are completed, your changes would be loaded.
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Congratulations! You have upgraded your contract and you can now decrease the counter.
+          </div>
+        </div>
       </div>
     );
   }
