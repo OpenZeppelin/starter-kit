@@ -1,4 +1,5 @@
 /* config-overrides.js */
+const { zeppelinSolidityHotLoader } = require('./config/webpack');
 
 module.exports = function override(config, env) {
   //do stuff with the webpack config...
@@ -11,24 +12,7 @@ module.exports = function override(config, env) {
 
   // add Zeppelin Solidity hot reloading support
   // have to insert before last loader, because CRA user 'file-loader' as default one
-  config.module.rules.splice(config.module.rules - 2, 0,
-    {
-      test: /\.sol$/,
-      use: [ 
-        { loader: 'json-loader' },
-        {
-          loader: 'zeppelin-solidity-hot-loader',
-          options: {
-            network: 'development',
-            // you can stop loader from automatic compile/push/updgrade
-            // action by setting disabled flag to true, but it will still
-            // serve .json files from file system
-            disabled: false,
-          },
-        },
-      ],
-    }
-  );
+  config.module.rules.splice(config.module.rules - 2, 0, zeppelinSolidityHotLoader);
 
   return config;
 }
