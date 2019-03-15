@@ -11,7 +11,7 @@
     "rimble-ui": "^0.2.0",
     "styled-components": "^4.1.3",
     "web3": "1.0.0-beta.37",
-    "tabookey-gasless": "^0.3.3-a",
+    "tabookey-gasless": "^0.3.3-a"
   },
   "scripts": {
     "start": "react-scripts start",

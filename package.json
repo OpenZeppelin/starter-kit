@@ -28,6 +28,7 @@
     "openzeppelin-eth": "^2.1.3",
     "truffle": "5.0.4",
     "truffle-hdwallet-provider": "^1.0.3",
-    "zos-lib": "2.2.0"
+    "zos-lib": "2.2.0",
+    "tabookey-gasless": "^0.3.3-a"
   }
 }
