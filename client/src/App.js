@@ -50,14 +50,14 @@ class App extends Component {
         const web3 = await getWeb3();
 
         // Uncomment these lines to connect to a gas relayer
-        // const tabookey = require('tabookey-gasless');
-        // const RelayProvider = tabookey.RelayProvider
-        // var provider= new RelayProvider(web3.currentProvider, {
-        //   txfee: 12,
-        //   force_gasLimit: 500000
-        // });
-        // web3.setProvider(provider);
-        // this.setState({ gasless: true });
+        const tabookey = require('tabookey-gasless');
+        const RelayProvider = tabookey.RelayProvider
+        var provider= new RelayProvider(web3.currentProvider, {
+          txfee: 12,
+          force_gasLimit: 500000
+        });
+        web3.setProvider(provider);
+        this.setState({ gasless: true });
 
 
         let ganacheAccounts = [];

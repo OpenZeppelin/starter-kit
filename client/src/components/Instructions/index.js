@@ -93,7 +93,6 @@ export default class Instructions extends Component {
   }
 
   renderGaslessCounterSetup() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
     return (
       <div className={styles.instructions}>
         <h2> Build your first app with ZepKit </h2>
@@ -129,7 +128,12 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Done! Switch metamask to local network to refresh the page and see changes!
+            4. Done! Kill the client, restart (inside zepkit/client), and switch Metamask to localhost
+          </div>
+          <div className={styles.code}>
+            <code>
+              npm run start
+            </code>
           </div>
         </div>
       </div>
