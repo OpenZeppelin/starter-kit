@@ -92,6 +92,50 @@ export default class Instructions extends Component {
     );
   }
 
+  renderGaslessCounterSetup() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    return (
+      <div className={styles.instructions}>
+        <h2> Build your first app with ZepKit </h2>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Ensure Docker is installed on your computer.
+          </div>
+          <div className={styles.code}>
+            <code>
+              <a href="https://docs.docker.com/install/">https://docs.docker.com/install/</a>
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. In another terminal, run the gas relay docker container with ganache, wait a few seconds for it to sping up (run inside your zepkit folder).
+          </div>
+          <div className={styles.code}>
+            <code>
+              npm explore tabookey-gasless npm run gsn-dock-relay-ganache
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. In a different terminal, compile and deploy your contracts (run inside your zepkit folder).
+          </div>
+          <div className={styles.code}>
+            <code>
+              truffle compile & npx truffle@4.1.13 migrate
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Done! Switch metamask to local network to refresh the page and see changes!
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   renderSetup() {
     const isProd = process.env.NODE_ENV === 'production';
     if (!isProd) {
@@ -217,6 +261,41 @@ export default class Instructions extends Component {
         <div className={styles.step}>
           <div className={styles.instruction}>
             3. Congratulations!! You can now interact with the contract and increase the counter.
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  renderRelayWeb3Provider() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const code =`
+      web3.eth.sendTransaction({from: '${addressDefault}',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
+    `;
+    return (
+      <div className={styles.instructions}>
+        <h2> Connect to your Relayer </h2>
+        <p> You need to connect to a relayer in order to make gasless transactions. </p>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Open App.js from zepkit/client and uncomment lines 53-60 (lines below)
+          </div>
+          <div className={styles.code}>
+            <code>
+              const tabookey = require('tabookey-gasless'); <br />
+              const RelayProvider = tabookey.RelayProvider; <br />
+              var provider= new RelayProvider(web3.currentProvider, &#x7b; <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;txfee: 12, <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;force_gasLimit: 500000 <br />
+              &#x7d;); <br />
+              web3.setProvider(provider);<br />
+              this.setState(&#x7b; gasless: true &#x7d;);
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Congratulations!! Refresh the page and you can now interact with the contract and increase the counter without Ether!
           </div>
         </div>
       </div>
@@ -438,10 +517,14 @@ export default class Instructions extends Component {
         return this.renderSetup();
       case 'metamask':
         return this.renderMetamask();
+      case 'relay-web3-provider':
+        return this.renderRelayWeb3Provider();
       case 'upgrade':
         return this.renderUpgrade();
       case 'counter':
         return this.renderCounterSetup();
+      case 'gasless-counter':
+        return this.renderGaslessCounterSetup();
       case 'faq':
         return this.renderFAQ();
       case 'evm':

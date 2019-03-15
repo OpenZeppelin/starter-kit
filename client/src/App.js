@@ -5,14 +5,12 @@ import Footer from "./components/Footer/index.js";
 import Hero from "./components/Hero/index.js";
 import Web3Info from "./components/Web3Info/index.js";
 import CounterUI from "./components/Counter/index.js";
+import GaslessCounterUI from "./components/GaslessCounter/index.js";
 import Wallet from "./components/Wallet/index.js";
 import Instructions from "./components/Instructions/index.js";
 import { Loader } from 'rimble-ui';
 
 import styles from './App.module.scss';
-
-const tabookey = require('tabookey-gasless')
-const RelayProvider = tabookey.RelayProvider
 
 class App extends Component {
   state = {
@@ -20,7 +18,8 @@ class App extends Component {
     web3: null,
     accounts: null,
     contract: null,
-    route: window.location.pathname.replace("/","")
+    route: window.location.pathname.replace("/",""),
+    gasless: false,
   };
 
   getGanacheAddresses = async () => {
@@ -51,13 +50,15 @@ class App extends Component {
         const web3 = await getWeb3();
 
         // Uncomment these lines to connect to a gas relayer
-        // const tabookey = require('tabookey-gasless')
+        // const tabookey = require('tabookey-gasless');
         // const RelayProvider = tabookey.RelayProvider
         // var provider= new RelayProvider(web3.currentProvider, {
         //   txfee: 12,
         //   force_gasLimit: 500000
-        // })
-        // web3.setProvider(provider)
+        // });
+        // web3.setProvider(provider);
+        // this.setState({ gasless: true });
+
 
         let ganacheAccounts = [];
         try {
@@ -103,14 +104,14 @@ class App extends Component {
             );
           }
         }
-        if (instance || instanceWallet) {
+        if (gaslessInstance || instance || instanceWallet) {
           // Set web3, accounts, and contract to the state, and then proceed with an
           // example of interacting with the contract's methods.
           this.setState({ web3, ganacheAccounts, accounts, balance, networkId,
             isMetaMask, gaslessContract: gaslessInstance, contract: instance, wallet: instanceWallet }, () => {
-              this.refreshValues(instance, instanceWallet);
+              this.refreshValues(gaslessInstance, instance, instanceWallet);
               setInterval(() => {
-                this.refreshValues(instance, instanceWallet);
+                this.refreshValues(gaslessInstance, instance, instanceWallet);
               }, 5000);
             });
         }
@@ -133,9 +134,12 @@ class App extends Component {
     }
   }
 
-  refreshValues = (instance, instanceWallet) => {
+  refreshValues = (gaslessInstance, instance, instanceWallet) => {
     if (instance) {
       this.getCount();
+    }
+    if (gaslessInstance) {
+      this.getGaslessCount();
     }
     if (instanceWallet) {
       this.updateTokenOwner();
@@ -155,7 +159,7 @@ class App extends Component {
     // Get the value from the contract to prove it worked.
     const response = await gaslessContract.methods.getCounter().call();
     // Update state with the result.
-    this.setState({ count: response });
+    this.setState({ gaslessCount: response });
   };
 
   updateTokenOwner = async () => {
@@ -181,13 +185,13 @@ class App extends Component {
   increaseGaslessCount = async (number) => {
     const { accounts, gaslessContract } = this.state;
     await gaslessContract.methods.increaseCounter(number).send({ from: accounts[0] });
-    this.getCount();
+    this.getGaslessCount();
   };
 
   decreaseGaslessCount = async (number) => {
     const { accounts, gaslessContract } = this.state;
     await gaslessContract.methods.decreaseCounter(number).send({ from: accounts[0] });
-    this.getCount();
+    this.getGaslessCount();
   };
 
   renounceOwnership = async (number) => {
@@ -232,26 +236,24 @@ class App extends Component {
         )}
         {this.state.web3 && this.state.gaslessContract && (
           <div className={styles.contracts}>
-            <h1>Gasless Counter Contract is good to Go!</h1>
+            {!this.state.gasless && (
+              <div>
+              <h1>Gasless Counter Contract is Almost Ready!</h1>
+              <Instructions
+                ganacheAccounts={this.state.ganacheAccounts}
+                name="relay-web3-provider" accounts={this.state.accounts} />
+              </div>
+            )}
+            <h1>Counter Contract</h1>
             <p>Interact with your contract on the right.</p>
             <p> You can see your account onfo on the left </p>
             <div className={styles.widgets}>
               <Web3Info {...this.state} />
-              <CounterUI
+              <GaslessCounterUI
                 decrease={this.decreaseGaslessCount}
                 increase={this.increaseGaslessCount}
                 {...this.state} />
             </div>
-            {this.state.balance < 0.1 && (
-              <Instructions
-                ganacheAccounts={this.state.ganacheAccounts}
-                name="metamask" accounts={this.state.accounts} />
-            )}
-            {this.state.balance >= 0.1 && (
-              <Instructions
-                ganacheAccounts={this.state.ganacheAccounts}
-                name="upgrade" accounts={this.state.accounts} />
-            )}
           </div>
         )}
       </div>
