@@ -19,7 +19,6 @@ class App extends Component {
     accounts: null,
     contract: null,
     route: window.location.pathname.replace("/",""),
-    gasless: false,
   };
 
   getGanacheAddresses = async () => {
@@ -48,18 +47,6 @@ class App extends Component {
       if (!isProd) {
         // Get network provider and web3 instance.
         const web3 = await getWeb3();
-
-        // Uncomment these lines to connect to a gas relayer
-        // const tabookey = require('tabookey-gasless');
-        // const RelayProvider = tabookey.RelayProvider
-        // var provider= new RelayProvider(web3.currentProvider, {
-        //   txfee: 12,
-        //   force_gasLimit: 500000
-        // });
-        // web3.setProvider(provider);
-        // this.setState({ gasless: true });
-
-
         let ganacheAccounts = [];
         try {
           ganacheAccounts = await this.getGanacheAddresses();
@@ -236,15 +223,7 @@ class App extends Component {
         )}
         {this.state.web3 && this.state.gaslessContract && (
           <div className={styles.contracts}>
-            {!this.state.gasless && (
-              <div>
-              <h1>Gasless Counter Contract is Almost Ready!</h1>
-              <Instructions
-                ganacheAccounts={this.state.ganacheAccounts}
-                name="relay-web3-provider" accounts={this.state.accounts} />
-              </div>
-            )}
-            <h1>Counter Contract</h1>
+            <h1>Gasless Counter Contract</h1>
             <p>Interact with your contract on the right.</p>
             <p> You can see your account onfo on the left </p>
             <div className={styles.widgets}>
@@ -254,6 +233,9 @@ class App extends Component {
                 increase={this.increaseGaslessCount}
                 {...this.state} />
             </div>
+              <Instructions
+                ganacheAccounts={this.state.ganacheAccounts}
+                name="gasless-upgrade" accounts={this.state.accounts} />
           </div>
         )}
       </div>

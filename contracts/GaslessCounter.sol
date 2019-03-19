@@ -8,6 +8,7 @@ contract GaslessCounter is Initializable, RelayRecipient {
   //it keeps a count to demonstrate stage changes
   uint private count;
   address private _owner;
+  mapping (address => bool) public whiteList;
 
   function initialize() initializer public {
     _owner = msg.sender;
@@ -33,15 +34,21 @@ contract GaslessCounter is Initializable, RelayRecipient {
     count = count - amount;
   }
 
-  function accept_relayed_call(address /*relay*/, address /*from*/,
+  function addToWhiteList(address grantedAddress) public {
+    whiteList[grantedAddress] = true;
+  }
+
+  function accept_relayed_call(address /*relay*/, address from,
     bytes memory /*encoded_function*/, uint /*gas_price*/, 
     uint /*transaction_fee*/ ) public view returns(uint32) {
-    return 0; // accept everything.
+      // We'll invert this to control access to the relayer.
+      require(!whiteList[from]);
+      return 0;
   }
 
   function post_relayed_call(address /*relay*/, address /*from*/,
-      bytes memory /*encoded_function*/, bool /*success*/,
-      uint /*used_gas*/, uint /*transaction_fee*/ ) public {
+    bytes memory /*encoded_function*/, bool /*success*/,
+    uint /*used_gas*/, uint /*transaction_fee*/ ) public {
   }
 
   function init_hub(RelayHub hub_addr) public {

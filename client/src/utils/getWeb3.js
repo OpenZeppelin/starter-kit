@@ -12,6 +12,7 @@ const getWeb3 = () =>
           // Request account access if needed
           await window.ethereum.enable();
           // Acccounts now exposed
+          useRelayer(web3);
           resolve(web3);
         } catch (error) {
           reject(error);
@@ -22,6 +23,7 @@ const getWeb3 = () =>
         // Use Mist/MetaMask's provider.
         const web3 = window.web3;
         console.log("Injected web3 detected.");
+        useRelayer(web3);
         resolve(web3);
       }
       // Fallback to localhost; use dev console port by default...
@@ -31,6 +33,7 @@ const getWeb3 = () =>
         );
         const web3 = new Web3(provider);
         console.log("No web3 instance injected, using Infura/Local web3.");
+        useRelayer(web3);
         resolve(web3);
       }
     });
@@ -47,6 +50,16 @@ const getGanacheWeb3 = () => {
   const web3 = new Web3(provider);
   console.log("No local ganache found.");
   return web3;
+}
+
+const useRelayer = (web3) => {
+  // const tabookey = require('tabookey-gasless');
+  // const RelayProvider = tabookey.RelayProvider
+  // var provider= new RelayProvider(web3.currentProvider, {
+  //   txfee: 12,
+  //   force_gasLimit: 500000
+  // });
+  // web3.setProvider(provider);
 }
 
 export default getWeb3;

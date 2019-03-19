@@ -93,6 +93,7 @@ export default class Instructions extends Component {
   }
 
   renderGaslessCounterSetup() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
     return (
       <div className={styles.instructions}>
         <h2> Build your first app with ZepKit </h2>
@@ -118,17 +119,83 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. In a different terminal, compile and deploy your contracts (run inside your zepkit folder).
+            3. In a different terminal, init your project with ZeppelinOS (run inside your zepkit folder).
           </div>
           <div className={styles.code}>
             <code>
-              truffle compile & npx truffle@4.1.13 migrate
+              zos init zepkit
             </code>
           </div>
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Done! Kill the client, restart (inside zepkit/client), and switch Metamask to localhost
+            4. Add the GaslessCounter contract to your project (Note that a compilation warning will be thrown, you can ignore this).
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos add GaslessCounter
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            5. Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos session --network development --from {addressDefault} --expires 3600
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            6. Let's compile the Gasless Counter contract.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos push --deploy-dependencies
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            7. We create an instance of our contract and deploy it.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos create GaslessCounter --init initialize
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            8. Hook up your Counter to your Relay.
+          </div>
+          <div className={styles.code}>
+            <code>
+              npx truffle@4.1.13 migrate
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            9. Open getWeb3.js from zepkit/utils and uncomment the 'useRelayer' method. (lines 55-63)
+          </div>
+          <div className={styles.code}>
+            <code>
+              const tabookey = require('tabookey-gasless'); <br />
+              const RelayProvider = tabookey.RelayProvider; <br />
+              var provider= new RelayProvider(web3.currentProvider, &#x7b; <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;txfee: 12, <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;force_gasLimit: 500000 <br />
+              &#x7d;); <br />
+              web3.setProvider(provider);<br />
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            10. Done! Kill the client, restart (inside zepkit/client), and switch Metamask to localhost
           </div>
           <div className={styles.code}>
             <code>
@@ -271,41 +338,6 @@ export default class Instructions extends Component {
     );
   }
 
-  renderRelayWeb3Provider() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
-    const code =`
-      web3.eth.sendTransaction({from: '${addressDefault}',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
-    `;
-    return (
-      <div className={styles.instructions}>
-        <h2> Connect to your Relayer </h2>
-        <p> You need to connect to a relayer in order to make gasless transactions. </p>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            1. Open App.js from zepkit/client and uncomment lines 53-60 (lines below)
-          </div>
-          <div className={styles.code}>
-            <code>
-              const tabookey = require('tabookey-gasless'); <br />
-              const RelayProvider = tabookey.RelayProvider; <br />
-              var provider= new RelayProvider(web3.currentProvider, &#x7b; <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;txfee: 12, <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;force_gasLimit: 500000 <br />
-              &#x7d;); <br />
-              web3.setProvider(provider);<br />
-              this.setState(&#x7b; gasless: true &#x7d;);
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            2. Congratulations!! Refresh the page and you can now interact with the contract and increase the counter without Ether!
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   renderUpgrade() {
     return (
       <div className={styles.instructions}>
@@ -349,6 +381,77 @@ export default class Instructions extends Component {
             Reload
           </Button>
         </div>
+      </div>
+    );
+  }
+
+    renderGaslessUpgrade() {
+      return (
+        <div className={styles.instructions}>
+          <h2> Upgrading your contract with access control </h2>
+          <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to our relayer. </p>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              1. Open <span>contracts/GaslessCounter.sol</span> and change line 45
+            </div>
+            from:
+            <div className={styles.code}>
+              <code>
+                {`require(!whiteList[from]);`}
+              </code>
+            </div>
+             to:
+           <div className={styles.code}>
+              <code>
+                {`require(whiteList[from]);`}
+              </code>
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              2. Save the changes and compile and push the new changes to the network.
+            </div>
+            <div className={styles.code}>
+              <code>
+                zos push
+              </code>
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              3. Update the already deployed contract with the new code
+            </div>
+            <div className={styles.code}>
+              <code>
+                zos update GaslessCounter
+              </code>
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              4. Open up the truffle console
+            </div>
+            <div className={styles.code}>
+              <code>
+                truffle console
+              </code>
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              5. In truffle console, add your metamask address to the whitelist. (NOTE: Replace {`<YOUR-METAMASK-ADDRESS>`} with your metamask address)
+            </div>
+            <div className={styles.code}>
+              <code>
+                {`GaslessCounter.deployed().then(function(instance) { return instance.addToWhiteList('<YOUR-METAMASK-ADDRESS>')})`}
+              </code>
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              6. Congratulations! You have upgraded your contract with a whitelist and now only your metamask address can interact with the contract through the relayer.
+            </div>
+          </div>
       </div>
     );
   }
@@ -521,10 +624,10 @@ export default class Instructions extends Component {
         return this.renderSetup();
       case 'metamask':
         return this.renderMetamask();
-      case 'relay-web3-provider':
-        return this.renderRelayWeb3Provider();
       case 'upgrade':
         return this.renderUpgrade();
+      case 'gasless-upgrade':
+        return this.renderGaslessUpgrade();
       case 'counter':
         return this.renderCounterSetup();
       case 'gasless-counter':
