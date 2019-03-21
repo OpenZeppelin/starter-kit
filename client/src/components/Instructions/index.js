@@ -232,7 +232,7 @@ export default class Instructions extends Component {
 
           <div className={styles.step}>
             <div className={styles.instruction}>
-              b. Visit the tutorials. Start with the <a href='/counter'> Counter</a> page to deploy and interact with your first contract.
+              b. Visit the tutorials. Start with the <a href='/counter'> Counter</a> page to deploy and interact with your first contract, or deploy a <a href='/gasless-counter'>Gasless Counter</a>
             </div>
           </div>
         </div>
@@ -389,7 +389,7 @@ export default class Instructions extends Component {
       return (
         <div className={styles.instructions}>
           <h2> Upgrading your contract with access control </h2>
-          <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to our relayer. </p>
+          <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to relayed transactions. </p>
           <div className={styles.step}>
             <div className={styles.instruction}>
               1. Open <span>contracts/GaslessCounter.sol</span> and change line 45
