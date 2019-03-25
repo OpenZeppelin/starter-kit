@@ -179,23 +179,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            9. Open getWeb3.js from zepkit/utils and uncomment the 'useRelayer' method. (lines 55-63)
-          </div>
-          <div className={styles.code}>
-            <code>
-              const tabookey = require('tabookey-gasless'); <br />
-              const RelayProvider = tabookey.RelayProvider; <br />
-              var provider= new RelayProvider(web3.currentProvider, &#x7b; <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;txfee: 12, <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;force_gasLimit: 500000 <br />
-              &#x7d;); <br />
-              web3.setProvider(provider);<br />
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            10. Done! Kill the client, restart (inside zepkit/client), and switch Metamask to localhost
+            9. Done! Kill the client, restart (inside zepkit/client), and switch Metamask to localhost
           </div>
           <div className={styles.code}>
             <code>

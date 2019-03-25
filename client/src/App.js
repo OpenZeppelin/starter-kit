@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getWeb3, { getGanacheWeb3 } from "./utils/getWeb3";
+import getWeb3, { getGanacheWeb3, useRelayer} from "./utils/getWeb3";
 import Header from "./components/Header/index.js";
 import Footer from "./components/Footer/index.js";
 import Hero from "./components/Hero/index.js";
@@ -8,6 +8,7 @@ import CounterUI from "./components/Counter/index.js";
 import GaslessCounterUI from "./components/GaslessCounter/index.js";
 import Wallet from "./components/Wallet/index.js";
 import Instructions from "./components/Instructions/index.js";
+import { Button } from "rimble-ui";
 import { Loader } from 'rimble-ui';
 
 import styles from './App.module.scss';
@@ -209,7 +210,7 @@ class App extends Component {
         </div>
         <Instructions
           ganacheAccounts={this.state.ganacheAccounts}
-          name={instructionsKey} accounts={this.state.accounts} />
+          name={instructionsKey} accounts={this.state.accounts}/>
       </div>
     );
   }
@@ -224,8 +225,11 @@ class App extends Component {
         {this.state.web3 && this.state.gaslessContract && (
           <div className={styles.contracts}>
             <h1>Gasless Counter Contract</h1>
-            <p>Interact with your contract on the right.</p>
-            <p> You can see your account onfo on the left </p>
+            <p>In order to make gasless transactions, press the 'Use Relayer' button below. </p>
+            <p>(to stop using relayer simply refresh the page)</p>
+            <Button onClick={() => useRelayer(this.state.web3)}>
+              Use Relayer
+            </Button>
             <div className={styles.widgets}>
               <Web3Info {...this.state} />
               <GaslessCounterUI
