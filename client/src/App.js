@@ -8,8 +8,7 @@ import CounterUI from "./components/Counter/index.js";
 import GaslessCounterUI from "./components/GaslessCounter/index.js";
 import Wallet from "./components/Wallet/index.js";
 import Instructions from "./components/Instructions/index.js";
-import { Button } from "rimble-ui";
-import { Loader } from 'rimble-ui';
+import { Loader, Button } from 'rimble-ui';
 
 import styles from './App.module.scss';
 

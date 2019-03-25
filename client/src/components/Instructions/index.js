@@ -179,12 +179,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            9. Done! Kill the client, restart (inside zepkit/client), and switch Metamask to localhost
-          </div>
-          <div className={styles.code}>
-            <code>
-              npm run start
-            </code>
+            9. Done! Simply switch Metamask to localhost to continue.
           </div>
         </div>
       </div>
@@ -216,7 +211,7 @@ export default class Instructions extends Component {
 
           <div className={styles.step}>
             <div className={styles.instruction}>
-              b. Visit the tutorials. Start with the <a href='/counter'> Counter</a> page to deploy and interact with your first contract, or deploy a <a href='/gasless-counter'>Gasless Counter</a>
+              b. Visit the tutorials. Start with the <a href='/counter'> Counter</a> page to deploy and interact with your first contract, or deploy a <a href='/gasless-counter'>Gasless Counter</a> which utilizes metatransactions.
             </div>
           </div>
         </div>
