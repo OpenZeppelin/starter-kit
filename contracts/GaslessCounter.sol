@@ -42,7 +42,7 @@ contract GaslessCounter is Initializable, RelayRecipient {
     bytes memory /*encoded_function*/, uint /*gas_price*/, 
     uint /*transaction_fee*/ ) public view returns(uint32) {
       // We'll invert this to control access to the relayer.
-      require(whiteList[from]);
+      require(!whiteList[from]);
       return 0;
   }
 
