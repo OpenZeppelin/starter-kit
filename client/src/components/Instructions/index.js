@@ -109,7 +109,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. In another terminal, run the gas relay docker container with ganache, wait a few seconds for it to sping up (run inside your zepkit folder).
+            2. In another terminal, run the gas relay docker container with ganache, wait a few seconds for it to spin up (run inside your zepkit folder).
           </div>
           <div className={styles.code}>
             <code>
@@ -129,7 +129,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Add the GaslessCounter contract to your project (Note that a compilation warning will be thrown, you can ignore this).
+            4. Add the GaslessCounter contract to your project.
           </div>
           <div className={styles.code}>
             <code>
@@ -149,7 +149,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. Let's compile the Gasless Counter contract.
+            6. Let's deploy the Gasless Counter contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -159,7 +159,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            7. We create an instance of our contract and deploy it.
+            7. We create an instance of our contract.
           </div>
           <div className={styles.code}>
             <code>
