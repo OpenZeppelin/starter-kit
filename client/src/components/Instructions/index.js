@@ -169,17 +169,42 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            8. Hook up your Counter to your Relay.
+            8. Open up truffle console.
           </div>
           <div className={styles.code}>
             <code>
-              npx truffle@4.1.13 migrate
+              truffle console
             </code>
           </div>
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            9. Done! Simply switch Metamask to localhost to continue.
+            9. Deposit Ether into the Relay Hub for your GaslessCounter contract. This is the pool of Ether that will pay for user's transactions.
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`RelayHub.at('0x9C57C0F1965D225951FE1B2618C92Eefd687654F').then(hub => hub.depositFor(GaslessCounter.address, { value:1e18 }));`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            10. Make your Gasless Counter contract aware of the Relay Hub.
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`GaslessCounter.at(GaslessCounter.address).then(counter => counter.init_hub('0x9C57C0F1965D225951FE1B2618C92Eefd687654F'))`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            11. Done! Simply switch Metamask to localhost and restart the client to continue.
+          </div>
+          <div className={styles.code}>
+            <code>
+              npm run start
+            </code>
           </div>
         </div>
       </div>
@@ -418,11 +443,11 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              5. In truffle console, add your metamask address to the whitelist. (NOTE: Replace {`<YOUR-METAMASK-ADDRESS>`} with your metamask address)
+              5. In truffle console, add your metamask address to the whitelist.
             </div>
             <div className={styles.code}>
               <code>
-                {`GaslessCounter.deployed().then(function(instance) { return instance.addToWhiteList('<YOUR-METAMASK-ADDRESS>')})`}
+                {`GaslessCounter.deployed().then(function(instance) { return instance.addToWhiteList('${this.props.accounts[0]}')})`}
               </code>
             </div>
           </div>
