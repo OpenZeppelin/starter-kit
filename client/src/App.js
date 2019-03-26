@@ -187,6 +187,13 @@ class App extends Component {
     this.updateTokenOwner();
   };
 
+  useRelayerBtnPress() {
+    var btn = document.getElementById('useRelayerBtn');
+    btn.disabled = true;
+    btn.innerText = 'Using Relayer';
+    useRelayer(this.state.web3);
+  }
+
   renderLoader() {
     return (
       <div className={styles.loader}>
@@ -226,7 +233,7 @@ class App extends Component {
             <h1>Gasless Counter Contract</h1>
             <p>In order to make gasless transactions, press the 'Use Relayer' button below. </p>
             <p>(to stop using relayer simply refresh the page)</p>
-            <Button onClick={() => useRelayer(this.state.web3)}>
+            <Button id='useRelayerBtn' onClick={() => this.useRelayerBtnPress()}>
               Use Relayer
             </Button>
             <div className={styles.widgets}>

@@ -51,7 +51,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Let's compile the Counter contract.
+            5. Let's deploy the Counter contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -61,7 +61,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. We create an instance of our contract and deploy it.
+            6. We create an instance of our contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -396,7 +396,7 @@ export default class Instructions extends Component {
           <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to relayed transactions. </p>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              1. Open <span>contracts/GaslessCounter.sol</span> and change line 45
+              1. Currently we have a whitelist to restrict access to relayed transactions, but it is not in use. Let's activate the whitelist. Open <span>contracts/GaslessCounter.sol</span> and change line 45
             </div>
             from:
             <div className={styles.code}>
@@ -433,7 +433,12 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              4. Open up the truffle console
+              4. Attempt to increse the counter, you will notice the transactions fails as your address is not on the whitelist. Let's add your address to the whitelist.
+            </div>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.instruction}>
+              5. Open up the truffle console
             </div>
             <div className={styles.code}>
               <code>
@@ -443,7 +448,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              5. In truffle console, add your metamask address to the whitelist.
+              6. In truffle console, add your metamask address to the whitelist.
             </div>
             <div className={styles.code}>
               <code>
@@ -453,7 +458,7 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              6. Congratulations! You have upgraded your contract with a whitelist and now only your metamask address can interact with the contract through the relayer.
+              7. Congratulations! You have upgraded your contract with a whitelist and now only your metamask address can interact with the contract through the relayer.
             </div>
           </div>
       </div>
