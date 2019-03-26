@@ -8,7 +8,7 @@ contract Counter is Initializable {
   uint private count;
   address private _owner;
 
-  function initialize(uint num) initializer public {
+  function initialize(uint num) public initializer {
     _owner = msg.sender;
     count = num;
   }
