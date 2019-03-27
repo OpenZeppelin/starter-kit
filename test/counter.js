@@ -1,6 +1,6 @@
 import chai from 'chai';
 import {createMockProvider, deployContract, getWallets, solidity} from 'ethereum-waffle';
-import Counter from '../build/Counter';
+import Counter from '../build/contracts/Counter';
 
 chai.use(solidity);
 const {expect} = chai;
