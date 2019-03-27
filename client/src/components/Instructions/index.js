@@ -109,7 +109,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Kill any currently running ganaches sessions on port 8545
+            2. Kill any currently running ganache sessions on port 8545
           </div>
           <div className={styles.code}>
             <code>
