@@ -109,7 +109,17 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. In another terminal, run the gas relay docker container with ganache, wait a few seconds for it to spin up (run inside your zepkit folder).
+            2. Kill any currently running ganaches sessions on port 8545
+          </div>
+          <div className={styles.code}>
+            <code>
+              npx kill-port 8545
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. In another terminal, run the gas relay docker container with ganache, wait a few seconds for it to spin up (run inside your zepkit folder).
           </div>
           <div className={styles.code}>
             <code>
@@ -119,7 +129,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. In a different terminal, init your project with ZeppelinOS (run inside your zepkit folder).
+            4. In a different terminal, init your project with ZeppelinOS (run inside your zepkit folder).
           </div>
           <div className={styles.code}>
             <code>
@@ -129,7 +139,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Add the GaslessCounter contract to your project.
+            5. Add the GaslessCounter contract to your project.
           </div>
           <div className={styles.code}>
             <code>
@@ -139,7 +149,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
+            6. Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
           </div>
           <div className={styles.code}>
             <code>
@@ -149,7 +159,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. Let's deploy the Gasless Counter contract.
+            7. Let's deploy the Gasless Counter contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -159,7 +169,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            7. We create an instance of our contract.
+            8. We create an instance of our contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -169,7 +179,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            8. Open up truffle console.
+            9. Open up truffle console.
           </div>
           <div className={styles.code}>
             <code>
@@ -179,7 +189,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            9. Deposit Ether into the Relay Hub for your GaslessCounter contract. This is the pool of Ether that will pay for user's transactions.
+            10. Deposit Ether into the Relay Hub for your GaslessCounter contract. This is the pool of Ether that will pay for user's transactions.
           </div>
           <div className={styles.code}>
             <code>
@@ -189,7 +199,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            10. Make your Gasless Counter contract aware of the Relay Hub.
+            11. Make your Gasless Counter contract aware of the Relay Hub.
           </div>
           <div className={styles.code}>
             <code>
@@ -199,7 +209,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            11. Done! Simply switch Metamask to localhost and restart the client to continue.
+            12. Done! Simply switch Metamask to localhost and restart the client to continue.
           </div>
           <div className={styles.code}>
             <code>
