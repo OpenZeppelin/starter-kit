@@ -405,7 +405,7 @@ export default class Instructions extends Component {
           <h2> Upgrading your contract with access control </h2>
           <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to relayed transactions. </p>
           <h3> What is a relayed transaction? </h3>
-          <p> Tabookey's Relay Hub provides set of relay nodes which can make transactions on your behalf. Rather than transacting directly with your contract, you will be sending a signed message to one of these relay nodes (in our case, a relayer set up by the docker container). The relay node will then make the transaction on your behalf, and will be refunded by the deposit of the contract itself on the Relay Hub.</p>
+          <p> Tabookey's Relay Hub provides a set of relay nodes which can make transactions on your behalf. Rather than transacting directly with your contract, you will be sending a signed message to one of these relay nodes (in our case, a relayer set up by the docker container). The relay node will then make the transaction on your behalf, and will be refunded by the deposit of the contract itself on the Relay Hub.</p>
           <div className={styles.step}>
             <div className={styles.instruction}>
               1. Currently we have a whitelist to restrict access to relayed transactions, but it is not in use. Let's activate the whitelist. Open <span>contracts/GaslessCounter.sol</span> and change line 45
