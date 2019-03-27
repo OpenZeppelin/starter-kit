@@ -20,4 +20,16 @@ describe('counter', () => {
     expect(await counter.getCounter()).to.eq(value);
   });
 
+  it('should have rightful owner', async () => {
+    await counter.initialize(value);
+    expect(await counter.owner()).to.eq(wallet.address);
+  });
+
+  it('should increase counter by right amount', async () => {
+    const add = 234;
+    await counter.initialize(value);
+    await counter.increaseCounter(add);
+    expect(await counter.getCounter()).to.eq(value + add);
+  });
+
 });
