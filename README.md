@@ -7,17 +7,35 @@ required to deploy to different networks.
 
 ## Requirements
 
-Install ZeppelinOS:
+Install ZeppelinOS
 
 ```
 npm install --g zos
 ```
 
-Make sure `ganache-cli` is installed:
+Install ganache-cli
 
 ```
 npm install -g ganache-cli
 ```
+
+Install Truffle:
+
+```
+npm install -g truffle
+```
+
+## Installation
+
+First ensure you are in a new and empty directory.
+
+Run the `unbox` command.
+
+```javascript
+truffle unbox zepkit
+```
+
+## Run
 
 Run your local blockchain unlocking your first account:
 
@@ -25,53 +43,47 @@ Run your local blockchain unlocking your first account:
 ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
 ```
 
-## Installation
+Initialize the zeppelin os project
 
-First ensure you are in a new and empty directory.
+```javascript
+zos init zepkit
+```
 
-1. Run the `unbox` command via `npx` and skip to step 3. This will install all necessary dependencies. A Create-React-App is generated in the `client` directory.
-   ```js
-   npx truffle unbox zepkit
-   ```
+In the `client` directory, we run the React app.
 
-2. Alternatively, you can install Truffle globally and run the `unbox` command.
-    ```javascript
-    npm install -g truffle
-    truffle unbox zepkit
-    ```
+```javascript
+// in another terminal (i.e. not in the truffle develop prompt)
+cd client
+npm run start
+```
 
-3. Initialize the zeppelin os project
-    ```javascript
-    zos init zepkit
-    ```
+## Test
 
-4. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
-    ```javascript
-    // in another terminal (i.e. not in the truffle develop prompt)
-    cd client
-    npm run start
-    ```
+Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the development console.
 
-6. Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the development console.
-    ```javascript
-    // inside the development console.
-    test
+```javascript
+// inside the development console.
+test
 
-    // outside the development console..
-    truffle test
-    ```
+// outside the development console..
+truffle test
+```
 
-7. Jest is included for testing React components. Compile your contracts before running Jest, or you may receive some file not found errors.
-    ```javascript
-    // ensure you are inside the client directory when running this
-    npm run test
-    ```
+Jest is included for testing React components. Compile your contracts before running Jest, or you may receive some file not found errors.
 
-8. To build the application for production, use the build script. A production build will be in the `client/build` folder.
-    ```javascript
-    // ensure you are inside the client directory when running this
-    npm run build
-    ```
+```javascript
+// ensure you are inside the client directory when running this
+npm run test
+```
+
+## Build
+
+To build the application for production, use the build script. A production build will be in the `client/build` folder.
+
+```javascript
+// ensure you are inside the client directory when running this
+npm run build
+```
 
 ## FAQ
 
