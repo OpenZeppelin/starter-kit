@@ -10,6 +10,8 @@ import Wallet from "./components/Wallet/index.js";
 import Instructions from "./components/Instructions/index.js";
 import { Loader, Button } from 'rimble-ui';
 
+import { zeppelinSolidityHotLoaderOptions } from '../config/webpack';
+
 import styles from './App.module.scss';
 
 class App extends Component {
@@ -32,6 +34,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    const hotLoaderDisabled = zeppelinSolidityHotLoaderOptions.disabled;
     let GaslessCounter = {};
     let Counter = {};
     let Wallet = {};
@@ -57,6 +60,7 @@ class App extends Component {
         const accounts = await web3.eth.getAccounts();
         // Get the contract instance.
         const networkId = await web3.eth.net.getId();
+        const networkType = await web3.eth.net.getNetworkType();
         const isMetaMask = web3.currentProvider.isMetaMask;
         let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]): web3.utils.toWei('0');
         balance = web3.utils.fromWei(balance, 'ether');
@@ -94,7 +98,7 @@ class App extends Component {
         if (gaslessInstance || instance || instanceWallet) {
           // Set web3, accounts, and contract to the state, and then proceed with an
           // example of interacting with the contract's methods.
-          this.setState({ web3, ganacheAccounts, accounts, balance, networkId,
+          this.setState({ web3, ganacheAccounts, accounts, balance, networkId, networkType, hotLoaderDisabled,
             isMetaMask, gaslessContract: gaslessInstance, contract: instance, wallet: instanceWallet }, () => {
               this.refreshValues(gaslessInstance, instance, instanceWallet);
               setInterval(() => {
@@ -103,7 +107,7 @@ class App extends Component {
             });
         }
         else {
-          this.setState({ web3, ganacheAccounts, accounts, balance, networkId, isMetaMask });
+          this.setState({ web3, ganacheAccounts, accounts, balance, networkId, networkType, hotLoaderDisabled, isMetaMask });
         }
       }
     } catch (error) {
@@ -261,6 +265,8 @@ class App extends Component {
   }
 
   renderBody() {
+    const { hotLoaderDisabled, networkType, accounts, ganacheAccounts } = this.state;
+    const updgradeCommand = (networkType === 'private' && !hotLoaderDisabled) ? "upgrade-auto" : "upgrade";
     return (
       <div className={styles.wrapper}>
         {!this.state.web3 && this.renderLoader()}
@@ -281,13 +287,15 @@ class App extends Component {
             </div>
             {this.state.balance < 0.1 && (
               <Instructions
-                ganacheAccounts={this.state.ganacheAccounts}
-                name="metamask" accounts={this.state.accounts} />
+                ganacheAccounts={ganacheAccounts}
+                name="metamask"
+                accounts={accounts} />
             )}
             {this.state.balance >= 0.1 && (
               <Instructions
                 ganacheAccounts={this.state.ganacheAccounts}
-                name="upgrade" accounts={this.state.accounts} />
+                name={updgradeCommand}
+                accounts={accounts} />
             )}
           </div>
         )}

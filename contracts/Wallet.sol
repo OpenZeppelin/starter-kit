@@ -6,6 +6,6 @@ import "zos-lib/contracts/Initializable.sol";
 
 contract Wallet is Ownable {
   function transferERC20(IERC20 token, address to, uint256 amount) public onlyOwner returns (bool) {
-    require(token.transfer(to, amount));
+    require(token.transfer(to, amount), "Token transfer failed.");
   }
 }

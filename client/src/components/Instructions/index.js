@@ -399,87 +399,118 @@ export default class Instructions extends Component {
     );
   }
 
-    renderGaslessUpgrade() {
-      return (
-        <div className={styles.instructions}>
-          <h2> Upgrading your contract with access control </h2>
-          <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to relayed transactions. </p>
-          <h3> What is a relayed transaction? </h3>
-          <p> Tabookey's Relay Hub provides a set of relay nodes which can make transactions on your behalf. Rather than transacting directly with your contract, you will be sending a signed message to one of these relay nodes (in our case, a relayer set up by the docker container). The relay node will then make the transaction on your behalf, and will be refunded by the deposit of the contract itself on the Relay Hub.</p>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              1. Currently we have a whitelist to restrict access to relayed transactions, but it is not in use. Let's activate the whitelist. Open <span>contracts/GaslessCounter.sol</span> and change line 45
-            </div>
-            from:
-            <div className={styles.code}>
-              <code>
-                {`require(!whiteList[from]);`}
-              </code>
-            </div>
-             to:
-           <div className={styles.code}>
-              <code>
-                {`require(whiteList[from]);`}
-              </code>
-            </div>
+  renderGaslessUpgrade() {
+    return (
+      <div className={styles.instructions}>
+        <h2> Upgrading your contract with access control </h2>
+        <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. With this functionality we can restrict access to relayed transactions. </p>
+        <h3> What is a relayed transaction? </h3>
+        <p> Tabookey's Relay Hub provides a set of relay nodes which can make transactions on your behalf. Rather than transacting directly with your contract, you will be sending a signed message to one of these relay nodes (in our case, a relayer set up by the docker container). The relay node will then make the transaction on your behalf, and will be refunded by the deposit of the contract itself on the Relay Hub.</p>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Currently we have a whitelist to restrict access to relayed transactions, but it is not in use. Let's activate the whitelist. Open <span>contracts/GaslessCounter.sol</span> and change line 45
           </div>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              2. Save the changes and compile and push the new changes to the network.
-            </div>
-            <div className={styles.code}>
-              <code>
-                zos push
-              </code>
-            </div>
+          from:
+          <div className={styles.code}>
+            <code>
+              {`require(!whiteList[from]);`}
+            </code>
           </div>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              3. Update the already deployed contract with the new code
-            </div>
-            <div className={styles.code}>
-              <code>
-                zos update GaslessCounter
-              </code>
-            </div>
+           to:
+         <div className={styles.code}>
+            <code>
+              {`require(whiteList[from]);`}
+            </code>
           </div>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              4. Attempt to increse the counter, you will notice the transactions fails with the below message as your address is not on the whitelist. Let's add your address to the whitelist.
-            </div>
-            <div className={styles.code}>
-              <code>
-                Error: No relay responded! 1 attempted, 1 pinged
-              </code>
-            </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Save the changes and compile and push the new changes to the network.
           </div>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              5. Open up the truffle console
-            </div>
-            <div className={styles.code}>
-              <code>
-                truffle console
-              </code>
-            </div>
+          <div className={styles.code}>
+            <code>
+              zos push
+            </code>
           </div>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              6. In truffle console, add your metamask address to the whitelist.
-            </div>
-            <div className={styles.code}>
-              <code>
-                {`GaslessCounter.deployed().then(function(instance) { return instance.addToWhiteList('${this.props.accounts[0]}')})`}
-              </code>
-            </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. Update the already deployed contract with the new code
           </div>
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              7. Congratulations! You have upgraded your contract with a whitelist and now only your metamask address can interact with the contract through the relayer.
-            </div>
+          <div className={styles.code}>
+            <code>
+              zos update GaslessCounter
+            </code>
           </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Attempt to increse the counter, you will notice the transactions fails with the below message as your address is not on the whitelist. Let's add your address to the whitelist.
+          </div>
+          <div className={styles.code}>
+            <code>
+              Error: No relay responded! 1 attempted, 1 pinged
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            5. Open up the truffle console
+          </div>
+          <div className={styles.code}>
+            <code>
+              truffle console
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            6. In truffle console, add your metamask address to the whitelist.
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`GaslessCounter.deployed().then(function(instance) { return instance.addToWhiteList('${this.props.accounts[0]}')})`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            7. Congratulations! You have upgraded your contract with a whitelist and now only your metamask address can interact with the contract through the relayer.
+          </div>
+        </div>
       </div>
     );
+  }
+
+  renderAutoUpgrade() {
+    return (
+      <div className={styles.instructions}>
+        <h2> Upgrading on Development Network </h2>
+        <p> Thanks to ZeppelinOS and Solidity Hot Loader your smart contracts would reload automatically after you save a .sol file while preserving a state. </p>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            1. Open <span>contracts/Counter.sol</span> and uncomment the decreaseCounter method (lines 32-36).
+          </div>
+          <div className={styles.code}>
+            <code>
+              {`// function decreaseCounter(uint256 amount) public returns (bool) {`}
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Save the changes and wait for the .sol files to compile. Upon completion, ZOS will push and update your smart contracts
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. Congratulations! You have upgraded your contract and you can now decrease the counter.
+          </div>
+        </div>
+        <div className={styles.separator} />
+        <p> * On a non development network you would have to run <strong>zos push</strong> and <strong>zos update</strong> commands manually. </p>
+      </div>
+      );
   }
 
   renderFAQ() {
@@ -654,6 +685,8 @@ export default class Instructions extends Component {
         return this.renderUpgrade();
       case 'gasless-upgrade':
         return this.renderGaslessUpgrade();
+      case 'upgrade-auto':
+        return this.renderAutoUpgrade();
       case 'counter':
         return this.renderCounterSetup();
       case 'gasless-counter':
