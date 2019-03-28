@@ -171,13 +171,21 @@ class App extends Component {
 
   increaseGaslessCount = async (number) => {
     const { accounts, gaslessContract } = this.state;
-    await gaslessContract.methods.increaseCounter(number).send({ from: accounts[0] });
+    try {
+      await gaslessContract.methods.increaseCounter(number).send({ from: accounts[0] });
+    } catch (err) {
+      window.alert(err);
+    }
     this.getGaslessCount();
   };
 
   decreaseGaslessCount = async (number) => {
     const { accounts, gaslessContract } = this.state;
-    await gaslessContract.methods.decreaseCounter(number).send({ from: accounts[0] });
+    try {
+      await gaslessContract.methods.decreaseCounter(number).send({ from: accounts[0] });
+    } catch(err) {
+      window.alert(err);
+    }
     this.getGaslessCount();
   };
 

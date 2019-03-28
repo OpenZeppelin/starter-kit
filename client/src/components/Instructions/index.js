@@ -445,7 +445,12 @@ export default class Instructions extends Component {
           </div>
           <div className={styles.step}>
             <div className={styles.instruction}>
-              4. Attempt to increse the counter, you will notice the transactions fails as your address is not on the whitelist. Let's add your address to the whitelist.
+              4. Attempt to increse the counter, you will notice the transactions fails with the below message as your address is not on the whitelist. Let's add your address to the whitelist.
+            </div>
+            <div className={styles.code}>
+              <code>
+                Error: No relay responded! 1 attempted, 1 pinged
+              </code>
             </div>
           </div>
           <div className={styles.step}>
