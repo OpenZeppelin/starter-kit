@@ -11,27 +11,7 @@ export default class Instructions extends Component {
         <h2> Build your first app with ZepKit </h2>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. In another terminal, start your local blockchain with ganache in a new terminal.
-          </div>
-          <div className={styles.code}>
-            <code>
-              ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            2. In a different terminal, init your project with ZeppelinOS (run inside your zepkit folder).
-          </div>
-          <div className={styles.code}>
-            <code>
-              zos init zepkit
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            3. Add the Counter contract to your project.
+            Add the Counter contract to your project.
           </div>
           <div className={styles.code}>
             <code>
@@ -41,7 +21,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
+            Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
           </div>
           <div className={styles.code}>
             <code>
@@ -51,7 +31,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Let's compile the Counter contract.
+            Let's compile the Counter contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -61,7 +41,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. We create an instance of our contract and deploy it.
+            We create an instance of our contract and deploy it.
           </div>
           <div className={styles.code}>
             <code>
@@ -71,7 +51,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            7. Add a log to verify that the contract is available. Before line 77 in App.js, add:
+            Add a log to verify that the contract is available. Before line 77 in App.js, add:
           </div>
           <div className={styles.code}>
             <code>
@@ -82,7 +62,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            8. Done! Refresh the page to interact with your instance of the counter contract.
+            Done! Refresh the page to interact with your instance of the counter contract.
           </div>
           <Button onClick={() => window.location.reload()}>
             Reload
@@ -128,7 +108,7 @@ export default class Instructions extends Component {
         <h1> Installation </h1>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Install truffle and ganache-cli for local development.
+            Install Truffle and Ganache-cli for local development.
           </div>
           <div className={styles.code}>
             <code>
@@ -138,7 +118,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Install ZeppelinOS.
+            Install ZeppelinOS.
           </div>
           <div className={styles.code}>
             <code>
@@ -148,7 +128,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            3. Create a folder for your app and enter inside.
+            Create a folder for your app and enter inside.
           </div>
           <div className={styles.code}>
             <code>
@@ -158,7 +138,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Unbox the ZepKit.
+            Unbox the ZepKit.
           </div>
           <div className={styles.code}>
             <code>
@@ -168,7 +148,27 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Switch to the client folder and run the web application to continue.
+          Run your local blockchain.
+          </div>
+          <div className={styles.code}>
+            <code>
+              ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+          Initialize the ZeppelinOS project.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos init zepkit
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            Switch to the client folder and run the web application to continue.
           </div>
           <div className={styles.code}>
             <code>
@@ -178,7 +178,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. The ZepKit should be running locally! Continue the instructions on your localhost.
+            The ZepKit should be running locally! Continue the instructions on your localhost.
           </div>
         </div>
       </div>
