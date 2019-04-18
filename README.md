@@ -1,4 +1,4 @@
-# zepkit
+# ZepKit
 A truffle box containing React, ZeppelinOS, OpenZeppelin, Truffle and Infura.
 
 This box comes with everything you need to start using upgradeable Smart
@@ -32,7 +32,7 @@ First ensure you are in a new and empty directory.
 Run the `unbox` command.
 
 ```javascript
-truffle unbox zepkit
+truffle unbox zeppelinos/zepkit
 ```
 
 ## Run
