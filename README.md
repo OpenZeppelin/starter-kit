@@ -7,22 +7,10 @@ required to deploy to different networks.
 
 ## Requirements
 
-Install ZeppelinOS
+Install ZeppelinOS, Ganache, and Truffle
 
 ```
-npm install --g zos
-```
-
-Install ganache-cli
-
-```
-npm install -g ganache-cli
-```
-
-Install Truffle:
-
-```
-npm install -g truffle
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.2.0
 ```
 
 ## Installation
