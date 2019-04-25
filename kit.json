@@ -1,0 +1,16 @@
+{
+  "manifestVersion": "0.1.0",
+  "message": "\nRun your local blockchain:\n> ganache-cli --secure -u 0 -u 1 -u 2 --deterministic\nInitialize the ZeppelinOS project:\n> zos init zepkit\nIn the client directory, run the React app:\n> cd client\n> npm run start\nYour app is running now!\nMore at https://github.com/zeppelinos/zepkit",
+  "files": [".gitignore",
+    "LICENSE",
+    "client",
+    "contracts",
+    "migrations",
+    "package.json",
+    "solhint.json",
+    "test",
+    "truffle-config.js"],
+  "hooks": {
+    "post-unpack": "npm install && cd client && npm install"
+  }
+}

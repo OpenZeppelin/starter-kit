@@ -10,11 +10,12 @@
 
 code {
   background: #fefefe;
-  box-shadow: 0 0px 2px 0px #ccc;
-  padding: 8px 16px;
+  box-shadow: 0 1px 1px 2px #ccc;
+  padding: 10px;
   font-size: 14px;
   width: 100%;
-  font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New, monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .wrapper {
@@ -38,7 +39,6 @@ code {
     p {
       padding: 10px;
       background: #ededed;
-      box-shadow: 0 1px 1px 2px #ccc;
       border: 1px solid #ddd;
       color: #444;
     }

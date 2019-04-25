@@ -1,7 +1,7 @@
 # ZepKit
-A truffle box containing React, ZeppelinOS, OpenZeppelin, Truffle and Infura.
+A ZeppelinOS kit containing React, ZeppelinOS, OpenZeppelin, Truffle and Infura.
 
-This box comes with everything you need to start using upgradeable Smart
+This kit comes with everything you need to start using upgradeable Smart
 contracts inside your applications. It also includes all the configuration
 required to deploy to different networks.
 
@@ -10,17 +10,17 @@ required to deploy to different networks.
 Install ZeppelinOS, Ganache, and Truffle
 
 ```
-npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.2.0
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.3.0
 ```
 
 ## Installation
 
 First ensure you are in a new and empty directory.
 
-Run the `unbox` command.
+Run the `unpack` command.
 
 ```javascript
-truffle unbox zeppelinos/zepkit
+zos unpack zepkit
 ```
 
 ## Run
@@ -31,7 +31,7 @@ Run your local blockchain unlocking your first account:
 ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
 ```
 
-Initialize the zeppelin os project
+Initialize the ZeppelinOS project
 
 ```javascript
 zos init zepkit
@@ -85,4 +85,16 @@ npm run build
 
 * __Where can I find more documentation?__
 
-    This box is a marriage of [Truffle](http://truffleframework.com/) and a React setup created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start!
+    This box is a marriage of [ZeppelinOS](https://zeppelinos.org//) and a React setup created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start!
+
+## Quick Command Reference
+
+* Add a contract: `zos add <contract_name>`
+* Create a session: `zos session --network <network_name> --from <default_address> --expires 36000`
+* Compile all contract and deploy them: `zos push --deploy-dependencies`
+* Create upgradeable instance of a contract: `zos create <contract_name>`
+* Update an upgradeable contract: `zos update <contract_name>`
+* Test contracts: `truffle test`
+* Test dapp: `cd client && npm test`
+* Run dev server: `cd client && npm run start`
+* Build for production: `cd client && npm run build`
