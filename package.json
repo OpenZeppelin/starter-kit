@@ -27,7 +27,6 @@
     "dotenv": "^6.2.0",
     "openzeppelin-eth": "^2.1.3",
     "tabookey-gasless": "^0.3.3-a",
-    "truffle": "5.0.4",
     "truffle-hdwallet-provider": "^1.0.3",
     "zos-lib": "2.2.0"
   }
