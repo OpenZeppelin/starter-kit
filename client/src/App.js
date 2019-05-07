@@ -195,7 +195,7 @@ class App extends Component {
           <div className={styles.contracts}>
             <h1>Counter Contract is good to Go!</h1>
             <p>Interact with your contract on the right.</p>
-            <p> You can see your account onfo on the left </p>
+            <p> You can see your account info on the left </p>
             <div className={styles.widgets}>
               <Web3Info {...this.state} />
               <CounterUI
@@ -253,7 +253,7 @@ class App extends Component {
         <div className={styles.contracts}>
           <h1>Wallet Contract is good to Go!</h1>
           <p>Interact with your contract on the right.</p>
-          <p> You can see your account onfo on the left </p>
+          <p> You can see your account info on the left </p>
           <div className={styles.widgets}>
             <Web3Info {...this.state} />
             <Wallet
