@@ -319,6 +319,36 @@ export default class Instructions extends Component {
             </code>
           </div>
         </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Start a session on the desired network. See <span className={styles.inline}>truffle-config</span> file for available options:
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos session --network NETWORK_NAME --from {addressDefault} --expires 3600
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. Push the project contracts and deploy the dependencies (if any).
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos push --deploy-dependencies
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Create the instances
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos create CONTRACT_NAME --init --args ARGS...
+            </code>
+          </div>
+        </div>
         <div className={styles.question}>
           Q: How do I start from scratch and remove the tutorial?
         </div>
