@@ -5,7 +5,7 @@ import styles from './Instructions.module.scss';
 export default class Instructions extends Component {
 
   renderCounterSetup() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     return (
       <div className={styles.instructions}>
         <h2> Build your first app with ZepKit </h2>
@@ -186,7 +186,7 @@ export default class Instructions extends Component {
   }
 
   renderMetamask() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     const code =`
       web3.eth.sendTransaction({from: '${addressDefault}',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
     `;
@@ -302,7 +302,7 @@ export default class Instructions extends Component {
   }
 
   renderFAQ() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     return (
       <div className={styles.instructions}>
         <h2> FAQ </h2>
@@ -411,7 +411,7 @@ export default class Instructions extends Component {
   }
 
   renderEVM() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     return (
       <div className={styles.instructions}>
         <h2> Using EVM Packages </h2>
@@ -491,6 +491,11 @@ export default class Instructions extends Component {
         </div>
       </div>
     );
+  }
+
+  getDefaultAddress() {
+    const { ganacheAccounts } = this.props;
+    return (ganacheAccounts && ganacheAccounts.length) > 2 ? ganacheAccounts[2] : '<ADDRESS>';
   }
 
   render()  {
