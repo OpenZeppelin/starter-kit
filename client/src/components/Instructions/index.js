@@ -302,6 +302,7 @@ export default class Instructions extends Component {
   }
 
   renderFAQ() {
+    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
     return (
       <div className={styles.instructions}>
         <h2> FAQ </h2>
