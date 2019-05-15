@@ -108,21 +108,11 @@ export default class Instructions extends Component {
         <h1> Installation </h1>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            Install Truffle and Ganache-cli for local development.
+            Install ZeppelinOS, Ganache, and Truffle.
           </div>
           <div className={styles.code}>
             <code>
-              npm install -g truffle@5.0.2 && npm install -g ganache-cli@6.3.0
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            Install ZeppelinOS.
-          </div>
-          <div className={styles.code}>
-            <code>
-              npm install --g zos@2.2.0
+              npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.2.0
             </code>
           </div>
         </div>
