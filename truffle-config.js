@@ -8,7 +8,6 @@ const INFURA_ID = 'd6760e62b67f4937ba1ea2691046f06d';
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
-  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
   networks: {
     development: {
       host: "127.0.0.1",

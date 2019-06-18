@@ -5,33 +5,13 @@ import styles from './Instructions.module.scss';
 export default class Instructions extends Component {
 
   renderCounterSetup() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     return (
       <div className={styles.instructions}>
         <h2> Build your first app with ZepKit </h2>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. In another terminal, start your local blockchain with ganache in a new terminal.
-          </div>
-          <div className={styles.code}>
-            <code>
-              ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            2. In a different terminal, init your project with ZeppelinOS (run inside your zepkit folder).
-          </div>
-          <div className={styles.code}>
-            <code>
-              zos init zepkit
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            3. Add the Counter contract to your project.
+            Add the Counter contract to your project.
           </div>
           <div className={styles.code}>
             <code>
@@ -41,7 +21,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
+            Connect with your local blockchain by opening a session (Note that we automatically prefilled your ganache account).
           </div>
           <div className={styles.code}>
             <code>
@@ -51,7 +31,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Let's deploy the Counter contract.
+            Let's compile the Counter contract.
           </div>
           <div className={styles.code}>
             <code>
@@ -61,7 +41,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. We create an instance of our contract.
+            We create an instance of our contract and deploy it.
           </div>
           <div className={styles.code}>
             <code>
@@ -71,7 +51,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            7. Add a log to verify that the contract is available. Before line 77 in App.js, add:
+            Add a log to verify that the contract is available. Before line 77 in App.js, add:
           </div>
           <div className={styles.code}>
             <code>
@@ -82,7 +62,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            8. Done! Refresh the page to interact with your instance of the counter contract.
+            Done! Refresh the page to interact with your instance of the counter contract.
           </div>
           <Button onClick={() => window.location.reload()}>
             Reload
@@ -257,27 +237,17 @@ export default class Instructions extends Component {
         <h1> Installation </h1>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            1. Install truffle and ganache-cli for local development.
+            Install ZeppelinOS, Ganache, and Truffle.
           </div>
           <div className={styles.code}>
             <code>
-              npm install -g truffle@5.0.2 && npm install -g ganache-cli@6.3.0
+              npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.2.0
             </code>
           </div>
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Install ZeppelinOS.
-          </div>
-          <div className={styles.code}>
-            <code>
-              npm install --g zos@2.2.0
-            </code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>
-            3. Create a folder for your app and enter inside.
+            Create a folder for your app and enter inside.
           </div>
           <div className={styles.code}>
             <code>
@@ -287,7 +257,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            4. Unbox the ZepKit.
+            Unbox the ZepKit.
           </div>
           <div className={styles.code}>
             <code>
@@ -297,7 +267,27 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            5. Switch to the client folder and run the web application to continue.
+          Run your local blockchain.
+          </div>
+          <div className={styles.code}>
+            <code>
+              ganache-cli --secure -u 0 -u 1 -u 2 --deterministic
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+          Initialize the ZeppelinOS project.
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos init zepkit
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            Switch to the client folder and run the web application to continue.
           </div>
           <div className={styles.code}>
             <code>
@@ -307,7 +297,7 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            6. The ZepKit should be running locally! Continue the instructions on your localhost.
+            The ZepKit should be running locally! Continue the instructions on your localhost.
           </div>
         </div>
       </div>
@@ -315,7 +305,7 @@ export default class Instructions extends Component {
   }
 
   renderMetamask() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     const code =`
       web3.eth.sendTransaction({from: '${addressDefault}',to:'${this.props.accounts[0]}', value: web3.utils.toWei("0.5", "ether")})
     `;
@@ -514,6 +504,7 @@ export default class Instructions extends Component {
   }
 
   renderFAQ() {
+    const addressDefault = this.getDefaultAddress();
     return (
       <div className={styles.instructions}>
         <h2> FAQ </h2>
@@ -528,6 +519,36 @@ export default class Instructions extends Component {
           <div className={styles.code}>
             <code>
               mnemonic='fill'
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            2. Start a session on the desired network. See <span className={styles.inline}>truffle-config</span> file for available options:
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos session --network NETWORK_NAME --from {addressDefault} --expires 3600
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            3. Push the project contracts and deploy the dependencies (if any).
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos push --deploy-dependencies
+            </code>
+          </div>
+        </div>
+        <div className={styles.step}>
+          <div className={styles.instruction}>
+            4. Create the instances
+          </div>
+          <div className={styles.code}>
+            <code>
+              zos create CONTRACT_NAME --init --args ARGS...
             </code>
           </div>
         </div>
@@ -592,7 +613,7 @@ export default class Instructions extends Component {
   }
 
   renderEVM() {
-    const addressDefault = this.props.ganacheAccounts.length > 2 ? this.props.ganacheAccounts[2] : '<ADDRESS>';
+    const addressDefault = this.getDefaultAddress();
     return (
       <div className={styles.instructions}>
         <h2> Using EVM Packages </h2>
@@ -672,6 +693,11 @@ export default class Instructions extends Component {
         </div>
       </div>
     );
+  }
+
+  getDefaultAddress() {
+    const { ganacheAccounts } = this.props;
+    return (ganacheAccounts && ganacheAccounts.length) > 2 ? ganacheAccounts[2] : '<ADDRESS>';
   }
 
   render()  {
