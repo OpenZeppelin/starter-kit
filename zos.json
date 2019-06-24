@@ -1,0 +1,13 @@
+{
+  "zosversion": "2.2",
+  "contracts": {},
+  "dependencies": {},
+  "name": "zepkit",
+  "version": "0.1.1",
+  "compiler": {
+    "manager": "truffle",
+    "compilerSettings": {
+      "optimizer": {}
+    }
+  }
+}
