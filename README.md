@@ -10,7 +10,7 @@ required to deploy to different networks.
 Install ZeppelinOS, Ganache, and Truffle
 
 ```
-npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.4.0
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos
 ```
 
 ## Installation
@@ -46,7 +46,7 @@ and follow the prompts:
 zos init zepkit
 ```
 
-In the `client` directory, we run the React app. Do this in a new terminal window. 
+In the `client` directory, run the React app. Do this in a new terminal window. 
 
 ```javascript
 cd client
@@ -59,19 +59,19 @@ You can interact directly with your smart contracts from the `zos` cli.
 
    `zos transfer`                                        	
    
-   send funds to a given address
+   send funds to a given address.
 
    `zos balance [address]`                               	
    
-   query the balance of the specified account
+   query the ETH balance of the specified account, also supports ERC20s.
 
    `zos send-tx`                                         	
    
-   send a transaction to the specified contract instance. Provide the [address], method to call and its arguments if needed
+   sends a transaction to your contract and returns the events.
 
    `zos call`                                           	
    
-   call a method of the specified contract instance. Provide the [address], method to call and its arguments if needed
+   execute a constant method and receive back the value.
 
 
 Type `zos` to see a complete list of availible commands.
