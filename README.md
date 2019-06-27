@@ -17,7 +17,7 @@ npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos
 
 First ensure you are in a new and empty directory.
 
-Run the `unpack` command with `zepkit` to create a clean project. 
+Run the `unpack` command with `zepkit` to create a starter project. 
 
 ```javascript
 zos unpack zepkit
