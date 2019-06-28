@@ -60,8 +60,9 @@ typings/
 # next.js build output
 .next
 
-# zos sessions
+# zos files
 zos.dev-*
+zos.json
 
 # contracts build
 build
