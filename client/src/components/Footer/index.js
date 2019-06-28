@@ -13,14 +13,10 @@ const Footer = () => (
       <div className={styles.created}>
         Created by
         <a href="https://zeppelin.solutions/" rel="noopener noreferrer" target="_blank">
-          <img
-            style={{width: '80px', height: 'auto', 'marginLeft': '10px'}}
-            src={zeppelin} alt="Zeppelin" />
+          <img style={{ width: '80px', height: 'auto', marginLeft: '10px' }} src={zeppelin} alt="Zeppelin" />
         </a>
       </div>
-      <div className={styles.copyright}>
-        Copyright © 2019 zOS Global Limited
-      </div>
+      <div className={styles.copyright}>Copyright © 2019 zOS Global Limited</div>
     </div>
     <div className={styles.links}>
       <a href="mailto:ramon@zeppelin.solutions" target="_blank" rel="noopener noreferrer">
@@ -37,6 +33,6 @@ const Footer = () => (
       </a>
     </div>
   </footer>
-)
+);
 
 export default Footer;

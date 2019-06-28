@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: flex-start;
   background: $white;
-  border-top: 1px solid #D8D8D8;
+  border-top: 1px solid #d8d8d8;
   padding: 25px 100px;
 
   .brand {
@@ -47,7 +47,7 @@
       font-size: 14px;
       margin-top: 10px;
       text-align: left;
-      color: rgba(0,0,0, 0.6);
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 
@@ -66,7 +66,6 @@
 }
 
 @media only screen and (max-width: $screen-sm-max) {
-
   .footer {
     padding: 80px 40px;
 
