@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 // .env-file should contain your Infura-Project-ID and your mnemonic
+// Create your own key for Production environments (https://infura.io/)
 // INFURA_API_KEY="xxxxxxxxxxxxxxxxxxxx"
 // MNENOMIC="Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod"
 
