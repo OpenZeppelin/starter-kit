@@ -14,8 +14,7 @@ code {
   padding: 10px;
   font-size: 14px;
   width: 100%;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .wrapper {
@@ -26,7 +25,8 @@ code {
   align-items: center;
 }
 
-.setup, .contracts {
+.setup,
+.contracts {
   width: 100%;
   padding: 40px 0;
   display: flex;

@@ -19,10 +19,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "precommit": "pretty-quick --staged"
   },
   "browserslist": [
     ">0.2%",
@@ -31,6 +29,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
     "zeppelin-solidity-hot-loader": "^1.2.3"
   }
 }

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import getWeb3, { getGanacheWeb3 } from "./utils/getWeb3";
-import Web3Info from "./components/Web3Info/index.js";
+import React, { Component } from 'react';
+import getWeb3, { getGanacheWeb3 } from './utils/getWeb3';
+import Web3Info from './components/Web3Info/index.js';
 import { Loader } from 'rimble-ui';
 
 import styles from './App.module.scss';
@@ -11,7 +11,7 @@ class App extends Component {
     web3: null,
     accounts: null,
     contract: null,
-    route: window.location.pathname.replace("/","")
+    route: window.location.pathname.replace('/', ''),
   };
 
   getGanacheAddresses = async () => {
@@ -22,7 +22,7 @@ class App extends Component {
       return await this.ganacheProvider.eth.getAccounts();
     }
     return [];
-  }
+  };
 
   componentDidMount = async () => {
     try {
@@ -36,15 +36,13 @@ class App extends Component {
         // Get the contract instance.
         const networkId = await web3.eth.net.getId();
         const isMetaMask = web3.currentProvider.isMetaMask;
-        let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]): web3.utils.toWei('0');
+        let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]) : web3.utils.toWei('0');
         balance = web3.utils.fromWei(balance, 'ether');
         this.setState({ web3, ganacheAccounts, accounts, balance, networkId, isMetaMask });
       }
     } catch (error) {
       // Catch any errors for any of the above operations.
-      alert(
-        `Failed to load web3, accounts, or contract. Check console for details.`,
-      );
+      alert(`Failed to load web3, accounts, or contract. Check console for details.`);
       console.error(error);
     }
   };

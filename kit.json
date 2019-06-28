@@ -1,7 +1,8 @@
 {
   "manifestVersion": "0.1.0",
-  "message": "\nQuick Start\nRun your local blockchain:\n> ganache-cli --secure -u 0 -u 1 -u 2 --deterministic\nInitialize the ZeppelinOS project:\n> zos init zepkit\nGo to the client directory:\n> cd client\nRun the React app:\n> npm run start\nContinue in your browser!\nMore at https://github.com/zeppelinos/zepkit/tree/stable",
-  "files": [".gitignore",
+  "message": "\nQuick Start\nRun your local blockchain:\n> ganache-cli --deterministic\nInitialize the ZeppelinOS project:\n> zos init zepkit\nGo to the client directory:\n> cd client\nRun the React app:\n> npm run start\nContinue in your browser!\nMore at https://github.com/zeppelinos/zepkit/tree/stable",
+  "files": [
+    ".gitignore",
     "LICENSE",
     "client",
     "contracts",
@@ -9,7 +10,8 @@
     "package.json",
     "solhint.json",
     "test",
-    "truffle-config.js"],
+    "truffle-config.js"
+  ],
   "hooks": {
     "post-unpack": "npm install && cd client && npm install"
   }
