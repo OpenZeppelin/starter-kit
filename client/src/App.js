@@ -73,6 +73,7 @@ class App extends Component {
             );
           }
         }
+        console.log(instance);
         if (Wallet.networks) {
           deployedNetwork = Wallet.networks[networkId.toString()];
           if (deployedNetwork) {
