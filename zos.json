@@ -1,0 +1,15 @@
+{
+  "zosversion": "2.2",
+  "contracts": {
+    "Counter": "Counter"
+  },
+  "dependencies": {},
+  "name": "kit",
+  "version": "1.0.0",
+  "compiler": {
+    "manager": "truffle",
+    "compilerSettings": {
+      "optimizer": {}
+    }
+  }
+}
