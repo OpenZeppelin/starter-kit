@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getWeb3, { getGanacheWeb3 } from './utils/getWeb3';
+import { fromInjected, fromConnection } from 'openzeppelin-network';
 import Web3Info from './components/Web3Info/index.js';
 import { Loader } from 'rimble-ui';
 
@@ -14,64 +14,78 @@ class App extends Component {
     route: window.location.pathname.replace('/', ''),
   };
 
-  getGanacheAddresses = async () => {
-    if (!this.ganacheProvider) {
-      this.ganacheProvider = getGanacheWeb3();
-    }
-    if (this.ganacheProvider) {
-      return await this.ganacheProvider.eth.getAccounts();
-    }
-    return [];
-  };
+  // getGanacheAddresses = async () => {
+  //   if (!this.ganacheWeb3Context) {
+  //     this.ganacheWeb3Context = fromConnection('http://0.0.0.0:8545');
+  //   }
+  //   if (this.ganacheWeb3Context) {
+  //     return await this.ganacheWeb3Context.lib.eth.getAccounts();
+  //   }
+  //   return [];
+  // };
+
+  // if (context) {
+  //   try {
+  //     await context.requestAuth();
+  //     resolve(context);
+  //   } catch (err) {
+  //     console.log('User rejected provider access');
+  //   }
+  // } else reject(new Error('Web3 provider is not injected.'));
+
+  // const getGanacheWeb3 = () => {
+  //   const isProd = process.env.NODE_ENV === 'production';
+  //   if (isProd) {
+  //     return null;
+  //   }
+  //   const context = fromConnection('http://0.0.0.0:8545');
+  //   return context;
+  // };
 
   componentDidMount = async () => {
     try {
       const isProd = process.env.NODE_ENV === 'production';
       if (!isProd) {
         // Get network provider and web3 instance.
-        const web3 = await getWeb3();
-        const ganacheAccounts = await this.getGanacheAddresses();
-        // Use web3 to get the user's accounts.
-        const accounts = await web3.eth.getAccounts();
-        // Get the contract instance.
-        const networkId = await web3.eth.net.getId();
-        const isMetaMask = web3.currentProvider.isMetaMask;
-        let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]) : web3.utils.toWei('0');
-        balance = web3.utils.fromWei(balance, 'ether');
-        this.setState({ web3, ganacheAccounts, accounts, balance, networkId, isMetaMask });
+        const web3Context = fromInjected();
+        if (web3Context) {
+          // Use web3 to get the user's accounts.
+          const accounts = await web3Context.lib.eth.getAccounts();
+          // Get the contract instance.
+          const networkId = await web3Context.lib.eth.net.getId();
+          console.log(web3Context.lib.currentProvider);
+          const providerName = web3Context.getProviderName();
+          let balance =
+            accounts.length > 0 ? await web3Context.lib.eth.getBalance(accounts[0]) : web3Context.lib.utils.toWei('0');
+          balance = web3Context.lib.utils.fromWei(balance, 'ether');
+          this.setState({ web3Context, accounts, balance, networkId, providerName });
+        }
       }
     } catch (error) {
+      console.log(error);
       // Catch any errors for any of the above operations.
       alert(`Failed to load web3, accounts, or contract. Check console for details.`);
       console.error(error);
     }
   };
 
-  componentWillUnmount() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  }
-
   renderLoader() {
     return (
       <div className={styles.loader}>
-        <Loader size="80px" color="red" />
-        <h3> Loading Web3, accounts, and contract...</h3>
-        <p> Unlock your metamask </p>
+        <h1> Please install and enable Metamask</h1>
       </div>
     );
   }
 
   render() {
-    if (!this.state.web3) {
+    if (!this.state.web3Context) {
       return this.renderLoader();
     }
     return (
       <div className={styles.App}>
-        <h1>Good to Go!</h1>
-        <p>Zepkit has created your app.</p>
-        <h2>See your web3 info below:</h2>
+        <br />
+        <h1>BUIDL with Starter kit</h1>
+        <h2>Injected Web3 Context:</h2>
         <Web3Info {...this.state} />
       </div>
     );
