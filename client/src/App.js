@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fromInjected, fromConnection } from 'openzeppelin-network';
+import { Web3Context, fromInjected, fromConnection } from 'openzeppelin-network';
 import Web3Info from './components/Web3Info/index.js';
 import { Loader } from 'rimble-ui';
 
@@ -53,11 +53,14 @@ class App extends Component {
           const accounts = await web3Context.lib.eth.getAccounts();
           // Get the contract instance.
           const networkId = await web3Context.lib.eth.net.getId();
-          console.log(web3Context.lib.currentProvider);
           const providerName = web3Context.getProviderName();
           let balance =
             accounts.length > 0 ? await web3Context.lib.eth.getBalance(accounts[0]) : web3Context.lib.utils.toWei('0');
           balance = web3Context.lib.utils.fromWei(balance, 'ether');
+          web3Context.on(Web3Context.NetworkIdChangedEventName, (networkId, networkName) => {
+            console.log(networkId, networkName);
+          });
+          console.log(web3Context);
           this.setState({ web3Context, accounts, balance, networkId, providerName });
         }
       }
