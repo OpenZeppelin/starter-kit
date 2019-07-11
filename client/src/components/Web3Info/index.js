@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PublicAddress, Blockie } from 'rimble-ui';
+import { PublicAddress } from 'rimble-ui';
 import styles from './Web3Info.module.scss';
 
 export default class Web3Info extends Component {
@@ -19,7 +19,7 @@ export default class Web3Info extends Component {
   }
 
   render() {
-    const { networkId, accounts, balance, isMetaMask } = this.props;
+    const { networkId, accounts, balance, providerName } = this.props;
     return (
       <div className={styles.web3}>
         <h3> Your Web3 Info </h3>
@@ -32,8 +32,7 @@ export default class Web3Info extends Component {
         <div className={styles.dataPoint}>
           <div className={styles.label}>Your address:</div>
           <div className={styles.value}>
-            <PublicAddress address={accounts[0]} />
-            <Blockie opts={{ seed: accounts[0], size: 15, scale: 3 }} />
+            <PublicAddress label="" address={accounts[0]} />
           </div>
         </div>
         <div className={styles.dataPoint}>
@@ -41,8 +40,8 @@ export default class Web3Info extends Component {
           <div className={styles.value}>{balance}</div>
         </div>
         <div className={styles.dataPoint}>
-          <div className={styles.label}>Using Metamask:</div>
-          <div className={styles.value}>{isMetaMask ? 'YES' : 'NO'}</div>
+          <div className={styles.label}>Provider:</div>
+          <div className={styles.value}>{providerName}</div>
         </div>
       </div>
     );
