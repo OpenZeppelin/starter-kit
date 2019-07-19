@@ -1,35 +1,26 @@
-# ZepKit
-A truffle box containing React, ZeppelinOS, OpenZeppelin, Truffle and Infura.
+# OpenZeppelin Starter Kit
 
-This box comes with everything you need to start using upgradeable Smart
+An OpenZeppelin Starter Kit containing React, OpenZeppelin SDK, OpenZeppelin Contracts, Truffle and Infura.
+
+This kit comes with everything you need to start using upgradeable Smart
 contracts inside your applications. It also includes all the configuration
 required to deploy to different networks.
 
 ## Requirements
 
-Install ZeppelinOS, Ganache, and Truffle
+Install OpenZeppelin SDK, Ganache, and Truffle
 
 ```
-npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.4.0
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.0
 ```
 
 ## Installation
 
-First ensure you are in a new and empty directory.
-
-Run the `unpack` command with `zepkit` to create a starter project. 
+Ensure you are in a new and empty directory, and run the `unpack` command with `starter` to create a starter project:
 
 ```javascript
-zos unpack zepkit
+zos unpack starter
 ```
-If you are interested in running the `zepkit` tutorial, run `unpack` with `tutorial` as the argument.
-
-```javascript
-zos unpack tutorial
-```
-
-This will give you the tutorial app as listed on the http://zepkit.zeppelinos.org website.
-Instructions for the tutorial are availible when you run the React app.
 
 ## Run
 
@@ -39,14 +30,14 @@ In a new terminal window, run your local blockchain:
 ganache-cli --deterministic
 ```
 
-In your original terminal window, at the top level of your folder, initialize the zeppelin os project
+In your original terminal window, at the top level of your folder, initialize the project
 and follow the prompts:
 
 ```javascript
-zos init zepkit
+openzeppelin init
 ```
 
-In the `client` directory, run the React app. Do this in a new terminal window. 
+In a new terminal window, in the `client` directory, run the React app:
 
 ```javascript
 cd client
@@ -55,26 +46,26 @@ npm run start
 
 ## Interact
 
-You can interact directly with your smart contracts from the `zos` cli. 
+You can interact directly with your smart contracts from the `openzeppelin` cli. 
 
-   `zos transfer`                                        	
+   `openzeppelin transfer`                                        	
    
    send funds to a given address.
 
-   `zos balance [address]`                               	
+   `openzeppelin balance [address]`                               	
    
    query the ETH balance of the specified account, also supports ERC20s.
 
-   `zos send-tx`                                         	
+   `openzeppelin send-tx`                                         	
    
    sends a transaction to your contract and returns the events.
 
-   `zos call`                                           	
+   `openzeppelin call`                                           	
    
    execute a constant method and receive back the value.
 
 
-Type `zos` to see a complete list of availible commands.
+Type `openzeppelin` to see a complete list of availible commands.
 
 
 ## Test
@@ -117,4 +108,4 @@ npm run build
 
 * __Where can I find more documentation?__
 
-    This box is a marriage of [ZeppelinOS](https://zeppelinos.org/) and a React setup created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start!
+    Check out the [OpenZeppelin Starter Kits documentation](https://docs.openzeppelin.com/start).
