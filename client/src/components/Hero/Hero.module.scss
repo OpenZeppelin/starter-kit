@@ -8,7 +8,7 @@
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: space-around;
-  background: linear-gradient(to bottom, #3C4653 , #212830);
+  background: linear-gradient(to bottom, #3c4653, #212830);
 
   .hwrapper {
     display: flex;
@@ -19,7 +19,8 @@
     width: 100%;
   }
 
-  .left, .right {
+  .left,
+  .right {
     display: flex;
     flex-flow: column nowrap;
     width: calc(50% - 80px);
@@ -95,7 +96,8 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .Hero .left, .Hero .right {
+  .Hero .left,
+  .Hero .right {
     min-width: 92%;
   }
 }

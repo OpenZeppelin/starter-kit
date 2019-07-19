@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import getWeb3, { getGanacheWeb3 } from "./utils/getWeb3";
-import Header from "./components/Header/index.js";
-import Footer from "./components/Footer/index.js";
-import Hero from "./components/Hero/index.js";
-import Web3Info from "./components/Web3Info/index.js";
-import CounterUI from "./components/Counter/index.js";
-import Wallet from "./components/Wallet/index.js";
-import Instructions from "./components/Instructions/index.js";
+import React, { Component } from 'react';
+import getWeb3, { getGanacheWeb3 } from './utils/getWeb3';
+import Header from './components/Header/index.js';
+import Footer from './components/Footer/index.js';
+import Hero from './components/Hero/index.js';
+import Web3Info from './components/Web3Info/index.js';
+import CounterUI from './components/Counter/index.js';
+import Wallet from './components/Wallet/index.js';
+import Instructions from './components/Instructions/index.js';
 import { Loader } from 'rimble-ui';
 
 import { zeppelinSolidityHotLoaderOptions } from '../config/webpack';
@@ -19,7 +19,7 @@ class App extends Component {
     web3: null,
     accounts: null,
     contract: null,
-    route: window.location.pathname.replace("/","")
+    route: window.location.pathname.replace('/', ''),
   };
 
   getGanacheAddresses = async () => {
@@ -30,15 +30,15 @@ class App extends Component {
       return await this.ganacheProvider.eth.getAccounts();
     }
     return [];
-  }
+  };
 
   componentDidMount = async () => {
     const hotLoaderDisabled = zeppelinSolidityHotLoaderOptions.disabled;
     let Counter = {};
     let Wallet = {};
     try {
-      Counter = require("../../contracts/Counter.sol");
-      Wallet = require("../../contracts/Wallet.sol");
+      Counter = require('../../contracts/Counter.sol');
+      Wallet = require('../../contracts/Wallet.sol');
     } catch (e) {
       console.log(e);
     }
@@ -59,7 +59,7 @@ class App extends Component {
         const networkId = await web3.eth.net.getId();
         const networkType = await web3.eth.net.getNetworkType();
         const isMetaMask = web3.currentProvider.isMetaMask;
-        let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]): web3.utils.toWei('0');
+        let balance = accounts.length > 0 ? await web3.eth.getBalance(accounts[0]) : web3.utils.toWei('0');
         balance = web3.utils.fromWei(balance, 'ether');
         let instance = null;
         let instanceWallet = null;
@@ -67,41 +67,55 @@ class App extends Component {
         if (Counter.networks) {
           deployedNetwork = Counter.networks[networkId.toString()];
           if (deployedNetwork) {
-            instance = new web3.eth.Contract(
-              Counter.abi,
-              deployedNetwork && deployedNetwork.address,
-            );
+            instance = new web3.eth.Contract(Counter.abi, deployedNetwork && deployedNetwork.address);
           }
         }
+        console.log(instance);
         if (Wallet.networks) {
           deployedNetwork = Wallet.networks[networkId.toString()];
           if (deployedNetwork) {
-            instanceWallet = new web3.eth.Contract(
-              Wallet.abi,
-              deployedNetwork && deployedNetwork.address,
-            );
+            instanceWallet = new web3.eth.Contract(Wallet.abi, deployedNetwork && deployedNetwork.address);
           }
         }
         if (instance || instanceWallet) {
           // Set web3, accounts, and contract to the state, and then proceed with an
           // example of interacting with the contract's methods.
-          this.setState({ web3, ganacheAccounts, accounts, balance, networkId, networkType, hotLoaderDisabled,
-            isMetaMask, contract: instance, wallet: instanceWallet }, () => {
+          this.setState(
+            {
+              web3,
+              ganacheAccounts,
+              accounts,
+              balance,
+              networkId,
+              networkType,
+              hotLoaderDisabled,
+              isMetaMask,
+              contract: instance,
+              wallet: instanceWallet,
+            },
+            () => {
               this.refreshValues(instance, instanceWallet);
               setInterval(() => {
                 this.refreshValues(instance, instanceWallet);
               }, 5000);
-            });
-        }
-        else {
-          this.setState({ web3, ganacheAccounts, accounts, balance, networkId, networkType, hotLoaderDisabled, isMetaMask });
+            },
+          );
+        } else {
+          this.setState({
+            web3,
+            ganacheAccounts,
+            accounts,
+            balance,
+            networkId,
+            networkType,
+            hotLoaderDisabled,
+            isMetaMask,
+          });
         }
       }
     } catch (error) {
       // Catch any errors for any of the above operations.
-      alert(
-        `Failed to load web3, accounts, or contract. Check console for details.`,
-      );
+      alert(`Failed to load web3, accounts, or contract. Check console for details.`);
       console.error(error);
     }
   };
@@ -119,7 +133,7 @@ class App extends Component {
     if (instanceWallet) {
       this.updateTokenOwner();
     }
-  }
+  };
 
   getCount = async () => {
     const { contract } = this.state;
@@ -137,19 +151,19 @@ class App extends Component {
     this.setState({ tokenOwner: response.toString() === accounts[0].toString() });
   };
 
-  increaseCount = async (number) => {
+  increaseCount = async number => {
     const { accounts, contract } = this.state;
     await contract.methods.increaseCounter(number).send({ from: accounts[0] });
     this.getCount();
   };
 
-  decreaseCount = async (number) => {
+  decreaseCount = async number => {
     const { accounts, contract } = this.state;
     await contract.methods.decreaseCounter(number).send({ from: accounts[0] });
     this.getCount();
   };
 
-  renounceOwnership = async (number) => {
+  renounceOwnership = async number => {
     const { accounts, wallet } = this.state;
     await wallet.methods.renounceOwnership().send({ from: accounts[0] });
     this.updateTokenOwner();
@@ -171,49 +185,41 @@ class App extends Component {
         <div className={styles.notice}>
           Your <b> contracts are not deployed</b> in this network. Two potential reasons: <br />
           <p>
-            Maybe you are in the wrong network? Point Metamask to localhost.<br />
+            Maybe you are in the wrong network? Point Metamask to localhost.
+            <br />
             You contract is not deployed. Follow the instructions below.
           </p>
         </div>
         <Instructions
           ganacheAccounts={this.state.ganacheAccounts}
-          name={instructionsKey} accounts={this.state.accounts} />
+          name={instructionsKey}
+          accounts={this.state.accounts}
+        />
       </div>
     );
   }
 
   renderBody() {
     const { hotLoaderDisabled, networkType, accounts, ganacheAccounts } = this.state;
-    const updgradeCommand = (networkType === 'private' && !hotLoaderDisabled) ? "upgrade-auto" : "upgrade";
+    const updgradeCommand = networkType === 'private' && !hotLoaderDisabled ? 'upgrade-auto' : 'upgrade';
     return (
       <div className={styles.wrapper}>
         {!this.state.web3 && this.renderLoader()}
-        {this.state.web3 && !this.state.contract && (
-          this.renderDeployCheck('counter')
-        )}
+        {this.state.web3 && !this.state.contract && this.renderDeployCheck('counter')}
         {this.state.web3 && this.state.contract && (
           <div className={styles.contracts}>
             <h1>Counter Contract is good to Go!</h1>
             <p>Interact with your contract on the right.</p>
-            <p> You can see your account onfo on the left </p>
+            <p> You can see your account info on the left </p>
             <div className={styles.widgets}>
               <Web3Info {...this.state} />
-              <CounterUI
-                decrease={this.decreaseCount}
-                increase={this.increaseCount}
-                {...this.state} />
+              <CounterUI decrease={this.decreaseCount} increase={this.increaseCount} {...this.state} />
             </div>
             {this.state.balance < 0.1 && (
-              <Instructions
-                ganacheAccounts={ganacheAccounts}
-                name="metamask"
-                accounts={accounts} />
+              <Instructions ganacheAccounts={ganacheAccounts} name="metamask" accounts={accounts} />
             )}
             {this.state.balance >= 0.1 && (
-              <Instructions
-                ganacheAccounts={this.state.ganacheAccounts}
-                name={updgradeCommand}
-                accounts={accounts} />
+              <Instructions ganacheAccounts={this.state.ganacheAccounts} name={updgradeCommand} accounts={accounts} />
             )}
           </div>
         )}
@@ -225,9 +231,7 @@ class App extends Component {
     return (
       <div className={styles.wrapper}>
         <Hero />
-        <Instructions
-          ganacheAccounts={this.state.ganacheAccounts}
-          name="setup" accounts={this.state.accounts} />
+        <Instructions ganacheAccounts={this.state.ganacheAccounts} name="setup" accounts={this.state.accounts} />
       </div>
     );
   }
@@ -235,9 +239,7 @@ class App extends Component {
   renderFAQ() {
     return (
       <div className={styles.wrapper}>
-        <Instructions
-          ganacheAccounts={this.state.ganacheAccounts}
-          name="faq" accounts={this.state.accounts} />
+        <Instructions ganacheAccounts={this.state.ganacheAccounts} name="faq" accounts={this.state.accounts} />
       </div>
     );
   }
@@ -245,26 +247,20 @@ class App extends Component {
   renderEVM() {
     return (
       <div className={styles.wrapper}>
-      {!this.state.web3 && this.renderLoader()}
-      {this.state.web3 && !this.state.wallet && (
-        this.renderDeployCheck('evm')
-      )}
-      {this.state.web3 && this.state.wallet && (
-        <div className={styles.contracts}>
-          <h1>Wallet Contract is good to Go!</h1>
-          <p>Interact with your contract on the right.</p>
-          <p> You can see your account onfo on the left </p>
-          <div className={styles.widgets}>
-            <Web3Info {...this.state} />
-            <Wallet
-              renounce={this.renounceOwnership}
-              {...this.state} />
+        {!this.state.web3 && this.renderLoader()}
+        {this.state.web3 && !this.state.wallet && this.renderDeployCheck('evm')}
+        {this.state.web3 && this.state.wallet && (
+          <div className={styles.contracts}>
+            <h1>Wallet Contract is good to Go!</h1>
+            <p>Interact with your contract on the right.</p>
+            <p> You can see your account info on the left </p>
+            <div className={styles.widgets}>
+              <Web3Info {...this.state} />
+              <Wallet renounce={this.renounceOwnership} {...this.state} />
+            </div>
+            <Instructions ganacheAccounts={this.state.ganacheAccounts} name="evm" accounts={this.state.accounts} />
           </div>
-          <Instructions
-            ganacheAccounts={this.state.ganacheAccounts}
-            name="evm" accounts={this.state.accounts} />
-        </div>
-      )}
+        )}
       </div>
     );
   }
@@ -273,10 +269,10 @@ class App extends Component {
     return (
       <div className={styles.App}>
         <Header />
-          {this.state.route === '' && this.renderInstructions()}
-          {this.state.route === 'counter' && this.renderBody()}
-          {this.state.route === 'evm' && this.renderEVM()}
-          {this.state.route === 'faq' && this.renderFAQ()}
+        {this.state.route === '' && this.renderInstructions()}
+        {this.state.route === 'counter' && this.renderBody()}
+        {this.state.route === 'evm' && this.renderEVM()}
+        {this.state.route === 'faq' && this.renderFAQ()}
         <Footer />
       </div>
     );
