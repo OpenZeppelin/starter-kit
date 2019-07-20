@@ -1,6 +1,4 @@
-# The following redirect is intended for use with most SPAs that handle
-# routing internally.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "https://openzeppelin.com/start"
+  status = 301
