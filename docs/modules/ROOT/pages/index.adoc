@@ -15,7 +15,7 @@ Ensure you are in a new and empty directory, and run the `unpack` command with `
 
 [source,sh]
 ----
-$ zos unpack starter
+$ openzeppelin unpack starter
 ----
 
 == Run the Starter Kit
