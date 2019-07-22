@@ -1,1 +1,19 @@
-= Get Started
+= OpenZeppelin Starter Kits
+
+## About Starter Kits
+
+OpenZeppelin Starter Kits are the easiest way to build a (d)app. Pre bundled with all the tools necessary to get started fast, you will be up and running with a working application with smart contracts and front end in less than 5 minutes. 
+
+Starter Kits include ecosystem standard tools such as OpenZeppelin Library, OpenZeppelin SDK, Truffle, Ganache, and Infura. A React front end, turbocharged with Hot Reloader comes pre-wired to give you a fast (d)app development experience right out of the box. 
+
+## Building Starter Kits
+
+When interviewing developers building on OpenZeppelin tools, we found there was a strong need in the community for a robust solution to the boiler plate code that goes into building smart-contract backed applications. As standards and technology change so quickly in the blockchain ecosystem, what was needed was a robust, well documented, up-to-date scaffold that developers could quickly build upon at all levels. From weekend hackathons to enterprise applications, OpenZeppelin Starter Kits is that tool. 
+
+## The team behind Starter Kits
+
+Created by the team at OpenZeppelin, we bring the collective wealth of our experience in the Ethereum ecosystem to Starter Kit. This means the same solid robust developer focused experience you know and love from the OpenZeppelin Library of audited smart contracts is now available for your entire project. 
+
+## To the community and beyond: 
+
+OpenZeppelin Starter Kits were designed to turbocharge not just the developer experience, but also the community experience as well. Custom Starter Kits can be developed by anyone and installed by anyone directly via the OpenZeppelin SDK command line. This is perfect for companies and proejcts looking to build educational tools ontop of a standrad platform. Example code now becomes complete hackable demo's that the community can get started with fast. 

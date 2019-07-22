@@ -1,1 +1,3 @@
-* xref:index.adoc[Get Started]
+* xref:quickStart.adoc[Quick Start]
+* xref:custom.adoc[Custom Starter Kit]
+
