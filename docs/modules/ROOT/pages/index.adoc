@@ -2,6 +2,48 @@
 
 The OpenZeppelin Starter Kit allows you to bootstrap your decentralized application. It optionally includes an interactive tutorial to help you take your first steps in the world of smart contract development.
 
+== Install
+
+Please install OpenZeppelin SDK and Ganache.
+
+[source,sh]
+----
+$ npm install -g ganache-cli@6.3.0 @openzeppelin/cli
+----
+
+Ensure you are in a new and empty directory, and run the `unpack` command with `starter` to create a starter project:
+
+[source,sh]
+----
+$ openzeppelin unpack starter
+----
+
+== Run the Starter Kit
+
+You need to have three separate terminals. In the first one, run your local blockchain with ganache:
+
+[source,sh]
+----
+$ ganache-cli --deterministic
+----
+
+In another terminal window, at the top level of your folder, initialize the project and follow the prompts:
+
+[source,sh]
+----
+$ openzeppelin init
+----
+
+In the last terminal window, in the `client` directory, run the React app:
+
+[source,sh]
+----
+$ cd client
+$ npm run start
+----
+
+That's it. You should have the React Application running locally.
+
 == How it works
 
 The starter kit works by creating a React application that serves a web user interface. This interface allows you to interact with your smart contracts via a web3 provider: Metamask, Coinbase Wallet. The interaction is enabled by Truffle and the OpenZeppelin SDK. They work together to compile and test your smart contracts locally. Eventually, you need to take your application to mainnet, and Infura is already configured to help you do so effortlessly.
@@ -13,7 +55,3 @@ The starter kit works by creating a React application that serves a web user int
 * Easily connect with Ethereum networks via preconfigured Infura API keys. Use Infura to connect and access data from different test-nets and mainnet of Ethereum. They provide an easy-to-use API and developer tools to enable secure, reliable, and scalable access to Ethereum and IPFS (InterPlanetary File System).
 * Compile and test smart contracts. The Starter Kit includes the Truffle suite that contains a development environment, testing framework, and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM).
 * Create adaptable and responsive UI components. The Starter Kit includes React and Rimble to give you all the components and flexibility you need to build responsive user interfaces.
-
-== Getting Started
-
-Visit the Starter Kit https://openzeppelin.com/start[website] and follow the instructions.
