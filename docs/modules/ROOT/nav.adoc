@@ -1,6 +1,4 @@
 * xref:quickStart.adoc[Quick Start]
 * xref:tutorial.adoc[Tutorial Kit]
-* xref:zeroToDapp.adoc[From Zero to (D)app]
-* xref:networks.adoc[Using Networks.js]
-* xref:custom.adoc[Custom Starter Kit]
+
 

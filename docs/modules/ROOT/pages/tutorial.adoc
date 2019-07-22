@@ -25,3 +25,18 @@ In a new terminal window, run your local blockchain:
 ``
 ganache-cli --deterministic
 ``
+
+In your original terminal window, at the top level of your folder, initialize the project and follow the prompts:
+
+``
+openzeppelin init
+``
+
+In a new terminal window, in the `client` directory, run the React app:
+
+``
+cd client
+npm run start
+``
+
+Open a web browser and navigate to: ``http://localhost:3000``. Follow along the tutorial directly from the React App. 
