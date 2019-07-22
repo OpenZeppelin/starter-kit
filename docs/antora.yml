@@ -1,5 +1,5 @@
-name: 'starter-kit'
-title: 'Starter Kit'
+name: 'starter-kits'
+title: 'Starter Kits'
 version: '2.3'
 nav:
   - modules/ROOT/nav.adoc
