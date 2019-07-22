@@ -18,6 +18,8 @@ Ensure you are in a new and empty directory, and run the `unpack` command with `
 openzeppelin unpack tutorial
 ``
 
+This will not only unpack a complete Starter Kit, it will be prepopulated with solidity contracts and a react front end with an interactive tutorial to follow allong. 
+
 ## Run
 
 In a new terminal window, run your local blockchain:

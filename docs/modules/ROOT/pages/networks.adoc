@@ -1,10 +1,10 @@
 = networks.js
 
-OpenZeppelin SDK, the backbone of the OpenZeppelin Platform and Starter Kits uses a 100% Truffle compatible format for defining the connection settings for connecting your project to a blockchain. 
+OpenZeppelin SDK, the backbone of the OpenZeppelin Platform and Starter Kits uses a 100% Truffle compatible format for defining the connection settings for connecting your project to an Ethereum node. 
 
-Unlike ``truffle-config.js``, ``networks.js`` includes an additional option: ``protocol`` which allows you to specifiy how you want to connect to your node: ``http``, ``https``, ``ws``, ``wss``, or ``ipc``.
+Unlike ``truffle-config.js``, ``networks.js`` includes an additional option: ``protocol`` which allows you to specifiy the protocol you wish to use when connecting to your node: ``http``, ``https``, ``ws``, ``wss``, or ``ipc``.
 
-Starter Kit comes with a `networks.js` or `truffle-config.js` file pre-installed but it is entirely customizable to your needs.
+OpenZeppelin-SDK (included in Starter Kit) will generate a ``networks.js`` for you when calling the command `openzeppelin init`. This file is entirely customizable to your needs.
 
 ## Options
 
@@ -28,7 +28,21 @@ module.exports = {
 
 This file can be expanded to include additional networks, such as `rinkeby`, `kovan`, and `mainnet` using `truffle-hdwallet-provider`.
 
-(You will need to install `truffle-hdwallet-provider` via `npm install truffle-hdwallet-provider`)
+## HDWallet Provider
+
+You will need to install `truffle-hdwallet-provider` via `npm install truffle-hdwallet-provider`. To use, assign it to a variable and then pass it your `memonic` and `host` as your provider.
+
+[source, javascript]
+----
+const HDWalletProvider = require("truffle-hdwallet-provider");
+let provider = new HDWalletProvider(mnemonic, host);
+----
+
+Your provider can now be used to create a connection to a node. 
+
+## Sample
+
+The following is a complete example for connecting to various networks using Infura as the node. 
 
 [source, javascript]
 ----
@@ -37,15 +51,15 @@ const INFURA_API_KEY="xxxxxxxxxxxxxxxxxxxx";
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
 module.exports = {
-  // See <http://truffleframework.com/docs/advanced/configuration>
-  // to customize your Truffle configuration!
   networks: {
     development: {
+      protocol: 'ws', //For connecting to a local Ganache-cli instance via websockets
       host: "127.0.0.1",
       port: 8545,
       network_id: "*",
     },
     ropsten: {
+      protocol: 'http',
       provider: function() {
         return new HDWalletProvider(mnemonic, 'https://ropsten.infura.io/v3/' + process.env.INFURA_API_KEY)
       },
@@ -54,6 +68,7 @@ module.exports = {
       gasPrice: 10000000000,
     },
     kovan: {
+      protocol: 'http',
       provider: function() {
         return new HDWalletProvider(mnemonic, 'https://kovan.infura.io/v3/' + process.env.INFURA_API_KEY)
       },
@@ -62,6 +77,7 @@ module.exports = {
       gasPrice: 10000000000,
     },
     rinkeby: {
+      protocol: 'http',
       provider: () => new HDWalletProvider(process.env.MNENOMIC, "https://rinkeby.infura.io/v3/" + process.env.INFURA_API_KEY),
       network_id: 4,
       gas: 3000000,
@@ -69,6 +85,7 @@ module.exports = {
     },
     // main ethereum network(mainnet)
     main: {
+      protocol: 'http',
       provider: () => new HDWalletProvider(process.env.MNENOMIC, "https://mainnet.infura.io/v3/" + process.env.INFURA_API_KEY),
       network_id: 1,
       gas: 3000000,
