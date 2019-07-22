@@ -46,7 +46,7 @@ npm run start
 
 ## Interact
 
-You can interact directly with your smart contracts from the `openzeppelin` cli. 
+You can interact directly with your smart contracts from the `openzeppelin` cli. Commands start with either `openzeppelin` or with the `oz` shorthand. 
 
 ``openzeppelin transfer`` To send funds to a given address.
 
@@ -63,18 +63,22 @@ Type `openzeppelin` to see a complete list of availible commands.
 
 Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the truffle development console.
 
-``
-// inside the development console.
-test
+From inside the development console.
 
-// outside the development console..
+``
+test
+``
+
+From outside the development console.
+
+``
 truffle test
 ``
 
 Jest is included for testing React components. Compile your contracts before running Jest, or you may receive some file not found errors.
 
+From inside the client directory when running this
 ``
-// ensure you are inside the client directory when running this
 npm run test
 ``
 
@@ -89,6 +93,7 @@ npm run build
 
 ## FAQ
 
+**NEED TO FIX THIS**
 * __How do I use this with the Ganache-CLI?__
 
 It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 29 of `client/src/utils/getWeb3.js`.

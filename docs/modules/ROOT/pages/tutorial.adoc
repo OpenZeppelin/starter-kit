@@ -1,0 +1,27 @@
+= Tutorial
+
+OpenZeppelin provides Tutorial Starter Kit which is usefull both for learning smart contract development, and jumpstarting hackathon projects. 
+
+## Requirements
+
+Install OpenZeppelin SDK, Ganache, and Truffle.
+
+``
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.0
+``
+
+## Installation
+
+Ensure you are in a new and empty directory, and run the `unpack` command with `tutorial` to unpack the tutorial starter project:
+
+``
+openzeppelin unpack tutorial
+``
+
+## Run
+
+In a new terminal window, run your local blockchain:
+
+``
+ganache-cli --deterministic
+``
