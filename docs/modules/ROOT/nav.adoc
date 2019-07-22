@@ -1,4 +1,5 @@
 * xref:quickStart.adoc[Quick Start]
-* xref:tutorial.adoc[Tutorial Kit]
+* xref:tutorial.adoc[Tutorial]
+* xref:networks.adoc[network.js]
 
 
