@@ -6,20 +6,20 @@ export default class Instructions extends Component {
   renderCounterSetup() {
     return (
       <div className={styles.instructions}>
-        <h2> Build your first app with ZepKit </h2>
+        <h2> Build your first app with Starter Kits </h2>
         <div className={styles.step}>
-          <div className={styles.instruction}>Initialize your ZeppelinOS project</div>
+          <div className={styles.instruction}>Initialize your OpenZeppelin SDK project</div>
           <div className={styles.code}>
-            <code>zos init {'<<your project name>>'}</code>
+            <code>openzeppelin init {'<<your project name>>'}</code>
           </div>
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            We create an instance of our contract and deploy it, follow the <span className={styles.inline}>cli</span>
+            We create an instance of our contract and deploy it, follow the <span className={styles.inline}>cli </span>
             prompts.
           </div>
           <div className={styles.code}>
-            <code>zos create Counter</code>
+            <code>openzeppelin create Counter</code>
           </div>
         </div>
         <div className={styles.step}>
@@ -27,9 +27,10 @@ export default class Instructions extends Component {
             Done! Refresh the page to interact with your instance of the counter contract.
           </div>
           <div className={styles.instruction}>
-            Learn more about <a href="https://zeppelinos.org/">ZeppelinOS</a> or ask a question in the{' '}
+            Learn more about <a href="https://openzeppelin.com">OpenZeppelin SDK</a> or ask a question in the{' '}
             <a href="https://forum.zeppelin.solutions">Forum</a>.
           </div>
+          <br />
           <Button onClick={() => window.location.reload()}>Reload</Button>
         </div>
       </div>
@@ -37,66 +38,17 @@ export default class Instructions extends Component {
   }
 
   renderSetup() {
-    const isProd = process.env.NODE_ENV === 'production';
-    if (!isProd) {
-      return (
-        <div className={styles.instructions}>
-          <h1> ZepKit is running! </h1>
-          <div className={styles.step}>
-            <div className={styles.instruction}>Congratulations! Your application is correctly setup.</div>
-          </div>
-
-          <div className={styles.step}>
-            <div className={styles.instruction}>
-              Visit the tutorials. Start with the <a href="/counter"> Counter</a> page to deploy and interact with your
-              first contract.
-            </div>
-          </div>
-        </div>
-      );
-    }
     return (
       <div className={styles.instructions}>
-        <h1> Installation </h1>
+        <h1> Starter Kit is running! </h1>
         <div className={styles.step}>
-          <div className={styles.instruction}>Install ZeppelinOS, Ganache, and Truffle.</div>
-          <div className={styles.code}>
-            <code>npm install -g truffle@5.0.2 ganache-cli@6.3.0 zos@2.4.0</code>
-          </div>
+          <div className={styles.instruction}>Congratulations! Your application is correctly setup.</div>
         </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>Create a folder for your app and enter inside.</div>
-          <div className={styles.code}>
-            <code>mkdir my-app && cd my-app</code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>Unbox the ZepKit.</div>
-          <div className={styles.code}>
-            <code>zos unpack tutorial</code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>Run your local blockchain.</div>
-          <div className={styles.code}>
-            <code>ganache-cli --deterministic</code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>Initialize the ZeppelinOS project.</div>
-          <div className={styles.code}>
-            <code>zos init zepkit</code>
-          </div>
-        </div>
-        <div className={styles.step}>
-          <div className={styles.instruction}>Switch to the client folder and run the web application to continue.</div>
-          <div className={styles.code}>
-            <code>cd client; npm run start</code>
-          </div>
-        </div>
+
         <div className={styles.step}>
           <div className={styles.instruction}>
-            The ZepKit should be running locally! Continue the instructions on your localhost.
+            Visit the tutorials. Start with the <a href="/counter"> Counter</a> page to deploy and interact with your
+            first contract.
           </div>
         </div>
       </div>
@@ -112,7 +64,7 @@ export default class Instructions extends Component {
         <div className={styles.step}>
           <div className={styles.instruction}>1. Open a terminal and type</div>
           <div className={styles.code}>
-            <code>zos transfer</code>
+            <code>openzeppelin transfer</code>
           </div>
         </div>
         <div className={styles.step}>
@@ -136,7 +88,7 @@ export default class Instructions extends Component {
     return (
       <div className={styles.instructions}>
         <h2> Upgrading your contract </h2>
-        <p> Thanks to ZeppelinOS, you can upgrade the code of your contract to add more functionality. </p>
+        <p> Thanks to OpenZeppelin SDK, you can upgrade the code of your contract to add more functionality. </p>
         <div className={styles.step}>
           <div className={styles.instruction}>
             1. Open <span>contracts/Counter.sol</span> and uncomment the decreaseCounter method (lines 32-36).
@@ -150,7 +102,7 @@ export default class Instructions extends Component {
             2. Save the changes and compile, push, and update the new changes to the network.
           </div>
           <div className={styles.code}>
-            <code>zos update Counter</code>
+            <code>openzeppelin update Counter</code>
           </div>
         </div>
         <div className={styles.step}>
@@ -170,8 +122,8 @@ export default class Instructions extends Component {
         <h2> Upgrading on Development Network </h2>
         <p>
           {' '}
-          Thanks to ZeppelinOS and Solidity Hot Loader your smart contracts would reload automatically after you save a
-          .sol file while preserving a state.{' '}
+          Thanks to OpenZeppelin SDK and Solidity Hot Loader your smart contracts would reload automatically after you
+          save a .sol file while preserving a state.{' '}
         </p>
         <div className={styles.step}>
           <div className={styles.instruction}>
@@ -183,8 +135,8 @@ export default class Instructions extends Component {
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>
-            2. Save the changes and wait for the .sol files to compile. Upon completion, ZOS will push and update your
-            smart contracts
+            2. Save the changes and wait for the .sol files to compile. Upon completion, openzeppelin will push and
+            update your smart contracts
           </div>
         </div>
         <div className={styles.step}>
@@ -195,7 +147,7 @@ export default class Instructions extends Component {
         <div className={styles.separator} />
         <p>
           {' '}
-          * On a non development network you would have to run <strong>zos update</strong> command manually.{' '}
+          * On a non development network you would have to run <strong>openzeppelin update</strong> command manually.{' '}
         </p>
       </div>
     );
@@ -220,7 +172,7 @@ export default class Instructions extends Component {
         <div className={styles.step}>
           <div className={styles.instruction}>3. Push the project contracts and deploy the dependencies (if any).</div>
           <div className={styles.code}>
-            <code>zos push </code>
+            <code>openzeppelin push </code>
           </div>
         </div>
         <div className={styles.step}>
@@ -228,7 +180,7 @@ export default class Instructions extends Component {
             4. Create the instances and follow the <span className={styles.inline}>cli</span> prompts
           </div>
           <div className={styles.code}>
-            <code>zos create CONTRACT_NAME </code>
+            <code>openzeppelin create CONTRACT_NAME </code>
           </div>
         </div>
         <div className={styles.question}>Q: How do I run tests?</div>
@@ -270,25 +222,25 @@ export default class Instructions extends Component {
         <h2> Using EVM Packages </h2>
         <p>
           {' '}
-          ZeppelinOS allows us to link packages that have been already deployed to the blockchain, instead of wasting
-          resources deploying them again every time we need them in a project.{' '}
+          OpenZeppelin SDK allows us to link packages that have been already deployed to the blockchain, instead of
+          wasting resources deploying them again every time we need them in a project.{' '}
         </p>
         <div className={styles.step}>
           <div className={styles.instruction}>1. We need the ERC20 standard. Let's grab it from open zeppelin.</div>
           <div className={styles.code}>
-            <code>zos link openzeppelin-eth</code>
+            <code>openzeppelin link openzeppelin-eth</code>
           </div>
         </div>
         <div className={styles.step}>
-          <div className={styles.instruction}>2. Add the Wallet contract to your ZeppelinOS project.</div>
+          <div className={styles.instruction}>2. Add the Wallet contract to your OpenZeppelin SDK project.</div>
           <div className={styles.code}>
-            <code>zos add Wallet</code>
+            <code>openzeppelin add Wallet</code>
           </div>
         </div>
         <div className={styles.step}>
           <div className={styles.instruction}>4. Push the Wallet and deploy the dependencies (OpenZeppelin EVM).</div>
           <div className={styles.code}>
-            <code>zos push</code>
+            <code>openzeppelin push</code>
           </div>
         </div>
         <div className={styles.step}>
@@ -298,7 +250,7 @@ export default class Instructions extends Component {
             the arguement.
           </div>
           <div className={styles.code}>
-            <code>zos create Wallet</code>
+            <code>openzeppelin create Wallet</code>
           </div>
         </div>
         <div className={styles.step}>
@@ -312,12 +264,12 @@ export default class Instructions extends Component {
             customize your token.
           </div>
           <div className={styles.code}>
-            <code>{`zos create openzeppelin-eth/StandaloneERC20`}</code>
+            <code>{`openzeppelin create openzeppelin-eth/StandaloneERC20`}</code>
           </div>
           <p>
             {' '}
             Interact with your token directly from the cli.{' '}
-            <a href="https://docs.zeppelinos.org/" target="_blank" rel="noopener noreferrer">
+            <a href="https://docs.openzeppelin.com" target="_blank" rel="noopener noreferrer">
               Learn more
             </a>
             .{' '}

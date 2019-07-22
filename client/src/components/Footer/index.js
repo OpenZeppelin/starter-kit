@@ -22,13 +22,10 @@ const Footer = () => (
       <a href="mailto:ramon@zeppelin.solutions" target="_blank" rel="noopener noreferrer">
         <img src={mail} alt="email" />
       </a>
-      <a href="https://blog.zeppelinos.org/introducing-zepkit" rel="noopener noreferrer" target="_blank">
-        <img src={pencil} alt="medium" />
-      </a>
-      <a href="https://twitter.com/ZeppelinOrg" rel="noopener noreferrer" target="_blank">
+      <a href="https://twitter.com/OpenZeppelin" rel="noopener noreferrer" target="_blank">
         <img src={twitter} alt="twitter" />
       </a>
-      <a href="https://github.com/zeppelinos/zepkit" rel="noopener noreferrer" target="_blank">
+      <a href="https://twitter.com/OpenZeppelin" rel="noopener noreferrer" target="_blank">
         <img src={github} alt="github" />
       </a>
     </div>

@@ -16,7 +16,7 @@ export default class Hero extends Component {
       <div className={styles.Hero}>
         <div className={styles.hwrapper}>
           <div className={styles.left}>
-            <h1> Welcome to ZepKit! </h1>
+            <h1> Welcome to Starter Kits! </h1>
             <h2>The easiest way to build a Web3 application with the most trusted tools in Ethereum.</h2>
             <div className={styles.sellingpoints}>
               <div className={styles.feature}>
@@ -28,8 +28,8 @@ export default class Hero extends Component {
               </div>
               <div className={styles.feature}>
                 - Upgradeable smart contracts with{' '}
-                <a target="_blank" rel="noopener noreferrer" href="https://zeppelinos.org/">
-                  ZeppelinOS
+                <a target="_blank" rel="noopener noreferrer" href="https://openzeppelin.com/start/">
+                  OpenZeppelin SDK
                 </a>
                 .
               </div>
@@ -64,14 +64,14 @@ export default class Hero extends Component {
                 className={styles.mainLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://github.com/zeppelinos/zepkit"
+                href="https://github.com/OpenZeppelin/starter-kit"
               >
                 > View code on github
               </a>
             </div>
           </div>
           <div className={styles.right}>
-            <img alt="Zepkit" src={logos} />
+            <img alt="Starter Kits" src={logos} />
           </div>
         </div>
       </div>
