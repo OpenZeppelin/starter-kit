@@ -1,10 +1,10 @@
 = OpenZeppelin Starter Kits
 
-OpenZeppelin Starter Kits are the easiest way to build a (d)app. Pre bundled with all the tools necessary to get started fast, you will be up and running with a working application with smart contracts and front end in less than 5 minutes. 
+OpenZeppelin Starter Kits are the easiest way to build a (d)app. Pre bundled with all the tools necessary to get started fast, you will be up and running with a working application with smart contracts and front end in less than 5 minutes.
 
-Starter Kits include ecosystem standard tools such as OpenZeppelin Library, OpenZeppelin SDK, Truffle, Ganache, and Infura. A React front end, turbocharged with Hot Reloader comes pre-wired to give you a fast (d)app development experience right out of the box. 
+Starter Kits include ecosystem standard tools such as OpenZeppelin Library, OpenZeppelin SDK, Truffle, Ganache, and Infura. A React front end, turbocharged with Hot Reloader comes pre-wired to give you a fast (d)app development experience right out of the box.
 
-OpenZeppelin Starter Kit comes with an optional built-in tutorial, making it a perfect first step and educational tool for getting started with smart contract and (d)app development. 
+OpenZeppelin Starter Kit comes with an optional built-in tutorial, making it a perfect first step and educational tool for getting started with smart contract and (d)app development.
 
 == Features
 
@@ -13,7 +13,7 @@ OpenZeppelin Starter Kit comes with an optional built-in tutorial, making it a p
 * Easily connect with Ethereum networks via preconfigured Infura API keys. Use Infura to connect and access data from different test-nets and mainnet of Ethereum. They provide an easy-to-use API and developer tools to enable secure, reliable, and scalable access to Ethereum and IPFS (InterPlanetary File System).
 * Compile and test smart contracts. The Starter Kit includes the Truffle suite that contains a development environment, testing framework, and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM).
 * Create adaptable and responsive UI components. The Starter Kit includes React and Rimble to give you all the components and flexibility you need to build responsive user interfaces.
-* Use standard Ethereum development tools and processes for minimal development overhead. 
+* Use standard Ethereum development tools and processes for minimal development overhead.
 
 == How it works
 
@@ -21,12 +21,14 @@ The starter kit works by creating a React application that serves a web user int
 
 == Building Starter Kits
 
-When interviewing developers building on OpenZeppelin tools, we found there was a strong need in the community for a robust solution to the boiler plate code that goes into building smart-contract backed applications. As standards and technology change so quickly in the blockchain ecosystem, what was needed was a robust, well documented, up-to-date scaffold that developers could quickly build upon at all levels. From weekend hackathons to enterprise applications, OpenZeppelin Starter Kits is that tool. 
+When interviewing developers building on OpenZeppelin tools, we found there was a strong need in the community for a robust solution to the boiler plate code that goes into building smart-contract backed applications. As standards and technology change so quickly in the blockchain ecosystem, what was needed was a robust, well documented, up-to-date scaffold that developers could quickly build upon at all levels. From weekend hackathons to enterprise applications, OpenZeppelin Starter Kits is that tool.
 
 == Team
 
-Created by the team at OpenZeppelin, we bring the collective wealth of our experience in the Ethereum ecosystem to Starter Kit. This means the same solid robust developer focused experience you know and love from the OpenZeppelin Library of audited smart contracts is now available for your entire project. 
+Created by the team at OpenZeppelin, we bring the collective wealth of our experience in the Ethereum ecosystem to Starter Kit. This means the same solid robust developer focused experience you know and love from the OpenZeppelin Library of audited smart contracts is now available for your entire project.
 
-== Community Building: 
+== Community Building
 
-OpenZeppelin Starter Kits were designed to turbocharge not just the developer experience, but also the community experience as well. Custom Starter Kits can be developed by anyone and installed by anyone directly via the OpenZeppelin SDK command line. This is perfect for companies and proejcts looking to build educational tools ontop of a standrad platform. Example code now becomes complete hackable demo's that the community can get started with fast. 
+OpenZeppelin Starter Kits were designed to turbocharge not just the developer experience, but also the community experience as well. Custom Starter Kits can be developed by anyone and installed by anyone directly via the OpenZeppelin SDK command line. This is perfect for companies and projects looking to build educational tools on top of a standard platform. Example code now becomes complete hackable demo's that the community can get started with fast.
+
+

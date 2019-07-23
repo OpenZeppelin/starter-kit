@@ -1,6 +1,6 @@
 = Tutorial
 
-OpenZeppelin provides Tutorial Starter Kit which is usefull both for learning smart contract development, and jumpstarting hackathon projects. 
+OpenZeppelin provides Tutorial Starter Kit which is useful both for learning smart contract development, and jumpstarting hackathon projects.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Ensure you are in a new and empty directory, and run the `unpack` command with `
 openzeppelin unpack tutorial
 ``
 
-This will not only unpack a complete Starter Kit, it will be prepopulated with solidity contracts and a react front end with an interactive tutorial to follow allong. 
+This will not only unpack a complete Starter Kit, it will be prepopulated with solidity contracts and a react front end with an interactive tutorial to follow along.
 
 ## Run
 
@@ -41,4 +41,6 @@ cd client
 npm run start
 ``
 
-Open a web browser and navigate to: ``http://localhost:3000``. Follow along the tutorial directly from the React App. 
+Open a web browser and navigate to: ``http://localhost:3000``. Follow along the tutorial directly from the React App.
+
+

@@ -46,19 +46,19 @@ npm run start
 
 ## Interact
 
-You can interact directly with your smart contracts from the `openzeppelin` cli. 
+You can interact directly with your smart contracts from the `openzeppelin` cli.
 
-Commands start with either `openzeppelin` or with the `oz` shorthand. 
+Commands start with either `openzeppelin` or with the `oz` shorthand.
+[horizontal]
+``openzeppelin transfer``:: To send funds to a given address.
 
-``openzeppelin transfer`` To send funds to a given address.
+``openzeppelin balance [address]``::  To query the ETH balance of the specified account, also supports ERC20s.
 
-``openzeppelin balance [address]`` To query the ETH balance of the specified account, also supports ERC20s.
+``openzeppelin send-tx``::  To send a transaction to your contract and returns the events.
 
-``openzeppelin send-tx`` To send a transaction to your contract and returns the events.
+``openzeppelin call``::  To execute a constant method and receive back the value.
 
-``openzeppelin call`` To execute a constant method and receive back the value.
-
-Type `openzeppelin` to see a complete list of availible commands.
+`openzeppelin`:: to see a complete list of available commands.
 
 
 ## Test
@@ -92,3 +92,5 @@ To build the application for production, use the build script. A production buil
 // ensure you are inside the client directory when running this
 npm run build
 ``
+
+

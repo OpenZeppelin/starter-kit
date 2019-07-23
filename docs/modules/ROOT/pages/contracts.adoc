@@ -1,0 +1,72 @@
+# Contracts
+
+When developing, Solidity contracts should be placed in at the top level of Starter Kit in the `contracts` folder.
+
+## Compile
+
+``*compile*``
+
+To compile your contracts use:
+
+``openzeppelin compile``
+
+This will compile your contracts and create build artifacts which are then stored in a newly created `build` directory.
+
+## Create
+
+``*create*``
+
+To create an instance of your contract on the blockchain:
+
+``openzeppelin create``
+
+The `cli` will guide you through the process of creation, including offering you the ability to call a function at the time of deployment.
+
+For ease of use, it is not necessary to compile your contracts prior to using `create` to deploy them. All contracts will be automatically compiled as a part of the `create` flow.
+
+These instances are upgradeable but will always keep the same address. You can create as many 'instances' of the same contract as you would like.
+
+To learn more about upgradeable smart contracts: link:/sdk/[OpenZeppelin SDK]
+
+
+## Interact
+
+To simplify interacting with your contracts and blockchain, as well as handling small tasks such as sending ETH between addresses, `OpenZeppelin-cli` offers a number of convenient interactive commands that can be used directly from the command line.
+
+``*call*``
+
+To call a public method use the following from the top level of your project command line.
+
+``openzeppelin call``
+
+Follow the command line prompt, you will be asked to choose your network, the address of the created contract instance, and the public method you would like to call.
+
+``*send-tx*``
+
+To send a transaction to a contract instance:
+
+``openzeppelin send-tx``
+
+Follow the command line prompt, you will be asked to choose your network, the address of the created contract instance, and a list of the public functions available to call. If you have any arguments to pass, the `cli` will prompt you to enter those before sending the transaction.
+
+This is very useful for quickly testing a contract to see if a function does what you expect.
+
+
+``*transfer*``
+
+To quickly transfer funds on the network of your choice, the `transfer` command is available. Using `transfer` requires that your `networks.js` file is configured and that your node (such as `ganache`) has an unlocked address and you are able to send ETH (and have ETH to send)
+
+``openzeppelin transfer``
+
+This will guide you through several prompts and allow you to effortlessly transfer ETH directly from the command line.
+
+
+``*balance*``
+
+To query the ETH balance of the specified account.
+
+``openzeppelin balance [address]``
+
+Type `openzeppelin` to see a complete list of available commands directly from the command line or visit link:/sdk/api/cli[OpenZeppelin CLI] for a complete `api` reference.
+
+

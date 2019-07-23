@@ -1,5 +1,10 @@
+.Overview
+* xref:index.adoc[Starter Kit]
 * xref:quickStart.adoc[Quick Start]
-* xref:tutorial.adoc[Tutorial]
+
+.Components
+* xref:contracts.adoc[Contracts]
 * xref:networks.adoc[network.js]
 
-
+.Resources
+* xref:tutorial.adoc[Tutorial]
