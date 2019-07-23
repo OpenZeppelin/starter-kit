@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PublicAddress, Button } from 'rimble-ui';
-import { Web3Context } from 'openzeppelin-network';
+import { Web3Context } from '@openzeppelin/network';
 import styles from './Web3Info.module.scss';
 
 export default function Web3Info(props) {
@@ -8,10 +8,13 @@ export default function Web3Info(props) {
   const [network, setNetwork] = useState({ networkId: null, networkName: null });
   const [providerName, setProviderName] = useState('');
 
+  const web3ContextRef = useRef(null);
+
   useEffect(() => {
     const getWeb3 = async () => {
-      const { web3Factory } = props;
-      const web3Context = await web3Factory();
+      const { web3Context } = props;
+      console.log(web3Context);
+      web3ContextRef.current = web3Context;
       try {
         if (web3Context) {
           // Use web3 to get the user's accounts.
@@ -22,8 +25,7 @@ export default function Web3Info(props) {
             setWallet({ accounts, balance: await getBalance(web3Context) });
           });
 
-          const { accounts, networkId, networkName } = web3Context;
-          const providerName = web3Context.getProviderName();
+          const { accounts, networkId, networkName, providerName } = web3Context;
 
           setProviderName(providerName);
           setNetwork({ networkId, networkName });
@@ -34,13 +36,9 @@ export default function Web3Info(props) {
         alert(`Failed to load web3, accounts, or contract. Check console for details.`);
         console.error(error);
       }
-
-      return () => {
-        web3Context.stopPoll();
-      };
     };
     getWeb3();
-  }, []);
+  }, [props.web3Context]);
 
   const getBalance = async web3Context => {
     const accounts = web3Context.accounts;
@@ -90,7 +88,7 @@ export default function Web3Info(props) {
       ) : !!networkId && providerName !== 'infura' ? (
         <div>
           <br />
-          <Button onClick={() => requestAuth()}>Request Access</Button>
+          <Button onClick={() => requestAuth(web3ContextRef.current)}>Request Access</Button>
         </div>
       ) : (
         <div></div>
