@@ -9,7 +9,7 @@ required to deploy to different networks.
 Install OpenZeppelin SDK, Ganache, and Truffle.
 
 ``
-npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.0
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.1
 ``
 
 ## Installation
@@ -58,7 +58,7 @@ Commands start with either `openzeppelin` or with the `oz` shorthand.
 
 ``openzeppelin call``::  To execute a constant method and receive back the value.
 
-`openzeppelin`:: to see a complete list of available commands.
+`openzeppelin`:: To see a complete list of available commands.
 
 
 ## Test

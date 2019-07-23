@@ -1,6 +1,6 @@
 = networks.js
 
-OpenZeppelin SDK, the backbone of the OpenZeppelin Platform and Starter Kits uses a 100% Truffle compatible format for defining the connection settings for connecting your project to an Ethereum node.
+OpenZeppelin SDK, the backbone of the OpenZeppelin Platform and Starter Kits uses a Truffle compatible format for defining the connection settings for connecting your project to an Ethereum node.
 
 Unlike ``truffle-config.js``, ``networks.js`` includes an additional option: ``protocol`` which allows you to specify the protocol you wish to use when connecting to your node: ``http``, ``https``, ``ws``, ``wss``, or ``ipc``.
 
