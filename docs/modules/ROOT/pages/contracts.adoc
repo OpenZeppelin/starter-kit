@@ -1,6 +1,6 @@
 # Contracts
 
-When developing, Solidity contracts should be placed in at the top level of Starter Kit in the `contracts` folder.
+When developing, Solidity contracts should be placed in the top level of Starter Kit in the `contracts` folder.
 
 ## Compile
 
