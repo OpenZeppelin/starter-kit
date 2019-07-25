@@ -16,7 +16,6 @@ export default function Web3Info(props) {
       web3ContextRef.current = web3Context;
       try {
         if (web3Context) {
-          // Use web3 to get the user's accounts.
           web3Context.on(Web3Context.NetworkIdChangedEventName, (networkId, networkName) => {
             setNetwork({ networkId, networkName });
           });
