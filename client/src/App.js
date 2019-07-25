@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useWeb3Injected, useWeb3Network } from '@openzeppelin/network';
 import Web3Info from './components/Web3Info/index.js';
 
