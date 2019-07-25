@@ -1,36 +1,41 @@
 {
-  "name": "zepkit",
+  "name": "starter-kit",
   "version": "1.0.0",
-  "description": "ZeppelinOS kit containing React, ZeppelinOS & OpenZeppelin",
+  "description": "OpenZeppelin kit containing React, & OpenZeppelin SDK",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeppelinos/zepkit"
+    "url": "git+https://github.com/OpenZeppelin/starter-kit"
   },
   "keywords": [
-    "zeppelinos",
     "openzeppelin",
     "truffle",
-    "react"
+    "react",
+    "dapp",
+    "infura",
+    "metamask",
+    "web3",
+    "ganache",
+    "web3js",
+    "ethereum"
   ],
   "author": "Ramon Recuero <ramon@dapis.io>, Igor Yalovoy <to@ylv.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeppelinos/zepkit/issues"
+    "url": "https://github.com/OpenZeppelin/starter-kit/issues"
   },
-  "homepage": "https://github.com/zeppelinos/zepkit/blob/stable/README.md",
+  "homepage": "https://github.com/OpenZeppelin/starter-kit/blob/stable/README.md",
   "dependencies": {
     "dotenv": "^6.2.0",
     "openzeppelin-eth": "^2.1.3",
-    "truffle-hdwallet-provider": "^1.0.3",
-    "zos-lib": "2.2.0"
+    "truffle-hdwallet-provider": "^1.0.3"
   },
   "devDependencies": {
+    "@openzeppelin/cli": "^2.5.1",
     "chai": "^4.2.0",
-    "openzeppelin-test-helpers": "^0.3.0",
-    "zos": "^2.3.0"
+    "openzeppelin-test-helpers": "^0.3.0"
   }
 }
