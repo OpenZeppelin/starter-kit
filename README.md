@@ -21,7 +21,7 @@ First ensure you are in a new and empty directory.
 Run the `unpack` command.
 
 ```javascript
-openzeppelin unpack zepkit
+openzeppelin unpack starter
 ```
 
 ## Run
