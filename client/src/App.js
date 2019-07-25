@@ -1,13 +1,17 @@
 import React from 'react';
+
 import { useWeb3Injected, useWeb3Network } from '@openzeppelin/network';
 import Web3Info from './components/Web3Info/index.js';
 
 import styles from './App.module.scss';
 
+const infuraToken = process.env.REACT_APP_INFURA_TOKEN;
+console.log(process.env);
+
 function App() {
   const injected = useWeb3Injected();
   const local = useWeb3Network('http://127.0.0.1:8545');
-  const network = useWeb3Network('wss://ropsten.infura.io/ws/v3/95202223388e49f48b423ea50a70e336', {
+  const network = useWeb3Network(`wss://ropsten.infura.io/ws/v3/${infuraToken}`, {
     pollInterval: 10 * 1000,
   });
 
