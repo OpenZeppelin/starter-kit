@@ -6,14 +6,16 @@ import Web3Info from './components/Web3Info/index.js';
 import styles from './App.module.scss';
 
 const infuraToken = process.env.REACT_APP_INFURA_TOKEN;
-console.log(process.env);
 
 function App() {
   const injected = useWeb3Injected();
   const local = useWeb3Network('http://127.0.0.1:8545');
-  const network = useWeb3Network(`wss://ropsten.infura.io/ws/v3/${infuraToken}`, {
-    pollInterval: 10 * 1000,
-  });
+  let network;
+  if (infuraToken) {
+    network = useWeb3Network(`wss://ropsten.infura.io/ws/v3/${infuraToken}`, {
+      pollInterval: 10 * 1000,
+    });
+  }
 
   return (
     <div className={styles.App}>
@@ -22,8 +24,14 @@ function App() {
       <Web3Info title="Injected Web3" web3Context={injected} />
       <br />
       <Web3Info title="Local Web3 Node" web3Context={local} />
-      <br />
-      <Web3Info title="Infura Web3" web3Context={network} />
+      {infuraToken ? (
+        <React.Fragment>
+          <br />
+          <Web3Info title="Infura Web3" web3Context={network} />
+        </React.Fragment>
+      ) : (
+        <React.Fragment></React.Fragment>
+      )}
     </div>
   );
 }
