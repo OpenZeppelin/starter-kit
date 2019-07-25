@@ -1,5 +1,5 @@
 /* config-overrides.js */
-const { zeppelinSolidityHotLoader } = require('./config/webpack');
+const { solidityLoader } = require('./config/webpack');
 
 module.exports = function override(config, env) {
   //do stuff with the webpack config...
@@ -12,7 +12,7 @@ module.exports = function override(config, env) {
 
   // add Zeppelin Solidity hot reloading support
   // have to insert before last loader, because CRA user 'file-loader' as default one
-  config.module.rules.splice(config.module.rules - 2, 0, zeppelinSolidityHotLoader);
+  config.module.rules.splice(config.module.rules - 2, 0, solidityLoader);
 
   return config;
-}
+};
