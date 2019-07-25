@@ -13,7 +13,6 @@ export default function Web3Info(props) {
   useEffect(() => {
     const getWeb3 = async () => {
       const { web3Context } = props;
-      console.log(web3Context);
       web3ContextRef.current = web3Context;
       try {
         if (web3Context) {

@@ -7,7 +7,9 @@ import styles from './App.module.scss';
 function App() {
   const injected = useWeb3Injected();
   const local = useWeb3Network('http://127.0.0.1:8545');
-  const network = useWeb3Network('wss://ropsten.infura.io/ws/v3/95202223388e49f48b423ea50a70e336');
+  const network = useWeb3Network('wss://ropsten.infura.io/ws/v3/95202223388e49f48b423ea50a70e336', {
+    pollInterval: 10 * 1000,
+  });
 
   return (
     <div className={styles.App}>
