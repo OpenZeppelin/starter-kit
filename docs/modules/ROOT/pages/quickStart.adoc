@@ -14,11 +14,14 @@ npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.1
 
 ## Installation
 
-Ensure you are in a new and empty directory, and run the `unpack` command with `starter` to create a starter project:
+Ensure you are in a new and empty directory, and run the `unpack` command with the name of the
+starter kit you want to use. In this case we'll start our project using the kit with the name `starter`.
 
 ``
 openzeppelin unpack starter
 ``
+
+TIP: You can use other starter kits as well. You can find them all xref:list.adoc[here].
 
 ## Run
 
@@ -92,5 +95,3 @@ To build the application for production, use the build script. A production buil
 // ensure you are inside the client directory when running this
 npm run build
 ``
-
-

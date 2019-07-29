@@ -1,6 +1,7 @@
 .Overview
 * xref:index.adoc[Starter Kit]
 * xref:quickStart.adoc[Quick Start]
+* xref:list.adoc[List of Kits]
 
 .Components
 * xref:contracts.adoc[Contracts]
