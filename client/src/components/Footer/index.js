@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './footer.module.scss';
-// import logo from './logo-red.png'
 import mail from './mail.svg';
-import pencil from './pencil.svg';
 import twitter from './twitter.svg';
 import github from './github.svg';
 import zeppelin from './zeppelin_logo.png';
@@ -19,7 +17,7 @@ const Footer = () => (
       <div className={styles.copyright}>Copyright © 2019 zOS Global Limited</div>
     </div>
     <div className={styles.links}>
-      <a href="mailto:ramon@zeppelin.solutions" target="_blank" rel="noopener noreferrer">
+      <a href="mailto:contact@openzeppelin.com" target="_blank" rel="noopener noreferrer">
         <img src={mail} alt="email" />
       </a>
       <a href="https://twitter.com/OpenZeppelin" rel="noopener noreferrer" target="_blank">
