@@ -4,6 +4,7 @@
   "description": "Truffle box containing React, OpenZeppelin SDK",
   "main": "index.js",
   "scripts": {
+    "build-contracts": "openzeppelin compile",
     "docs": "bash scripts/docs.sh"
   },
   "repository": {
