@@ -1,50 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PublicAddress, Button } from 'rimble-ui';
-import { Web3Context } from '@openzeppelin/network';
 import styles from './Web3Info.module.scss';
 
 export default function Web3Info(props) {
-  const [wallet, setWallet] = useState({ accounts: [], balance: 0 });
-  const [network, setNetwork] = useState({ networkId: null, networkName: null });
-  const [providerName, setProviderName] = useState('');
+  const { web3Context } = props;
 
-  const web3ContextRef = useRef(null);
-
-  useEffect(() => {
-    const getWeb3 = async () => {
-      const { web3Context } = props;
-      web3ContextRef.current = web3Context;
-      try {
-        if (web3Context) {
-          web3Context.on(Web3Context.NetworkIdChangedEventName, (networkId, networkName) => {
-            setNetwork({ networkId, networkName });
-          });
-          web3Context.on(Web3Context.AccountsChangedEventName, async accounts => {
-            setWallet({ accounts, balance: await getBalance(web3Context) });
-          });
-
-          const { accounts, networkId, networkName, providerName } = web3Context;
-
-          setProviderName(providerName);
-          setNetwork({ networkId, networkName });
-          setWallet({ accounts, balance: await getBalance(web3Context) });
-        }
-      } catch (error) {
-        // Catch any errors for any of the above operations.
-        alert(`Failed to load web3, accounts, or contract. Check console for details.`);
-        console.error(error);
-      }
-    };
-    getWeb3();
-  }, [props.web3Context]);
+  const [balance, setBalance] = useState(0);
 
   const getBalance = async web3Context => {
     const accounts = web3Context.accounts;
     const lib = web3Context.lib;
     let balance =
       accounts && accounts.length > 0 ? lib.utils.fromWei(await lib.eth.getBalance(accounts[0]), 'ether') : 'Unknown';
-    return balance;
+    setBalance(balance);
   };
+
+  useEffect(() => {
+    getBalance(web3Context);
+  }, [web3Context.accounts, web3Context.networkId]);
 
   const requestAuth = async web3Context => {
     try {
@@ -54,8 +27,7 @@ export default function Web3Info(props) {
     }
   };
 
-  const { networkId, networkName } = network;
-  const { accounts, balance } = wallet;
+  const { networkId, networkName, accounts, providerName } = web3Context;
 
   return (
     <div className={styles.web3}>
@@ -86,7 +58,7 @@ export default function Web3Info(props) {
       ) : !!networkId && providerName !== 'infura' ? (
         <div>
           <br />
-          <Button onClick={() => requestAuth(web3ContextRef.current)}>Request Access</Button>
+          <Button onClick={() => requestAuth(web3Context)}>Request Access</Button>
         </div>
       ) : (
         <div></div>
