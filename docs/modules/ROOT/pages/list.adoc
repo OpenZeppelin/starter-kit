@@ -13,6 +13,7 @@ to be maintained by us.
 
 * xref:quickStart.adoc[Starter]. The basic Starter Kit. The perfect way to start a dapp from scratch.
 * xref:tutorial.adoc[Tutorial]. An interactive tutorial. Shows you how all the components fit together.
+* xref:gsnkit.adoc[GSN Starter Kit]. GSN Starter Kit. The best way to get started with Gas Station Network.
 
 == Third-Party
 

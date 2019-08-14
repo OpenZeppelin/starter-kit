@@ -1,0 +1,97 @@
+= GSN Starter Kit
+
+OpenZeppelin GSN Starter Kit comes with everything you need to start using Gas Station Network
+contracts inside your applications. It also includes all the GSN & Web3
+connection that you need to abstract gas for your users.
+
+https://github.com/OpenZeppelin/starter-kit-gsn[View repository]
+
+## Requirements
+
+Install OpenZeppelin SDK, Ganache, and Truffle.
+
+``
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.1
+``
+
+## Installation
+
+Ensure you are in a new and empty directory, and run the `unpack` command with the name of the
+starter kit you want to use. In this case we'll start our project using the kit with the name `starter`.
+
+``
+openzeppelin unpack OpenZeppelin/starter-kit-gsn
+``
+
+## Run
+
+In a new terminal window, run your local blockchain:
+
+``
+ganache-cli --deterministic
+``
+
+In your original terminal window, at the top level of your folder, initialize the project
+and follow the prompts:
+
+
+``
+openzeppelin init
+``
+
+
+In a new terminal window, in the `client` directory, run the React app:
+
+``
+cd client
+npm run start
+``
+
+## Interact
+
+You can interact directly with your smart contracts from the `openzeppelin` cli.
+
+Commands start with either `openzeppelin` or with the `oz` shorthand.
+[horizontal]
+``openzeppelin transfer``:: To send funds to a given address.
+
+``openzeppelin balance [address]``::  To query the ETH balance of the specified account, also supports ERC20s.
+
+``openzeppelin send-tx``::  To send a transaction to your contract and returns the events.
+
+``openzeppelin call``::  To execute a constant method and receive back the value.
+
+`openzeppelin`:: To see a complete list of available commands.
+
+
+## Test
+
+Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the truffle development console.
+
+From inside the development console.
+
+``
+test
+``
+
+From outside the development console.
+
+``
+truffle test
+``
+
+Jest is included for testing React components. Compile your contracts before running Jest, or you may receive some file not found errors.
+
+From inside the client directory when running this
+``
+npm run test
+``
+
+## Build
+
+To build the application for production, use the build script. A production build will be in the `client/build` folder.
+
+``
+// ensure you are inside the client directory when running this
+npm run build
+``
