@@ -94,3 +94,4 @@ To build the application for production, use the build script. A production buil
 ``
 // ensure you are inside the client directory when running this
 npm run build
+``
