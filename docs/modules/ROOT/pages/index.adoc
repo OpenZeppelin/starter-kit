@@ -1,4 +1,4 @@
-= OpenZeppelin Starter Kits
+= Getting Started
 
 OpenZeppelin Starter Kits are the easiest way to get started building a Ethereum powered (d)app. Bundled with all the tools necessary to get started, you can be up and running with a working smart contract powered (d)app in less than 5 minutes.
 
@@ -18,6 +18,14 @@ When interviewing developers building on OpenZeppelin tools, we found there was 
 * *Compile and test smart contracts*. The Starter Kit includes the Truffle suite which a development environment, testing framework, and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM).
 * *Create adaptable and responsive UI components*. The Starter Kit includes React and Rimble to give you all the components and flexibility you need to build responsive user interfaces.
 * *Use standard Ethereum development tools and processes for minimal development overhead*. If you have been developing on Ethereum for years or are a complete newbie- you will feel at home developing with Starter Kits.
+
+== Setup
+
+Install OpenZeppelin SDK, Ganache, and Truffle.
+
+``
+npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.1
+``
 
 == How it works
 

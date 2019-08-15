@@ -2,13 +2,7 @@
 
 OpenZeppelin provides Tutorial Starter Kit which is useful both for learning smart contract development, and jumpstarting hackathon projects.
 
-## Requirements
-
-Install OpenZeppelin SDK, Ganache, and Truffle.
-
-``
-npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.0
-``
+https://github.com/OpenZeppelin/starter-kit-tutorial[View repository]
 
 ## Installation
 
@@ -18,29 +12,17 @@ Ensure you are in a new and empty directory, and run the `unpack` command with `
 openzeppelin unpack tutorial
 ``
 
-This will not only unpack a complete Starter Kit, it will be prepopulated with solidity contracts and a react front end with an interactive tutorial to follow along.
+## Why this kit?
 
-## Run
+This Starter Kit will show you how all the components work under the hood. It will guide
+you through an interactive tutorial so you can learn by changing the code and adding new components.
 
-In a new terminal window, run your local blockchain:
+You will learn the following:
 
-``
-ganache-cli --deterministic
-``
-
-In your original terminal window, at the top level of your folder, initialize the project and follow the prompts:
-
-``
-openzeppelin init
-``
-
-In a new terminal window, in the `client` directory, run the React app:
-
-``
-cd client
-npm run start
-``
-
-Open a web browser and navigate to: ``http://localhost:3000``. Follow along the tutorial directly from the React App.
-
-
+* How to *Fund your Metamask* account.
+* How to connect to your Ethereum network: local, testnets and mainnet.
+* How to retrieve your accounts and balance.
+* How to *call smart contract functions* from the frontend.,
+* How to create a responsive UI based on smart contract updates.
+* How to add new functionality to your smart contracts via *upgrades*.
+* How to leverage *smart contract hot reloading* to speed up your local development.
