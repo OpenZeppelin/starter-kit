@@ -108,4 +108,4 @@ const getDeploymentAndFunds = async () => {
 };
 ----
 
-You can top your balance by sending funds to your contract using `oz transfer` command.
+You can top your balance by sending funds to your contract using `npx oz-gsn fund-recipient --recipient ADDRESS` command or heading to the https://gsn.ethereum.org/recipients[dapp tool].

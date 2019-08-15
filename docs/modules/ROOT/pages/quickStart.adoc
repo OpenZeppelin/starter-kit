@@ -7,7 +7,7 @@ required to deploy to different networks.
 ## Installation
 
 Ensure you are in a new and empty directory, and run the `unpack` command with the name of the
-starter kit you want to use. e.g `starter`
+starter kit you want to use, e.g. `starter`.
 
 ``
 openzeppelin unpack <kit_name>
