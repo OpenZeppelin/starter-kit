@@ -1,24 +1,16 @@
 = Quick Start
 
-OpenZeppelin Starter Kit comes with everything you need to start using upgradeable Smart
+OpenZeppelin Starter Kit(s) comes with everything you need to start using upgradeable Smart
 contracts inside your applications. It also includes all the configuration
 required to deploy to different networks.
-
-## Requirements
-
-Install OpenZeppelin SDK, Ganache, and Truffle.
-
-``
-npm install -g truffle@5.0.2 ganache-cli@6.3.0 @openzeppelin/cli@2.5.1
-``
 
 ## Installation
 
 Ensure you are in a new and empty directory, and run the `unpack` command with the name of the
-starter kit you want to use. In this case we'll start our project using the kit with the name `starter`.
+starter kit you want to use, e.g. `starter`.
 
 ``
-openzeppelin unpack starter
+openzeppelin unpack <kit_name>
 ``
 
 TIP: You can use other starter kits as well. You can find them all xref:list.adoc[here].
@@ -47,22 +39,81 @@ cd client
 npm run start
 ``
 
-## Interact
+Open a web browser and navigate to: ``http://localhost:3000``.
 
-You can interact directly with your smart contracts from the `openzeppelin` cli.
+You can now start building your dapp!
 
-Commands start with either `openzeppelin` or with the `oz` shorthand.
-[horizontal]
-``openzeppelin transfer``:: To send funds to a given address.
+## Contracts
 
-``openzeppelin balance [address]``::  To query the ETH balance of the specified account, also supports ERC20s.
+When developing, Solidity contracts should be placed in the top level of Starter Kit in the `contracts` folder.
 
-``openzeppelin send-tx``::  To send a transaction to your contract and returns the events.
+## Using the SDK
 
-``openzeppelin call``::  To execute a constant method and receive back the value.
+### Compile
 
-`openzeppelin`:: To see a complete list of available commands.
+``*compile*``
 
+To compile your contracts use:
+
+``openzeppelin compile``
+
+This will compile your contracts and create build artifacts which are then stored in a newly created `build` directory.
+
+### Create
+
+``*create*``
+
+To create an instance of your contract on the blockchain:
+
+``openzeppelin create``
+
+The `cli` will guide you through the process of creation, including offering you the ability to call a function at the time of deployment.
+
+For ease of use, it is not necessary to compile your contracts prior to using `create` to deploy them. All contracts will be automatically compiled as a part of the `create` flow.
+
+These instances are upgradeable but will always keep the same address. You can create as many 'instances' of the same contract as you would like.
+
+To learn more about upgradeable smart contracts: link:/sdk/[OpenZeppelin SDK]
+
+### Interact
+
+To simplify interacting with your contracts and blockchain, as well as handling small tasks such as sending ETH between addresses, `OpenZeppelin-cli` offers a number of convenient interactive commands that can be used directly from the command line.
+
+``*call*``
+
+To call a public method use the following from the top level of your project command line.
+
+``openzeppelin call``
+
+Follow the command line prompt, you will be asked to choose your network, the address of the created contract instance, and the public method you would like to call.
+
+``*send-tx*``
+
+To send a transaction to a contract instance:
+
+``openzeppelin send-tx``
+
+Follow the command line prompt, you will be asked to choose your network, the address of the created contract instance, and a list of the public functions available to call. If you have any arguments to pass, the `cli` will prompt you to enter those before sending the transaction.
+
+This is very useful for quickly testing a contract to see if a function does what you expect.
+
+
+``*transfer*``
+
+To quickly transfer funds on the network of your choice, the `transfer` command is available. Using `transfer` requires that your `networks.js` file is configured and that your node (such as `ganache`) has an unlocked address and you are able to send ETH (and have ETH to send)
+
+``openzeppelin transfer``
+
+This will guide you through several prompts and allow you to effortlessly transfer ETH directly from the command line.
+
+
+``*balance*``
+
+To query the ETH balance of the specified account.
+
+``openzeppelin balance [address]``
+
+Type `openzeppelin` to see a complete list of available commands directly from the command line or visit link:/sdk/api/cli[OpenZeppelin CLI] for a complete `api` reference.
 
 ## Test
 

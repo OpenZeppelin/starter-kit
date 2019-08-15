@@ -1,11 +1,8 @@
-.Overview
-* xref:index.adoc[Starter Kit]
+* xref:index.adoc[Getting Started]
 * xref:quickStart.adoc[Quick Start]
+
+.Kits
 * xref:list.adoc[List of Kits]
-
-.Components
-* xref:contracts.adoc[Contracts]
-* xref:networks.adoc[network.js]
-
-.Resources
+* xref:starter.adoc[Base Kit]
 * xref:tutorial.adoc[Tutorial]
+* xref:gsnkit.adoc[GSN Kit]
