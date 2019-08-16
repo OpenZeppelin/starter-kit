@@ -9,7 +9,7 @@ https://github.com/OpenZeppelin/starter-kit-gsn[View repository]
 ## Installation
 
 Ensure you are in a new and empty directory, and run the `unpack` command with the name of the
-starter kit you want to use. In this case we'll start our project using the kit with the name `starter`.
+starter kit you want to use. In this case, we'll start our project using the kit with the name `starter`.
 
 ``
 openzeppelin unpack OpenZeppelin/starter-kit-gsn
@@ -21,7 +21,7 @@ This kit leverages GSN to create dapps that are ready for mass adoption. Free yo
 the initial burden of installing Metamask and obtaining Ether. Create blockchain applications
 that are indistinguishable from Web2.0 apps.
 
-This documents assumes familiarity with Gas Station Network. Here are some resources about it:
+This document assumes familiarity with the Gas Station Network. Here are some resources about it:
 
 https://gsn.openzeppelin.com/[Website]
 https://docs.openzeppelin.com/contracts/2.x/gsn[GSN Contracts Overview]
@@ -29,7 +29,7 @@ https://github.com/OpenZeppelin/openzeppelin-gsn-provider[GSN Provider]
 
 ### How does it use Web3 with GSN?
 This kit uses Open Zeppelin https://github.com/OpenZeppelin/openzeppelin-network.js[network.js] to create the connection to Web3. Using a couple
-flags for development and production you can see how the dapp obtains a context that is aware of Gas Station Network.
+flags for development and production, you can see how the dapp obtains a context that is aware of the Gas Station Network.
 
 [source,solidity]
 ----
@@ -83,7 +83,7 @@ contract Counter is Initializable, GSNRecipient {
 }
 ----
 
-### How to know if my recipient has funds?
+### How will I know if my recipient has funds?
 
 The frontend also has some functions to help you see how much remaining balance you have left.
 Once it runs out, transactions will stop working because your dapp won't be able to pay the gas fee
