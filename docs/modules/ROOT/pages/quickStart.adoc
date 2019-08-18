@@ -1,13 +1,13 @@
 = Quick Start
 
-OpenZeppelin Starter Kit(s) comes with everything you need to start using upgradeable Smart
+OpenZeppelin Starter Kits come with everything you need to start using upgradeable Smart
 contracts inside your applications. It also includes all the configuration
 required to deploy to different networks.
 
 ## Installation
 
 Ensure you are in a new and empty directory, and run the `unpack` command with the name of the
-starter kit you want to use, e.g. `starter`.
+starter kit you want to use, e.g., `starter`.
 
 ``
 openzeppelin unpack <kit_name>
@@ -45,7 +45,7 @@ You can now start building your dapp!
 
 ## Contracts
 
-When developing, Solidity contracts should be placed in the top level of Starter Kit in the `contracts` folder.
+When developing, Solidity contracts should be placed in the top level of the Starter Kit in the `contracts` folder.
 
 ## Using the SDK
 
@@ -53,7 +53,7 @@ When developing, Solidity contracts should be placed in the top level of Starter
 
 ``*compile*``
 
-To compile your contracts use:
+To compile your contracts, use:
 
 ``openzeppelin compile``
 
@@ -71,7 +71,7 @@ The `cli` will guide you through the process of creation, including offering you
 
 For ease of use, it is not necessary to compile your contracts prior to using `create` to deploy them. All contracts will be automatically compiled as a part of the `create` flow.
 
-These instances are upgradeable but will always keep the same address. You can create as many 'instances' of the same contract as you would like.
+These instances are upgradeable but will always keep the same address. You can create as many instances of the same contract as you would like.
 
 To learn more about upgradeable smart contracts: link:/sdk/[OpenZeppelin SDK]
 
@@ -81,11 +81,11 @@ To simplify interacting with your contracts and blockchain, as well as handling 
 
 ``*call*``
 
-To call a public method use the following from the top level of your project command line.
+To call a public method, use the following from the top level of your project command line:
 
 ``openzeppelin call``
 
-Follow the command line prompt, you will be asked to choose your network, the address of the created contract instance, and the public method you would like to call.
+Follow the command line prompt where you will be asked to choose your network, the address of the created contract instance, and the public method you would like to call.
 
 ``*send-tx*``
 
@@ -93,14 +93,14 @@ To send a transaction to a contract instance:
 
 ``openzeppelin send-tx``
 
-Follow the command line prompt, you will be asked to choose your network, the address of the created contract instance, and a list of the public functions available to call. If you have any arguments to pass, the `cli` will prompt you to enter those before sending the transaction.
+Follow the command line prompt where you will be asked to choose your network, the address of the created contract instance, and a list of the public functions available to call. If you have any arguments to pass, the `cli` will prompt you to enter those before sending the transaction.
 
 This is very useful for quickly testing a contract to see if a function does what you expect.
 
 
 ``*transfer*``
 
-To quickly transfer funds on the network of your choice, the `transfer` command is available. Using `transfer` requires that your `networks.js` file is configured and that your node (such as `ganache`) has an unlocked address and you are able to send ETH (and have ETH to send)
+To quickly transfer funds on the network of your choice, the `transfer` command is available. Using `transfer` requires that your `networks.js` file is configured and that your node (such as `ganache`) has an unlocked address and you are able to send ETH (and have ETH to send).
 
 ``openzeppelin transfer``
 
@@ -109,7 +109,7 @@ This will guide you through several prompts and allow you to effortlessly transf
 
 ``*balance*``
 
-To query the ETH balance of the specified account.
+To query the ETH balance of the specified account:
 
 ``openzeppelin balance [address]``
 
@@ -117,15 +117,15 @@ Type `openzeppelin` to see a complete list of available commands directly from t
 
 ## Test
 
-Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're in or outside of the truffle development console.
+Truffle can run tests written in Solidity or JavaScript against your smart contracts. Note the command varies slightly if you're inside or outside of the truffle development console.
 
-From inside the development console.
+From inside the development console:
 
 ``
 test
 ``
 
-From outside the development console.
+From outside the development console:
 
 ``
 truffle test
@@ -133,7 +133,7 @@ truffle test
 
 Jest is included for testing React components. Compile your contracts before running Jest, or you may receive some file not found errors.
 
-From inside the client directory when running this
+From inside the client directory when running this:
 ``
 npm run test
 ``
@@ -143,6 +143,6 @@ npm run test
 To build the application for production, use the build script. A production build will be in the `client/build` folder.
 
 ``
-// ensure you are inside the client directory when running this
+// ensure you are inside the client directory when running this:
 npm run build
 ``
