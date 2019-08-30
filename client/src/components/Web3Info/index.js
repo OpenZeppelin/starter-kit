@@ -17,7 +17,7 @@ export default function Web3Info(props) {
 
   useEffect(() => {
     getBalance(web3Context);
-  }, [web3Context.accounts, web3Context.networkId]);
+  }, [web3Context, web3Context.accounts, web3Context.networkId]);
 
   const requestAuth = async web3Context => {
     try {
