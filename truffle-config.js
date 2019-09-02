@@ -27,6 +27,6 @@ module.exports = {
     ropsten: configNetwok('ropsten', 3),
     kovan: configNetwok('kovan', 42),
     rinkeby: configNetwok('rinkeby', 4),
-    main: configNetwok('main', 1),
-  }
+    main: configNetwok('mainnet', 1),
+  },
 };
