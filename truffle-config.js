@@ -3,10 +3,10 @@ require('dotenv').config();
 // .env-file should contain your Infura-Project-ID and your mnemonic
 // Create your own key for Production environments (https://infura.io/)
 // INFURA_API_KEY="xxxxxxxxxxxxxxxxxxxx"
-// MNENOMIC="Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod"
+// MNEMONIC="Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod"
 
 
-const mnemonic = process.env.MNENOMIC;
+const mnemonic = process.env.MNEMONIC;
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
 module.exports = {
