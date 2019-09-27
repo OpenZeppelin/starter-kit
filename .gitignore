@@ -70,3 +70,5 @@ build
 .zos.session
 
 openzeppelin-docs
+
+.vscode
