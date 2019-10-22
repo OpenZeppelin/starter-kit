@@ -35,9 +35,6 @@ jobs:
 
       # Test production build
       - run:
-          name: Build contracts
-          command: npm run build-contracts
-      - run:
           name: Build application
           command: npm run build
           working_directory: "./client"
