@@ -36,5 +36,5 @@ jobs:
       # Test production build
       - run:
           name: Build application
-          command: npm run build
+          command: CI="" npm run build
           working_directory: "./client"
