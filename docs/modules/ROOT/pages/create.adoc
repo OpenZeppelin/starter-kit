@@ -1,4 +1,4 @@
-== How to Create Your Own OpenZeppelin Starter Kit
+== How to Create a Starter Kit
 
 === What is a Starter Kit?
 
