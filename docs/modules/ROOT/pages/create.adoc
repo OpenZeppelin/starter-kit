@@ -1,0 +1,71 @@
+== How to Create Your Own OpenZeppelin Starter Kit
+
+=== What is a Starter Kit?
+
+https://openzeppelin.com/starter-kits/[Starter Kit] is a preconfigured Ethereum project containing the best industry tools to bootstrap a dApp development process.
+
+=== Why Should I Create a Starter Kit?
+
+Anyone can create a Starter Kit and it is a great way to introduce developers to a new tool or a project, like https://github.com/OpenZeppelin/starter-kit-gsn[GSN Starter Kit].
+
+=== How to Create a Starter Kit
+
+To create an OpenZeppelin Kit you’ll need to publish a GitHub repo containing your kit project. The GitHub repo has to contain the kit.json configuration file and have a stable branch. Repo should have meaningful README.md file walking users through installation, running and building a kit. Repo should have a stable branch that is used as a source for a kit deployment. Use a stable branch only for kit releases. https://github.com/OpenZeppelin/starter-kit-tutorial[The tutorial kit] is a good example.
+
+==== Checklist
+
+- Create a GitHub repo
+- Create a stable branch on the repo
+- Add a valid configuration file to the root of the repo
+- Add desired tools and packages to the repo
+- Add meaningful README.md file to the repo
+- Push a release version to a `stable` branch
+
+
+==== Configuration file
+
+Every Starter kit includes a configuration file – `kit.json`. This file has the following structure:
+
+[source, json]
+----
+    {
+      "manifestVersion": "0.1.0",
+      "message": "More at https://github.com/OpenZeppelin/starter-kit",
+      "files": [
+        ".gitignore",
+        "LICENSE",
+        "client",
+        "contracts",
+        "migrations",
+        "package.json",
+        "solhint.json",
+        "test",
+        "truffle-config.js"
+      ],
+      "hooks": {
+        "post-unpack": "npm install && cd client && npm install"
+      }
+    }
+----
+
+===== manifestVersion
+A version of a manifest that ensures proper handling of a kit. Always use the version provided in the documentation.
+
+===== Message
+A message displayed in the terminal immediately after installation. Keep it short and to the point.
+
+===== Files
+An array of files and folders to be copied from the repo. An empty array would result in copying all the files.
+
+===== Hooks
+An object containing terminal commands to execute during unpacking. Currently, only post-unpack command supported which is executed right after unpacking a kit.
+
+
+=== How to Install My Starter Kit
+
+Running a command `npx openzeppelin unpack yourGitHubHandle/yourRepoName` will install a starter kit in the current directory, for example `npx openzeppelin unpack OpenZepelin/starter-kit`.
+
+=== Getting listed at OpenZeppelin website
+
+We value community contribution and would love to list your Starter Kit on the OpenZeppelin website. Every submitted kit undergoes a screening process to ensure safety. To start the process send us an email with your desired kit name and description, along with a link to its GitHub repo.
+Once the kit is verified, the short name is assigned to it to simplify installation, like `openzeppelin unpack gsn`.
