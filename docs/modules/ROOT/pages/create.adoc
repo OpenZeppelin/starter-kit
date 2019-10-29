@@ -48,16 +48,16 @@ Every Starter kit includes a configuration file – `kit.json`. This file has th
     }
 ----
 
-===== manifestVersion
+.manifestVersion
 A version of a manifest that ensures proper handling of a kit. Always use the version provided in the documentation.
 
-===== Message
+.Message
 A message displayed in the terminal immediately after installation. Keep it short and to the point.
 
-===== Files
+.Files
 An array of files and folders to be copied from the repo. An empty array would result in copying all the files.
 
-===== Hooks
+.Hooks
 An object containing terminal commands to execute during unpacking. Currently, only post-unpack command supported which is executed right after unpacking a kit.
 
 
