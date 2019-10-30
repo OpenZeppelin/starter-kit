@@ -10,7 +10,7 @@ Anyone can create a Starter Kit and it is a great way to introduce developers to
 
 === How to Create a Starter Kit
 
-To create an OpenZeppelin Kit you’ll need to publish a GitHub repo containing your kit project. The GitHub repo has to contain the kit.json configuration file and have a stable branch. Repo should have meaningful README.md file walking users through installation, running and building a kit. Repo should have a stable branch that is used as a source for a kit deployment. Use a stable branch only for kit releases. https://github.com/OpenZeppelin/starter-kit-tutorial[The tutorial kit] is a good example.
+To create an OpenZeppelin Kit you’ll need to publish a GitHub repo containing your kit project. The GitHub repo has to contain a `kit.json` configuration file and have a stable branch. The repo should have meaningful `README.md` file walking users through installation, running and building a kit. The `stable` branch will be used as a source for the kit's deployment. Use the stable branch only for kit releases. https://github.com/OpenZeppelin/starter-kit-tutorial[The tutorial kit] is a good example.
 
 ==== Checklist
 
