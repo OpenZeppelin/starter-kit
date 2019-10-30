@@ -1,6 +1,6 @@
 * xref:index.adoc[Getting Started]
 * xref:quickStart.adoc[Quick Start]
-* xref:create.adoc[How to Create Starter Kit]
+* xref:create.adoc[How to Create a Starter Kit]
 
 .Kits
 * xref:list.adoc[List of Kits]
