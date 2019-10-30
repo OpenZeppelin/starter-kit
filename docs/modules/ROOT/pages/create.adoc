@@ -24,7 +24,7 @@ To create an OpenZeppelin Kit you’ll need to publish a GitHub repo containing 
 
 ==== Configuration file
 
-Every Starter kit includes a configuration file – `kit.json`. This file has the following structure:
+Every Starter kit must include a `kit.json` configuration file. This file has the following structure:
 
 [source, json]
 ----
