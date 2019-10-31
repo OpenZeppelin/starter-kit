@@ -61,7 +61,7 @@ Once your starter kit is ready it is always a good idea to give it a test run. I
 === How to Release a New Version
 Once you've added desired changes to your starter kit, push them to the `stable` branch and they will be instantly available using an `unpack` command.
 
-=== How to Install My Starter Kit
+=== How to Install a Starter Kit
 Running a command `npx openzeppelin unpack yourGitHubHandle/yourRepoName` will install a starter kit in the current directory, for example `npx openzeppelin unpack 'OpenZepelin/starter-kit'`.
 
 
