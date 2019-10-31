@@ -31,7 +31,7 @@ https://github.com/OpenZeppelin/openzeppelin-gsn-provider[GSN Provider]
 This kit uses Open Zeppelin https://github.com/OpenZeppelin/openzeppelin-network.js[network.js] to create the connection to Web3. Using a couple
 flags for development and production, you can see how the dapp obtains a context that is aware of the Gas Station Network.
 
-[source,solidity]
+[source, solidity]
 ----
 // get GSN web3
 const context = useWeb3Network('http://127.0.0.1:8545', {
@@ -47,7 +47,7 @@ The `Counter` contract is modified to inherit from `RelayRecipient`.
 Also, the counter contract is going to naively pay for all the transactions that are submitted.
 Note how the `acceptRelayedCall` determines this by returning 0.
 
-[source,solidity]
+[source, solidity]
 ----
 pragma solidity ^0.5.0;
 
@@ -89,7 +89,7 @@ The frontend also has some functions to help you see how much remaining balance 
 Once it runs out, transactions will stop working because your dapp won't be able to pay the gas fee
 on behalf of its users.
 
-[source,solidity]
+[source, javascript]
 ----
 const getDeploymentAndFunds = async () => {
   if (instance) {
