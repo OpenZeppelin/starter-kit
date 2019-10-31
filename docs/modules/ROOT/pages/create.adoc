@@ -7,7 +7,7 @@ Creating a starter kit dedicated to a particular project or tool is a great way 
 https://github.com/OpenZeppelin/starter-kit-gsn[GSN Starter Kit] is an example of a project focused starter kit which helped to kickstart https://gsn.openzeppelin.com/[Gas Station Network].
 
 === How to Create a Starter Kit
-To create an OpenZeppelin Kit you’ll need to publish a GitHub repo containing your kit project. The GitHub repo has to contain a `kit.json` configuration file and have a stable branch. The repo should have meaningful `README.md` file walking users through installation, running and building a kit. The `stable` branch will be used as a source for the kit's deployment. Use the stable branch only for kit releases. https://github.com/OpenZeppelin/starter-kit-tutorial[The tutorial kit] is a good example.
+To create an OpenZeppelin Kit you’ll need to publish a GitHub repo containing your kit project. The GitHub repo has to contain a `kit.json` configuration file and have a stable branch. The repo should have a meaningful `README.md` file walking users through installation, running and building a kit. The `stable` branch will be used as a source for the kit's deployment. Use the stable branch only for kit releases. https://github.com/OpenZeppelin/starter-kit-tutorial[The tutorial kit] is a good example.
 
 ==== Checklist
 - Create a GitHub repo
