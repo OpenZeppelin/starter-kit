@@ -2,7 +2,7 @@
 In this guide, you'll learn how to create your own starter kit. Not sure what starter kits are? Check out https://docs.openzeppelin.com/starter-kits/2.3/[getting started].
 
 === Why Should I Create a Starter Kit?
-It is still incredibly hard for new developers to enter the Ethereum ecosystem compare to Web2. New developers suffer from a lack of documentation, immature tools, and a huge upfront commitment. Starter kits represent a bridge between Web2 and Web3 supercharged to bootstrap developers into the Ethereum ecosystem within minutes using familiar concepts and technologies, such as React, NPM, Mocha while introducing Web3 components Infura, OpenZeppelin, Truffle, Rimble.
+It is still very hard for new developers to enter the Ethereum ecosystem compared to Web2. New developers suffer from a lack of comprehensive documentation and a huge upfront commitment. Starter kits represent a bridge between Web2 and Web3 supercharged to bootstrap developers into the Ethereum ecosystem within minutes, using familiar concepts and technologies, such as React, NPM, and Mocha, while introducing Web3 components like Infura, OpenZeppelin, Truffle, and Rimble.
 Creating a starter kit dedicated to a particular project or tool is a great way to spotlight it for new developers in the space as well as to create hands-on experience and materials to run workshops.
 https://github.com/OpenZeppelin/starter-kit-gsn[GSN Starter Kit] is an example of a project focused starter kit which helped to kickstart https://gsn.openzeppelin.com/[Gas Station Network].
 
