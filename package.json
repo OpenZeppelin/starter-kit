@@ -39,6 +39,6 @@
     "concurrently": "^4.1.1",
     "http-server": "^0.11.1",
     "nodemon": "^2.0.1",
-    "openzeppelin-test-helpers": "^0.3.0"
+    "openzeppelin-test-helpers": "^0.5.1"
   }
 }
