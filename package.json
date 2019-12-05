@@ -38,7 +38,7 @@
   "homepage": "https://github.com/OpenZeppelin/starter-kit/blob/stable/README.md",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "truffle-hdwallet-provider": "^1.0.3"
+    "truffle-hdwallet-provider": "^1.0.17"
   },
   "devDependencies": {
     "@openzeppelin/cli": "^2.6.0",
