@@ -6,12 +6,12 @@ orbs:
 jobs:
   build:
     docker:
-    - image: circleci/node:10.13
+      - image: circleci/node:10.13
     working_directory: ~/openzeppelin
-    
+
     steps:
       - checkout
-    
+
       # Install root dependencies
       - restore_cache:
           key: dependency-cache-v1-root-{{ checksum "package.json" }}
@@ -20,24 +20,24 @@ jobs:
           command: npm install
       - save_cache:
           key: dependency-cache-v1-root-{{ checksum "package.json" }}
-          paths: ['./node_modules']
-      
+          paths: ["./node_modules"]
+
       # Install client dependencies
       - restore_cache:
           key: dependency-cache-v1-client-{{ checksum "client/package.json" }}
       - run:
           name: Install client dependencies
           command: npm install
-          working_directory: './client'
+          working_directory: "./client"
       - save_cache:
           key: dependency-cache-v1-client-{{ checksum "package.json" }}
-          paths: ['./client/node_modules']
+          paths: ["./client/node_modules"]
 
       # Test production build
       - run:
           name: Build contracts
-          command: npm run build-contracts
+          command: npm run build:contracts
       - run:
           name: Build application
           command: npm run build
-          working_directory: './client'
+          working_directory: "./client"
