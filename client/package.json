@@ -7,7 +7,7 @@
     "@openzeppelin/solidity-loader": "^1.4.6",
     "classnames": "^2.2.6",
     "json-loader": "^0.5.7",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-app-rewired": "^2.1.0",
