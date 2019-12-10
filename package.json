@@ -4,7 +4,7 @@
   "description": "Truffle box containing React, OpenZeppelin SDK",
   "main": "index.js",
   "scripts": {
-    "build-contracts": "openzeppelin compile",
+    "build:contracts": "openzeppelin compile",
     "docs": "bash scripts/docs.sh"
   },
   "repository": {
@@ -21,24 +21,21 @@
     "truffle",
     "react"
   ],
-  "author": "Ramon Recuero <ramon@dapis.io>",
+  "author": "Ramon Recuero <ramon@dapis.io>, Igor Yalovoy <igor@openzeppelin.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/OpenZeppelin/starter-kit/issues"
   },
   "homepage": "https://github.com/OpenZeppelin/starter-kit#readme",
   "dependencies": {
-    "@openzeppelin/contracts-ethereum-package": "^2.2.1",
-    "@openzeppelin/upgrades": "^2.5.1",
-    "dotenv": "^6.2.0",
     "@truffle/hdwallet-provider": "^1.0.23"
   },
   "devDependencies": {
-    "@openzeppelin/cli": "^2.5.1",
+    "@openzeppelin/cli": "^2.6.0",
     "chai": "^4.2.0",
-    "concurrently": "^4.1.1",
+    "concurrently": "^5.0.0",
     "http-server": "^0.11.1",
-    "nodemon": "^1.19.1",
-    "openzeppelin-test-helpers": "^0.3.0"
+    "nodemon": "^2.0.1",
+    "openzeppelin-test-helpers": "^0.5.1"
   }
 }
