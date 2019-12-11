@@ -30,11 +30,11 @@ This file can be expanded to include additional networks, such as `rinkeby`, `ko
 
 ## HDWallet Provider
 
-You will need to install `truffle-hdwallet-provider` via `npm install truffle-hdwallet-provider`. To use, assign it to a variable and then pass it your `memonic` and `host` as your provider.
+You will need to install `@truffle/hdwallet-provider` via `npm install @truffle/hdwallet-provider`. To use, assign it to a variable and then pass it your `memonic` and `host` as your provider.
 
 [source, javascript]
 ----
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 let provider = new HDWalletProvider(mnemonic, host);
 ----
 
@@ -48,7 +48,7 @@ The following is a complete example for connecting to various networks using Inf
 ----
 const mnemonic = "Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod";
 const INFURA_API_KEY="xxxxxxxxxxxxxxxxxxxx";
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
  networks: {

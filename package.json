@@ -28,10 +28,7 @@
   },
   "homepage": "https://github.com/OpenZeppelin/starter-kit#readme",
   "dependencies": {
-    "@openzeppelin/contracts-ethereum-package": "^2.4.0",
-    "@openzeppelin/upgrades": "^2.6.0",
-    "dotenv": "^8.2.0",
-    "truffle-hdwallet-provider": "^1.0.3"
+    "@truffle/hdwallet-provider": "^1.0.23"
   },
   "devDependencies": {
     "@openzeppelin/cli": "^2.6.0",
