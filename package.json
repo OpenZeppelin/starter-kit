@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build:contracts": "openzeppelin compile",
-    "docs": "bash scripts/docs.sh"
+    "docs": "oz-docs -c docs",
+    "docs:watch": "npm run docs watch"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "concurrently": "^5.0.0",
     "http-server": "^0.11.1",
     "nodemon": "^2.0.1",
+    "openzeppelin-docs-utils": "github:OpenZeppelin/docs-utils",
     "openzeppelin-test-helpers": "^0.5.1"
   }
 }
