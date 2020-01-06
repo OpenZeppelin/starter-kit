@@ -1,18 +1,18 @@
-= Tutorial
+= Tutorial Starter Kit
 
 OpenZeppelin provides Tutorial Starter Kit which is useful both for learning smart contract development, and jumpstarting hackathon projects.
 
 https://github.com/OpenZeppelin/starter-kit-tutorial[View repository]
 
-## Installation
+== Installation
 
 Ensure you are in a new and empty directory, and run the `unpack` command with `tutorial` to unpack the tutorial starter project:
 
-``
-openzeppelin unpack tutorial
-``
+```console
+$ openzeppelin unpack tutorial
+```
 
-## Why this kit?
+== Why This Kit?
 
 This Starter Kit will show you how all the components work under the hood. It will guide
 you through an interactive tutorial so you can learn by changing the code and adding new components.
