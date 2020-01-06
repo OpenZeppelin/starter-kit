@@ -9,28 +9,25 @@ const infuraToken = '95202223388e49f48b423ea50a70e336';
 
 function App() {
   const injected = useWeb3Injected();
+  const isHttp = window.location.protocol === 'http:';
   const local = useWeb3Network('http://127.0.0.1:8545');
-  let network;
-  network = useWeb3Network(`wss://ropsten.infura.io/ws/v3/${infuraToken}`, {
+  const network = useWeb3Network(`wss://ropsten.infura.io/ws/v3/${infuraToken}`, {
     pollInterval: 10 * 1000,
   });
 
   return (
-    <div className={styles.App}>
-      <br />
-      <h1>BUIDL with Starter Kit</h1>
-      <Web3Info title="Injected Web3" web3Context={injected} />
-      <br />
-      <Web3Info title="Local Web3 Node" web3Context={local} />
-      {infuraToken ? (
-        <React.Fragment>
-          <br />
+    <>
+      <h1>OpenZeppelin Starter Kit</h1>
+      <div className={styles.App}>
+        <Web3Info title="Injected Web3" web3Context={injected} />
+        {isHttp &&
+          <Web3Info title="Local Web3 Node" web3Context={local} />
+        }
+        {infuraToken &&
           <Web3Info title="Infura Web3" web3Context={network} />
-        </React.Fragment>
-      ) : (
-        <React.Fragment></React.Fragment>
-      )}
-    </div>
+        }
+      </div>
+    </>
   );
 }
 
