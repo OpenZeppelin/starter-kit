@@ -19,7 +19,9 @@ function App() {
     <>
       <h1>OpenZeppelin Starter Kit</h1>
       <div className={styles.App}>
-        <Web3Info title="Injected Web3" web3Context={injected} />
+        {injected &&
+          <Web3Info title="Wallet Web3" web3Context={injected} />
+        }
         {isHttp &&
           <Web3Info title="Local Web3 Node" web3Context={local} />
         }
