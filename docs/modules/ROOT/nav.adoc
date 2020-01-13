@@ -1,9 +1,8 @@
 * xref:index.adoc[Getting Started]
-* xref:quickStart.adoc[Quick Start]
-* xref:create.adoc[How to Create a Starter Kit]
 
-.Kits
-* xref:list.adoc[List of Kits]
-* xref:starter.adoc[Base Kit]
-* xref:tutorial.adoc[Tutorial]
-* xref:gsnkit.adoc[GSN Kit]
+* xref:list.adoc[Available Kits]
+** xref:starter.adoc[Starter]
+** xref:tutorial.adoc[Tutorial]
+** xref:gsnkit.adoc[GSN]
+
+* xref:create.adoc[How to Create a Starter Kit]
