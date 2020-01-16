@@ -1,6 +1,6 @@
 # OpenZeppelin Starter Kit
 
-An OpenZeppelin Starter Kit containing React, OpenZeppelin SDK, OpenZeppelin Contracts, Truffle and Infura.
+An OpenZeppelin Starter Kit containing React, OpenZeppelin CLI, OpenZeppelin Contracts, Truffle and Infura.
 
 This kit comes with everything you need to start using upgradeable Smart
 contracts inside your applications. It also includes all the configuration
@@ -8,18 +8,18 @@ required to deploy to different networks.
 
 ## Requirements
 
-Install OpenZeppelin SDK, Ganache, and Truffle
+Install Ganache, and Truffle
 
 ```
-npm install -g truffle@5.0.41 ganache-cli@6.7.0 @openzeppelin/cli@2.5.3
+npm install -g truffle@5.0.41 ganache-cli@6.7.0
 ```
 
 ## Installation
 
-Ensure you are in a new and empty directory, and run the `unpack` command with `OpenZeppelin/starter-kit` to create a starter project:
+Ensure you are in a new and empty directory, and run the `unpack` command with `starter` to create a starter project:
 
 ```javascript
-openzeppelin unpack starter
+npx @openzeppelin/cli unpack starter
 ```
 
 ## Run
@@ -34,7 +34,7 @@ In your original terminal window, at the top level of your folder, initialize th
 and follow the prompts:
 
 ```javascript
-openzeppelin init
+npx openzeppelin init
 ```
 
 In a new terminal window, in the `client` directory, run the React app:
@@ -48,23 +48,23 @@ npm run start
 
 You can interact directly with your smart contracts from the `openzeppelin` cli.
 
-`openzeppelin transfer`
+`npx openzeppelin transfer`
 
 send funds to a given address.
 
-`openzeppelin balance [address]`
+`npx openzeppelin balance [address]`
 
 query the ETH balance of the specified account, also supports ERC20s.
 
-`openzeppelin send-tx`
+`npx openzeppelin send-tx`
 
 sends a transaction to your contract and returns the events.
 
-`openzeppelin call`
+`npx openzeppelin call`
 
 execute a constant method and receive back the value.
 
-Type `openzeppelin` to see a complete list of availible commands.
+Type `npx openzeppelin` to see a complete list of availible commands.
 
 ## Test
 
