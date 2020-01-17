@@ -34,7 +34,7 @@ In your original terminal window, at the top level of your folder, initialize th
 and follow the prompts:
 
 ```javascript
-npx openzeppelin init
+npx oz init
 ```
 
 In a new terminal window, in the `client` directory, run the React app:
@@ -48,23 +48,23 @@ npm run start
 
 You can interact directly with your smart contracts from the `openzeppelin` cli.
 
-`npx openzeppelin transfer`
+`npx oz transfer`
 
 send funds to a given address.
 
-`npx openzeppelin balance [address]`
+`npx oz balance [address]`
 
 query the ETH balance of the specified account, also supports ERC20s.
 
-`npx openzeppelin send-tx`
+`npx oz send-tx`
 
 sends a transaction to your contract and returns the events.
 
-`npx openzeppelin call`
+`npx oz call`
 
 execute a constant method and receive back the value.
 
-Type `npx openzeppelin` to see a complete list of availible commands.
+Type `npx oz` to see a complete list of availible commands.
 
 ## Test
 
