@@ -56,13 +56,13 @@ An array of files and folders to be copied from the repo. An empty array would r
 An object containing terminal commands to execute during unpacking. Currently, only the `post-unpack` hook is supported, which is executed right after unpacking a kit.
 
 === How to Test a Starter Kit
-Once your starter kit is ready it is always a good idea to give it a test run. It is possible to install a starter kit from any Git branch using syntax `npx openzepelin unpack 'yourGitHubHandle/yourRepoName#branch'`, for example `npx openzeppelin unpack 'OpenZeppelin/starter-kit#develop'`. Make sure your starter kit runs fine on Linux, Mac OS, and Windows. We have experienced installation and running issues depending on a platform.
+Once your starter kit is ready it is always a good idea to give it a test run. It is possible to install a starter kit from any Git branch using syntax `npx openzeppelin unpack 'yourGitHubHandle/yourRepoName#branch'`, for example `npx openzeppelin unpack 'OpenZeppelin/starter-kit#develop'`. Make sure your starter kit runs fine on Linux, Mac OS, and Windows. We have experienced installation and running issues depending on a platform.
 
 === How to Release a New Version
 Once you've added desired changes to your starter kit, push them to the `stable` branch and they will be instantly available using an `unpack` command.
 
 === How to Install a Starter Kit
-Running a command `npx openzeppelin unpack yourGitHubHandle/yourRepoName` will install a starter kit in the current directory, for example `npx openzeppelin unpack 'OpenZepelin/starter-kit'`.
+Running a command `npx openzeppelin unpack yourGitHubHandle/yourRepoName` will install a starter kit in the current directory, for example `npx openzeppelin unpack 'OpenZeppelin/starter-kit'`.
 
 
 === Getting listed at OpenZeppelin website
