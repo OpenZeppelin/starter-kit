@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@openzeppelin/network": "^0.4.1",
-    "@openzeppelin/solidity-loader": "^1.4.6",
+    "@openzeppelin/solidity-loader": "^1.5.1",
     "classnames": "^2.2.6",
     "json-loader": "^0.5.7",
     "node-sass": "^4.13.0",
