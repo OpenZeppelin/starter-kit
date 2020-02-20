@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@openzeppelin/network": "^0.3.0",
+    "@openzeppelin/network": "^0.4.1",
     "@openzeppelin/solidity-loader": "^1.4.6",
     "classnames": "^2.2.6",
     "json-loader": "^0.5.7",
