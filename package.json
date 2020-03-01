@@ -35,7 +35,7 @@
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
-    "@openzeppelin/cli": "^2.6.0",
+    "@openzeppelin/cli": "^2.7.1",
     "chai": "^4.2.0",
     "concurrently": "^5.0.0",
     "http-server": "^0.11.1",
