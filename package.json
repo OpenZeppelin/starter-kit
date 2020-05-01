@@ -39,7 +39,7 @@
     "chai": "^4.2.0",
     "concurrently": "^5.0.0",
     "http-server": "^0.11.1",
-    "nodemon": "^2.0.1",
+    "nodemon": "^2.0.3",
     "openzeppelin-docs-utils": "github:OpenZeppelin/docs-utils",
     "openzeppelin-test-helpers": "^0.5.1"
   }
